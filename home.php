@@ -22,6 +22,17 @@ $row = $user->details($sql);
 </head>
 <body>
 <div class="container">
+<?php
+		    	if(isset($_SESSION['messageLoggedIN'])){
+		    		?>
+		    			<div class="alert alert-info text-center">
+					        <?php echo $_SESSION['messageLoggedIN']; ?>
+					    </div>
+		    		<?php
+ 
+		    		unset($_SESSION['messageLoggedIN']);
+		    	}
+		    ?>
 	<h1 class="page-header text-center">PHP Login using OOP Approach</h1>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">

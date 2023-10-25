@@ -1,10 +1,9 @@
 <?php
 	//start session
 	session_start();
- 
 	//redirect if logged in
 	if(isset($_SESSION['user'])){
-        $_SESSION['messageLoggedIN'] = "You're already logged in!";
+		$_SESSION['messageLoggedIN'] = "You're already logged in! Log out first";
 		header('location:home.php');
 	}
 ?>
@@ -16,18 +15,7 @@
 </head>
 <body>
 <div class="container">
-<?php
-		    	if(isset($_SESSION['AccountCreated'])){
-		    		?>
-		    			<div class="alert alert-info text-center">
-					        <?php echo $_SESSION['AccountCreated']; ?>
-					    </div>
-		    		<?php
- 
-		    		unset($_SESSION['AccountCreated']);
-		    	}
-		    ?>
-	<h1 class="page-header text-center">PHP Login using OOP Approach</h1>
+	<h1 class="page-header text-center">PHP Register using OOP Approach</h1>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 		    <div class="login-panel panel panel-primary">
@@ -36,7 +24,7 @@
 		            </h3>
 		        </div>
 		    	<div class="panel-body">
-		        	<form method="POST" action="login.php">
+		        	<form method="POST" action="addUser.php">
 		            	<fieldset>
 		                	<div class="form-group">
 		                    	<input class="form-control" placeholder="Username" type="text" name="username" autofocus required>
@@ -44,7 +32,10 @@
 		                	<div class="form-group">
 		                    	<input class="form-control" placeholder="Password" type="password" name="password" required>
 		                	</div>
-		                	<button type="submit" name="login" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+							<div class="form-group">
+		                    	<input class="form-control" placeholder="Name" type="name" name="name" required>
+		                	</div>
+		                	<button type="submit" name="register" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button>
 		            	</fieldset>
 		        	</form>
 		    	</div>
@@ -65,3 +56,4 @@
 </div>
             </body>
             </html>
+            

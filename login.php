@@ -2,7 +2,7 @@
 //start session
 session_start();
  
-include_once('User.php');
+include_once('user.php');
  
 $user = new User();
  
