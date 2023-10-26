@@ -26,8 +26,10 @@ class User extends DbConnection{
     }
  
     public function create_user($username, $password, $name){
+        $date = new DateTimeImmutable();
+        $id = $date->getTimestamp();
         $sql = "INSERT INTO `users` (`id`, `username`, `password`, `fname`) VALUES
-        (10, '$username', '$password', '$name')";
+        ('$id', '$username', '$password', '$name')";
         return $this->connection->query($sql);
     }
 
