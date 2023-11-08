@@ -24,7 +24,7 @@
 		            </h3>
 		        </div>
 		    	<div class="panel-body">
-		        	<form method="POST" action="addUser.php">
+		        	<form method="POST" action="../utils/addUser.php">
 		            	<fieldset>
 		                	<div class="form-group">
 		                    	<input class="form-control" placeholder="Username" type="text" name="username" autofocus required>
