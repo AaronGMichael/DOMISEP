@@ -5,7 +5,7 @@
 	//redirect if logged in
 	if(isset($_SESSION['user'])){
         $_SESSION['messageLoggedIN'] = "You're already logged in!";
-		header('location:./views/home.php');
+		header('location:./views/profile.php');
 	}
 ?>
 <!DOCTYPE html>

@@ -18,7 +18,7 @@ if(isset($_POST['login'])){
 	}
 	else{
 		$_SESSION['user'] = $auth;
-		header('location:../views/home.php');
+		header('location:../views/profile.php');
 	}
 }
 else{
