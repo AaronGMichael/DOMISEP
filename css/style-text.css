@@ -1,0 +1,54 @@
+h1 {
+    text-align: left;
+    margin-left: 2%;
+    font-size: 24pt;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    margin-bottom: -10px;
+    color: #000;
+}
+
+h2 {
+    text-align: left;
+    font-weight: normal;
+    font-size: 14pt;
+    margin-left: 2%;
+
+}
+
+h4 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60pt;
+    margin-top: 35px;
+    margin-bottom: -20px;
+    color: #000
+}
+
+undername {
+    font-size: x-large;
+    text-decoration: none;
+    text-align: left;
+    margin-left: 2%;
+}
+
+sd {
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 2%;
+}
+
+add {
+    font-size: large;
+    text-align: center;
+    margin-left: 2%;
+}
+
+titlesmaller {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 30pt;
+    margin-bottom: -20px;
+    margin-left: 40px;
+    color: rgb(255, 255, 255);
+}

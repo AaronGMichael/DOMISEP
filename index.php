@@ -11,8 +11,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Login using OOP Approach</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DOMISEP - Login</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/style-login.css">
+    <link rel="stylesheet" type="text/css" href="./css/style-text.css">
+    <link rel="stylesheet" type="text/css" href="./css/style-containers.css">
+    <link rel="stylesheet" type="text/css" href="./css/style-buttons.css">
+    <link rel="stylesheet" type="text/css" href="./css/style-background.css">
 </head>
 <body>
 <div class="container">
@@ -27,28 +34,32 @@
 		    		unset($_SESSION['AccountCreated']);
 		    	}
 		    ?>
-	<h1 class="page-header text-center">PHP Login using OOP Approach</h1>
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-		    <div class="login-panel panel panel-primary">
-		        <div class="panel-heading">
-		            <h3 class="panel-title"><span class="glyphicon glyphicon-lock"></span> Login
-		            </h3>
-		        </div>
-		    	<div class="panel-body">
-		        	<form method="POST" action="login.php">
-		            	<fieldset>
-		                	<div class="form-group">
-		                    	<input class="form-control" placeholder="Username" type="text" name="username" autofocus required>
-		                	</div>
-		                	<div class="form-group">
-		                    	<input class="form-control" placeholder="Password" type="password" name="password" required>
-		                	</div>
-		                	<button type="submit" name="login" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-		            	</fieldset>
-		        	</form>
-		    	</div>
-		    </div>
+	    <div class="background-image-login"></div>
+    <div class="additional-padding"></div>
+    <div class="login-container">
+       
+        <h4>DomISEP</h4>
+        <h3>Nice to see you again!</h3>
+        
+        <form action="login.php" method="POST">
+            <fieldset>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" placeholder="Username" type="text" name="username" autofocus required>                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" placeholder="Password" type="password" name="password" required>
+                </div>
+                <button type="submit" name="login" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+
+            </fieldset>
+            <button type="button" class="button-unvisible-top" id="go-to-register">You don't have an account? Register here</button>
+            <button type="button" class="button-unvisible" id="go-to-forgot-password">Forgot the password?</button>
+        </form>
+
+        <footer>Powered by <b>WebWizards</b></footer>
+    
+    </div>
 		    <?php
 		    	if(isset($_SESSION['message'])){
 		    		?>

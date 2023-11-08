@@ -1,0 +1,24 @@
+.background-image-login {
+    background-image: url('../assets/background-login.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 1;
+}
+.background-image{
+    background-image: url('../assets/background-login.png');
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 1;
+}

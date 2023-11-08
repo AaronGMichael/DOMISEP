@@ -1,0 +1,44 @@
+/* ============================= CONTAINERS ================================== */
+.login-container {
+    background-color: rgba(255, 255, 255, 1);
+    background-blend-mode: color-burn;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    
+    width: 320px;
+    margin: 0 auto;
+}
+
+.basic-container {
+    background-color: rgba(255, 255, 255, 1);
+    background-blend-mode: color-burn;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;   
+    border-radius: 10px;
+    
+    width: 80%;
+    margin: auto;
+}
+
+/* ============================= PADDING ================================== */
+
+.additional-padding-small {
+    padding-top: 20px;
+}
+
+.additional-padding-medium {
+    padding-top: 40px;
+}
+
+.additional-padding-big {
+    padding-top: 90px;
+}
+
+.additional-padding-temporary {
+    padding-top: 2000px;
+}

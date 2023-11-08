@@ -1,0 +1,44 @@
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-color: #091018;
+    text-align: center;
+}
+
+.header {
+    background-image: url('../assets/background-login.png');
+    background-size: cover;
+    background-position: top;
+    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    /*background: rgb(75, 126, 207);*/
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar a {
+    font-size: 18;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+    transition: color 0.3s; 
+}
+
+.navbar a:hover {
+    color: #2c3e50; 
+}
+
+footer {
+    color: #000;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
