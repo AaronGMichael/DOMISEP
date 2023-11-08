@@ -14,15 +14,15 @@ if(isset($_POST['register'])){
     
 	if(!$success){
 		$_SESSION['message'] = 'Something Went Wrong :(';
-    	header('location:register.php');
+    	header('location:../views/register.php');
 	}
 	else{
 		$_SESSION['AccountCreated'] = 'Account Created!';
-		header('location:index.php');
+		header('location:../index.php');
 	}
 }
 else{
 	$_SESSION['message'] = 'You need to register first';
-	header('location:register.php');
+	header('location:../views/register.php');
 }
 ?>
