@@ -27,7 +27,9 @@
 
 .button-unvisible-top:hover {
     color: #000000;
+    text-decoration: none;
 }
+
 .button-unvisible {
     background-color: rgba(0, 0, 0, 0);
     color: #007bff;
