@@ -1,0 +1,81 @@
+.button-submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.button-submit:hover {
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.button-unvisible-top {
+    background-color: rgba(0, 0, 0, 0);
+    color: #007bff;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5pt;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.button-unvisible-top:hover {
+    color: #000000;
+}
+.button-unvisible {
+    background-color: rgba(0, 0, 0, 0);
+    color: #007bff;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: bold;
+}
+
+.button-unvisible:hover {
+    color: #000000;
+}
+
+.button-go-back {
+    background-image: "icon-back.jpg";
+    height: 10%;
+    width: auto;
+}
+
+  
+.btn {
+    color: #000000;
+    border: 1px solid rgb(0, 0, 0);
+    background: transparent;
+    color: #FFFFFF;
+    background-color: #007bff;
+    border: 1px solid  #007bff;
+
+    padding: 0.7rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: 500ms;
+    border-radius: 10px;
+
+}
+  
+.btn:hover {
+    color: #FFFFFF;
+    background-color: #000000;
+    border: 1px solid #000000;
+
+    border-radius: 24px;
+
+}

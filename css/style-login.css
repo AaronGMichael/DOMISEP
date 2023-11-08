@@ -1,0 +1,38 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-color: #091018;
+    text-align: center;
+    padding-top: 70px;
+    color: black;
+}
+
+footer {
+    color: #000;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+
+.additional-padding {
+    padding-top: 30px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
