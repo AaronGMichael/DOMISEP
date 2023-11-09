@@ -12,35 +12,8 @@ $user = new User();
 //fetch user data
 $sql = "SELECT * FROM users WHERE id = '".$_SESSION['user']."'";
 $row = $user->details($sql);
- 
+include_once('../layout/header.php');
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>PHP Login using OOP Approach</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DOMISEP - profile</title>
-    <link rel="stylesheet" type="text/css" href="../css/style-top-navigation.css">    
-    <link rel="stylesheet" type="text/css" href="../css/style-text.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-background.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-containers.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-grid-layout.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-buttons.css">
-</head>
-<body>
-	<div class="background-image"></div>
-        <header class="header">
-            <a class="logo"><titlesmaller>DomISEP</titlesmaller></a>
-            <ul class="navbar">
-                <a href="home.html">Home</a>
-                <a href="profile.html">Profile</a>
-                <a href="settings.html">Settings</a>
-                <a href="../utils/logout.php">Logout</a>
-                <a></a>
-            </ul>
-        </header>
 <div class="container">
 <?php
 		    	if(isset($_SESSION['messageLoggedIN'])){
@@ -79,5 +52,6 @@ $row = $user->details($sql);
         </div>
 		<footer>Powered by <b>WebWizards</b></footer>
 	</div>
-</body>
-</html>
+    <?php
+include('../layout/footer.php');
+?>
