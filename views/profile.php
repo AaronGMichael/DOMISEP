@@ -26,7 +26,6 @@ include_once('../layout/header.php');
 		    		unset($_SESSION['messageLoggedIN']);
 		    	}
 		    ?>
-	<div class="additional-padding-big"></div>
         <div class="basic-container">
             <div class="additional-padding-little"></div>
             <h1>Profile</h1>
@@ -50,7 +49,6 @@ include_once('../layout/header.php');
                 </sd>
                 <div class="additional-padding"></div>
         </div>
-		<footer>Powered by <b>WebWizards</b></footer>
 	</div>
     <?php
 include('../layout/footer.php');
