@@ -12,13 +12,18 @@ class User extends DbConnection{
         $sql = "SELECT * FROM users WHERE username = '$username'";
         return $this->connection->query($sql);
     }
+
+    private function getAdmin($username){
+        $sql = "SELECT * FROM adminaccount WHERE username = '$username'";
+        return $this->connection->query($sql);
+    }
  
     public function check_login($username, $password){
-        $query = $this->getUser($username);
+        $query = $this->getAdmin($username);
         if($query->num_rows > 0){
             $row = $query->fetch_array();
-            if(password_verify($password, $row['password'])){
-                return $row['id'];
+            if(password_verify($password, $row['HashPassword'])){
+                return $row['AccountID'];
             }
             else return false;
         }
@@ -34,8 +39,8 @@ class User extends DbConnection{
             return false;
         }
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `users` (`id`, `username`, `password`, `fname`) VALUES
-        ('$id', '$username', '$hash', '$name')";
+        $sql = "INSERT INTO `adminaccount` (`accountid`, `username`, `hashpassword`) VALUES
+        (2, '$username', '$hash')";
         return $this->connection->query($sql);
     }
 
