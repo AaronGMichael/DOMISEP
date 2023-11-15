@@ -1,7 +1,7 @@
 <?php
 //start session
 session_start();
- 
+
 include_once('user.php');
  
 $user = new User();
@@ -11,9 +11,9 @@ if(isset($_POST['register'])){
 	$password = $user->escape_string($_POST['password']);
     $name = $user->escape_string($_POST['name']);
 	$success = $user->create_user($username, $password, $name);
-    
+    debug_to_console($success);
 	if(!$success){
-		$_SESSION['message'] = 'Something Went Wrong :(';
+		$_SESSION['message'] = 'Account Already Exists';
     	header('location:../views/register.php');
 	}
 	else{

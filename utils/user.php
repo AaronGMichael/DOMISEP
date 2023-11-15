@@ -8,17 +8,19 @@ class User extends DbConnection{
         parent::__construct();
     }
 
-    private function getUser($username, $password){
-        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+    private function getUser($username){
+        $sql = "SELECT * FROM users WHERE username = '$username'";
         return $this->connection->query($sql);
     }
  
     public function check_login($username, $password){
-        $query = $this->getUser($username, $password);
-
+        $query = $this->getUser($username);
         if($query->num_rows > 0){
             $row = $query->fetch_array();
-            return $row['id'];
+            if(password_verify($password, $row['password'])){
+                return $row['id'];
+            }
+            else return false;
         }
         else{
             return false;
@@ -28,8 +30,12 @@ class User extends DbConnection{
     public function create_user($username, $password, $name){
         $date = new DateTimeImmutable();
         $id = $date->getTimestamp();
+        if(($this->getUser($username)->num_rows) > 0){
+            return false;
+        }
+        $hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO `users` (`id`, `username`, `password`, `fname`) VALUES
-        ('$id', '$username', '$password', '$name')";
+        ('$id', '$username', '$hash', '$name')";
         return $this->connection->query($sql);
     }
 
