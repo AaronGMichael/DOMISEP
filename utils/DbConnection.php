@@ -1,4 +1,7 @@
 <?php
+
+require("devOptions.php");
+
 class DbConnection{
  
     private $host = 'localhost';
