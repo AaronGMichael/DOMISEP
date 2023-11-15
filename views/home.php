@@ -1,8 +1,6 @@
 <?php 
 include_once('../layout/header.php');
 ?>
-        <div class="additional-padding-100"></div>
-
         <div class="basic-container">
             <div>
             <h1>All of the Buildings</h1>
