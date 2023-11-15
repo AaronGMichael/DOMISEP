@@ -25,3 +25,5 @@
                 <a></a>
             </ul>
         </header>
+        <div class="additional-padding-big"></div>
+        <div class="additional-padding-small"></div>
