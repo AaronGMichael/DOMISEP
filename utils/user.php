@@ -36,7 +36,7 @@ class User extends DbConnection{
         $date = new DateTimeImmutable();
         $id = $date->getTimestamp();
         if(($this->getAdmin($username)->num_rows) > 0){
-            return false;
+            return 500;
         }
         $hash = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO `adminaccount` (`username`, `hashpassword`, `mail`) VALUES
