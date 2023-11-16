@@ -32,15 +32,15 @@ class User extends DbConnection{
         }
     }
  
-    public function create_user($username, $password, $name){
+    public function create_user($username, $password, $email){
         $date = new DateTimeImmutable();
         $id = $date->getTimestamp();
-        if(($this->getUser($username)->num_rows) > 0){
+        if(($this->getAdmin($username)->num_rows) > 0){
             return false;
         }
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `adminaccount` (`accountid`, `username`, `hashpassword`) VALUES
-        (2, '$username', '$hash')";
+        $sql = "INSERT INTO `adminaccount` (`username`, `hashpassword`, `mail`) VALUES
+        ('$username', '$hash', '$email')";
         return $this->connection->query($sql);
     }
 
