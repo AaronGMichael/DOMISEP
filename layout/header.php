@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style-background.css">
     <link rel="stylesheet" type="text/css" href="../css/style-containers.css">
     <link rel="stylesheet" type="text/css" href="../css/style-grid-layout.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-buttons.css">
+    <link rel="stylesheet" type="text/css" href="../css/style-top-navigation.css">
 </head>
 <body>
 	<div class="background-image"></div>

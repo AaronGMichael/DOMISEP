@@ -1,5 +1,5 @@
 .button-submit {
-    background-color: #007bff;
+    background-color: rgb(0, 0, 0);
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -10,12 +10,12 @@
 
 .button-submit:hover {
     color: #FFFFFF;
-    background-color: #000000;
+    background-color: #ff0000;
 }
 
 .button-unvisible-top {
     background-color: rgba(0, 0, 0, 0);
-    color: #007bff;
+    color: #000000;
     padding: 8px 8px;
     border: none;
     border-radius: 3px;
@@ -26,23 +26,24 @@
 }
 
 .button-unvisible-top:hover {
-    color: #000000;
+    color: #ff0000;
     text-decoration: none;
 }
 
 .button-unvisible {
     background-color: rgba(0, 0, 0, 0);
-    color: #007bff;
+    color: #000000;
     border: none;
     padding: 5px 8px;
     border-radius: 3px;
     cursor: pointer;
     transition: 0.5s;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .button-unvisible:hover {
-    color: #000000;
+    color: #ff0000;
 }
 
 .button-go-back {
@@ -52,13 +53,13 @@
 }
 
   
-.btn {
+.btn-red {
     color: #000000;
     border: 1px solid rgb(0, 0, 0);
     background: transparent;
     color: #FFFFFF;
-    background-color: #007bff;
-    border: 1px solid  #007bff;
+    background-color: #000000;
+    border: 1px solid  #000000;
 
     padding: 0.7rem;
     font-size: 14px;
@@ -75,8 +76,8 @@
   
 .btn:hover {
     color: #FFFFFF;
-    background-color: #000000;
-    border: 1px solid #000000;
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
 
     border-radius: 24px;
 
