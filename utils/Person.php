@@ -1,27 +1,28 @@
 <?php
 
 class Person{
-    private int $id;
+    public int $id;
     public string $username;
     private string $password;
     private int $accessRights;
     public string $email, $firstName, $name;   
 
-    public function __construct($id, $username, $password, $accessRights, $name, $firstName){
+    public function __construct($id, $username, $password, $accessRights, $name, $firstName, $email){
         $this->username = $username;
         $this->password = $password;
         $this->accessRights = $accessRights;
         $this->id = $id;
         $this->name = $name;
         $this->firstName = $firstName;
+        $this->email = $email;
     }
 
     private function writeUser($username, $password, $email, $name, $firstName, $accessRights){
-        return `INSERT INTO Account (Username, HashPassword, Mail, Name, FirstName, AccessRights) VALUES ("$username", "$password", "$email" , "$name", "$firstName", $accessRights)`;
+        return "INSERT INTO Account (Username, HashPassword, Mail, Name, FirstName, AccessRights) VALUES ('$username', '$password', '$email' , '$name', '$firstName', '$accessRights')";
     }
 
-    public function sendUserToDatabase(){
-            return $this->connection->query($this->writeUser($P->username, $P->password, $P->email, $P->name));
+    public function sendUserToDatabase($connection){
+            return $connection->query($this->writeUser($this->username, $this->password, $this->email, $this->name, $this->firstName, $this->accessRights));
     }
 
     public function isAdmin(){

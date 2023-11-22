@@ -9,21 +9,21 @@ class DbConnection{
     private $password = '';
     private $database = 'loginpage';
  
-    protected $connection;
+    protected static $connection;
  
     public function __construct(){
  
-        if (!isset($this->connection)) {
+        if (!isset(DbConnection::$connection)) {
  
-            $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
+            DbConnection::$connection = new mysqli($this->host, $this->username, $this->password, $this->database);
  
-            if (!$this->connection) {
+            if (!DbConnection::$connection) {
                 echo 'Cannot connect to database server';
                 exit;
             }            
         }    
  
-        return $this->connection;
+        return DbConnection::$connection;
     }
 }
 ?>

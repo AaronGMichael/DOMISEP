@@ -4,27 +4,24 @@ include_once("Person.php");
 
 class DbUtils extends DbConnection{
 
-    private function getUsersWhereUserame($username){
+    private static function getUsersWhereUsername($username){
        return "SELECT * FROM Account WHERE username = '$username'";
     }
 
-    private function writeUser($username, $password, $email, $name, $firstName, $accessRights){
-        return `INSERT INTO Account (Username, HashPassword, Mail, Name, FirstName, AccessRights) VALUES ("$username", "$password", "$email" , "$name", "$firstName", $accessRights)`;
-    }
-
-    public function setUser($P){
-        if($this->connection->query($this->getUsersWhereUserame($P->Username))->num_rows > 0){
+    public static function setUser($P){
+        if(DbConnection::$connection->query(DbUtils::getUsersWhereUsername($P->username))->num_rows > 0){
             return 300;
         }
         else{
-            return $P->sendUserToDatabase();
+            return $P->sendUserToDatabase(DbConnection::$connection);
         }
     }
 
-    public function getUser($username){
-        $userDetails = $this->connection->query($this->getUsersWhereUserame($username));
+    public static function getUser($username){
+        $userDetails = DbConnection::$connection->query(DbUtils::getUsersWhereUsername($username));
+        if($userDetails->num_rows === 0) return false;
         $userDetails = $userDetails->fetch_object();
-        $P = new Person($userDetails->AccountID, $userDetails->Username,$userDetails->HashPassword,$userDetails->accessRights);
+        $P = new Person($userDetails->AccountID, $userDetails->Username,$userDetails->HashPassword,$userDetails->AccessRights,$userDetails->Name, $userDetails->FirstName, $userDetails->Mail);
         return $P;
     }
 }
