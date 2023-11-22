@@ -1,21 +1,31 @@
 .button-submit {
-    background-color: #007bff;
+    background-color: rgb(255, 0, 0);
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     transition: 0.5s;
+    padding: 0.7rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .button-submit:hover {
     color: #FFFFFF;
     background-color: #000000;
+    border-radius: 30px;
+
 }
 
 .button-unvisible-top {
     background-color: rgba(0, 0, 0, 0);
-    color: #007bff;
+    color: #000000;
     padding: 8px 8px;
     border: none;
     border-radius: 3px;
@@ -26,23 +36,24 @@
 }
 
 .button-unvisible-top:hover {
-    color: #000000;
+    color: #ff0000;
     text-decoration: none;
 }
 
 .button-unvisible {
     background-color: rgba(0, 0, 0, 0);
-    color: #007bff;
+    color: #000000;
     border: none;
     padding: 5px 8px;
     border-radius: 3px;
     cursor: pointer;
     transition: 0.5s;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .button-unvisible:hover {
-    color: #000000;
+    color: #ff0000;
 }
 
 .button-go-back {
@@ -52,17 +63,14 @@
 }
 
   
-.btn {
+.btn-add {
     color: #000000;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
     background: transparent;
-    color: #FFFFFF;
-    background-color: #007bff;
-    border: 1px solid  #007bff;
+    background-color: #ffffff;
 
     padding: 0.7rem;
     font-size: 14px;
-    text-transform: uppercase;
     border-radius: 4px;
     font-weight: 400;
     display: block;
@@ -73,11 +81,9 @@
 
 }
   
-.btn:hover {
+.btn-add:hover {
     color: #FFFFFF;
-    background-color: #000000;
-    border: 1px solid #000000;
-
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
     border-radius: 24px;
-
 }

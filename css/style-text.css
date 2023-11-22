@@ -17,6 +17,7 @@ h2 {
 }
 
 h4 {
+    text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: 5em;
     margin-top: 15px;
@@ -44,11 +45,23 @@ add {
     margin-left: 2%;
 }
 
-titlesmaller {
-    font-family: 'Courier New', Courier, monospace;
+titlebigger {
     font-weight: bold;
-    font-size: 30pt;
-    margin-bottom: -20px;
-    margin-left: 40px;
-    color: rgb(255, 255, 255);
+    font-size: 40px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 20px;
+    color: rgb(0, 0, 0);
+}
+titlesmaller {
+    font-weight: bold;
+    font-size: 42px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -10px;
+    color: rgb(0, 0, 0);
 }

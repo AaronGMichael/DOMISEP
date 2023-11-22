@@ -1,13 +1,12 @@
 /* ============================= CONTAINERS ================================== */
-.login-container {
-    background-color: rgba(255, 255, 255, 1);
+.container-login-useit {
+    background-color: rgb(106, 33, 33);
     background-blend-mode: color-burn;
     padding-left: 30px;
     padding-right: 50px;
     padding-top: 10px;
     padding-bottom: 20px;
     border-radius: 10px;
-    
     width: 50%;
     margin: 0 auto;
 }
@@ -25,6 +24,12 @@
     margin: auto;
 }
 
+div.scroll-container {
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
 /* ============================= PADDING ================================== */
 
 .additional-padding-small {
@@ -39,6 +44,9 @@
     padding-top: 80px;
 }
 
+.additional-padding-bigger {
+    padding-top: 160px;
+}
 .additional-padding-temporary {
     padding-top: 2000px;
 }
