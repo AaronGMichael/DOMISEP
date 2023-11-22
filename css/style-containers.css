@@ -44,6 +44,9 @@ div.scroll-container {
     padding-top: 80px;
 }
 
+.additional-padding-bigger {
+    padding-top: 160px;
+}
 .additional-padding-temporary {
     padding-top: 2000px;
 }

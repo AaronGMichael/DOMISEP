@@ -44,17 +44,27 @@ include_once('../layout/header.php');
                     </svg>
                 </div>
                 <div class="col">
-                    <sd>
+                    <sd style="text-align: left;">
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <label><?php echo $row['fname']; ?></label>
                         </div>
                         <div class="form-group">
                             <label for="username">Username:</label>
-                            <label><?php echo $row['username']; ?></label>
                         </div>
                         <div class="form-group">
                             <label for="lastname">Password:</label>
+                        </div>
+                    </sd>
+                </div>
+                <div class="col">
+                    <sd style="text-align: right;">
+                        <div class="form-group">
+                            <label><?php echo $row['fname']; ?></label>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo $row['username']; ?></label>
+                        </div>
+                        <div class="form-group">
                             <label><?php echo $row['password']; ?></label>
                         </div>
                     </sd>
