@@ -30,6 +30,11 @@
     <link rel="stylesheet" type="text/css" href="./css/style-buttons.css">
     <link rel="stylesheet" type="text/css" href="./css/style-backgrounds.css">
 </head>
+<style>
+    a:hover {
+      text-decoration: none;
+    }
+</style>
 <body>
     <?php
                     if(isset($_SESSION['AccountCreated'])){
@@ -53,7 +58,7 @@
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg>
-                                <h1 class="text-center ">DomISEP</h1>
+                                <h1 class="text-center">DomISEP</h1>
                                 <?php
                                     if(isset($_SESSION['message'])){
                                         ?>
@@ -74,53 +79,19 @@
                                             <label for="password">Password:</label>
                                             <input class="form-control" placeholder="Password" type="password" name="password" required>
                                         </div>
-                                        <button type="submit" name="login" class="btn btn-lg btn-red btn-block button-red"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+                                        <button type="submit" name="login" class="button-submit"> Login</button>
 
                                     </fieldset>
                                     <a type="button" class="button-unvisible" href="./views/register.php">You don't have an account? Register here</a>
-                                    <button type="button" class="button-unvisible">Forgot the password?</button>
+                                    <a type="button" class="button-unvisible" href="#">Forgot the password?</button>
                                 </form>
                             </div>
                         </div>
-                        <footer class="">Powered by <b>WebWizards</b></footer>
-    
+                        <h6 class="text-white">© 2023 WebWizards</span>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- <div class=".container-login-useit">
- 
-            <h1>DomISEP</h1>
-            <h3>Nice to see you again!</h3>
-            <?php
-                    if(isset($_SESSION['message'])){
-                        ?>
-                            <div class="alert alert-danger text-center">
-                                <?php echo $_SESSION['message']; ?>
-                            </div>
-                        <?php
-    
-                        unset($_SESSION['message']);
-                    }
-                ?>
-            <form action="./utils/login.php" method="POST">
-                <fieldset>
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input class="form-control" placeholder="Username" type="text" name="username" autofocus required>                </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input class="form-control" placeholder="Password" type="password" name="password" required>
-                    </div>
-                    <button type="submit" name="login" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-
-                </fieldset>
-                <a type="button" class="button-unvisible" href="./views/register.php">You don't have an account? Register here</a>
-                <button type="button" class="button-unvisible">Forgot the password?</button>
-            </form>
-            <footer>Powered by <b>WebWizards</b></footer>
-        </div> -->
     </div>
 </body>
 </html>

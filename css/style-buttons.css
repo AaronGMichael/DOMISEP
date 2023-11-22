@@ -6,11 +6,21 @@
     border-radius: 20px;
     cursor: pointer;
     transition: 0.5s;
+    padding: 0.7rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .button-submit:hover {
     color: #FFFFFF;
     background-color: #ff0000;
+    border-radius: 30px;
+
 }
 
 .button-unvisible-top {
@@ -53,7 +63,7 @@
 }
 
   
-.btn-red {
+.btn {
     color: #000000;
     border: 1px solid rgb(0, 0, 0);
     background: transparent;
@@ -78,7 +88,5 @@
     color: #FFFFFF;
     background-color: #ff0000;
     border: 1px solid #ff0000;
-
     border-radius: 24px;
-
 }
