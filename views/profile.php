@@ -1,19 +1,16 @@
 <?php
 session_start();
 //return to login if not logged in
-if (!isset($_SESSION['user']) ||(trim ($_SESSION['user']) == '')){
+if (!isset($_SESSION['user'])){
 	header('location:../index.php');
 }
 
 
  
-include_once('../utils/User.php');
- 
-$user = new User();
- 
+include_once('../utils/DbUtils.php');
 //fetch user data
-$sql = "SELECT * FROM users WHERE id = '".$_SESSION['user']."'";
-$row = $user->details($sql);
+$user = serialize($_SESSION['user']);
+$user = unserialize($user);
 include_once('../layout/header.php');
 ?>
 <div class="container">
@@ -59,13 +56,13 @@ include_once('../layout/header.php');
                 <div class="col">
                     <sd style="text-align: right;">
                         <div class="form-group">
-                            <label><?php echo $row['fname']; ?></label>
+                            <label><?php echo $user->id; ?></label>
                         </div>
                         <div class="form-group">
-                            <label><?php echo $row['username']; ?></label>
+                            <label><?php echo $user->username; ?></label>
                         </div>
                         <div class="form-group">
-                            <label><?php echo $row['password']; ?></label>
+                            <label>><?php echo $user->firstName; ?></label>
                         </div>
                     </sd>
                 </div>
