@@ -62,6 +62,21 @@
 											<label for="name">Name:</label>
 											<input class="form-control" placeholder="Name" type="name" name="name" required>
 										</div>
+										<div class="form-group">
+											<label for="accessrights">Access Rights:</label>
+											<select class = "form-control" placeholder="Name" type = "name" name = "name" required>
+												<option value = "" disabled selected>Select</option>
+												<option value="user">User</option>
+												<option value="admin">Admin</option>
+												<option value="owner">Owner</option>
+											</select>
+										</div>
+
+									
+										<div class="form-group">
+											<label for="email">Email:</label>
+											<input class="form-control" placeholder="Name" type="name" name="name" required>
+										</div>
 										<button type="submit" name="register" class="button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Register</button>
 									</fieldset>
 								</form>
