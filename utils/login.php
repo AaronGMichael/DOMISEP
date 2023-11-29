@@ -20,7 +20,12 @@ if(isset($_POST['login'])){
 	}
 	else{
 		$_SESSION['user'] = $P;
-		header('location:../views/profile.php');
+		if($P->isAdmin() || $P->isOwner()){
+			header('location:../views/home.php');
+		}
+		else{
+			header('location:../views/profile.php');
+		}
 	}
 }
 else{
