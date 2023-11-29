@@ -9,7 +9,8 @@ if (!isset($_SESSION['user'])){
  
 include_once('../utils/DbUtils.php');
 //fetch user data
-$user = $_SESSION['user'];
+$user = serialize($_SESSION['user']);
+$user = unserialize($user);
 include_once('../layout/header.php');
 ?>
 <div class="container">
