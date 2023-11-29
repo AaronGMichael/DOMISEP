@@ -70,9 +70,9 @@
 											<label for="accessrights">AccessRights:</label>
 											<select class = "form-control" placeholder="Accessrights" type = "name" name = "accessrights" required>
 												<option value = "" disabled selected>Select</option>
-												<option value="user">User</option>
-												<option value="admin">Admin</option>
-												<option value="owner">Owner</option>
+												<option value="101">User</option>
+												<option value="100">Admin</option>
+												<option value="99">Owner</option>
 											</select>
 										</div>
 										<div class="form-group">
