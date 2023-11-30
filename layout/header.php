@@ -1,3 +1,19 @@
+<?php
+session_start();
+//return to login if not logged in
+if (!isset($_SESSION['user'])){
+	header('location:../index.php');
+}
+
+
+ 
+include_once('../utils/DbUtils.php');
+//fetch user data
+$user = serialize($_SESSION['user']);
+$user = unserialize($user);
+echo $user->username;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

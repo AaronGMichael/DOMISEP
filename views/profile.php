@@ -1,16 +1,16 @@
 <?php
-session_start();
-//return to login if not logged in
-if (!isset($_SESSION['user'])){
-	header('location:../index.php');
-}
+// session_start();
+// //return to login if not logged in
+// if (!isset($_SESSION['user'])){
+// 	header('location:../index.php');
+// }
 
 
  
-include_once('../utils/DbUtils.php');
-//fetch user data
-$user = serialize($_SESSION['user']);
-$user = unserialize($user);
+// include_once('../utils/DbUtils.php');
+// //fetch user data
+// $user = serialize($_SESSION['user']);
+// $user = unserialize($user);
 include_once('../layout/header.php');
 ?>
 <div class="container">
