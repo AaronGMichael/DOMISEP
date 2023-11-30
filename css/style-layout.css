@@ -1,3 +1,5 @@
+/* ============ Horizontal Slide Card Slide ================= */
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -13,13 +15,13 @@
   
 @media (min-width: 40rem) {
     .cards_item {
-        width: 50%;
+        width: 350px;
     }
 }
   
 @media (min-width: 56rem) {
     .cards_item {
-        width: 30%;
+        width: 350px;
     }
 }
   
@@ -75,3 +77,89 @@
         margin-bottom: 1.25rem;    
         font-weight: 400;
     }
+
+
+/* ========== Grid Galery of Cards =========== */
+
+.cards_grid {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.cards_item_grid {
+    display: flex;
+    padding: 0.7rem;
+}
+  
+@media (min-width: 40rem) {
+    .cards_item_grid {
+        width: 200px;
+    }
+}
+  
+@media (min-width: 56rem) {
+    .cards_item_grid {
+        width: 200px;
+    }
+}
+  
+.card_grid {
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+  
+.card_content_grid {
+    padding: 1rem;
+    background: white;
+}
+
+    .card_image_container_grid {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+        object-fit: cover
+    }
+
+    .card_image_container_grid img {
+        display: block;
+        transition: transform 0.3s ease;
+        height: auto;
+        max-width: 100%;
+        scale: 0.8;
+
+    }
+
+    .card_image_container_grid:hover img {
+        transform: scale(1.2);
+    }
+  
+    .card_title_grid {
+        color: #000000;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        margin: 0px;
+        text-align: center;
+    }
+    
+    .card_text_grid {
+        color: #080707;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;    
+        font-weight: 400;
+        text-align: center;
+
+    }
+
