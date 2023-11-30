@@ -11,9 +11,13 @@ $user = new User();
 if(isset($_POST['register'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$name = $_POST['name'];
+	$firstName = $_POST['firstname'];
+	$accessRights = (int)$_POST['accessrights'];
+	$email = $_POST['email'];
     // $name = $user->escape_string($_POST['name']);
 	$hash = password_hash($password, PASSWORD_DEFAULT);
-	$p = new Person(100, $username, $hash, 101, "Name", "Name", "@");
+	$p = new Person(100, $username, $hash, $accessRights, $name, $firstName, $email);
 	$success = DBUtils::setUser($p);
 	// $user->create_user($username, $password, $name);
     debug_to_console($success);

@@ -2,31 +2,30 @@
 include_once('../layout/header.php');
 ?>
           <div class="basic-container">
-              <h1>All of the Buildings</h1>
-              <h2>Choose a building of your interest</h2>
+              <h1>Name of the Building - Adress</h1>
+              <h2>Choose an appartment you want to manage</h2>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
                   <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
-                              <div class="card_image"><img src="https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg"></div>
+                              <div class="card_image"><img src="https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg"></div>
                           </div>
                               <div class="card_content">
-                              <h1 class="card_title">Building 1</h1>
+                              <h1 class="card_title">Name of the Appartment</h1>
                               <div class="row align-items-center">
-                              <h1 class="card_title">Paris, 52 Av. Laplace</h1>
-                              <div class="col">
+                                <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
                                   <h2 class="card_text">Light:</h2>
                                   <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
                                   <h2 class="card_text">Humidity:</h2>
+                                  <h2 class="card_text">Air Condition:</h2>
                                 </div>
                               </div>
-                              <a href="building.php">
+                              <a href="apartment.php">
                                 <button type="submit" name="go-to-building" class="button-submit">View Details</button>
                               </a>
                           </div>
@@ -35,79 +34,76 @@ include_once('../layout/header.php');
                   <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
-                              <div class="card_image"><img src="https://previews.123rf.com/images/frugo/frugo1808/frugo180801780/106524585-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg"></div>
+                              <div class="card_image"><img src="https://homedesignlover.com/wp-content/uploads/2016/08/3-bw-apt-move.gif"></div>
                           </div>
                               <div class="card_content">
-                              <h1 class="card_title">Building 2</h1>
+                              <h1 class="card_title">Name of the Appartment</h1>
                               <div class="row align-items-center">
-                              <h1 class="card_title">Paris, 52 Av. Laplace</h1>
-                              <div class="col">
+                                <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
                                   <h2 class="card_text">Light:</h2>
                                   <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
                                   <h2 class="card_text">Humidity:</h2>
-                                </div>
-                              </div>
-                              <a href="building.php">
-                                <button type="submit" name="go-to-building" class="button-submit">View Details</button>
-                              </a>
-                            </div>
-                      </div>
-                  </li>
-                  <li class="cards_item">
-                      <div class="card" style="min-width: 300px;">
-                          <div class="card_image_container">
-                              <div class="card_image"><img src="https://previews.123rf.com/images/frugo/frugo1711/frugo171100420/90153434-traditional-architecture-of-residential-buildings-black-white-photo-paris-france.jpg"></div>
-                          </div>
-                              <div class="card_content">
-                              <h1 class="card_title">Building 3</h1>
-                              <div class="row align-items-center">
-                              <h1 class="card_title">Paris, 52 Av. Laplace</h1>
-                              <div class="col">
-                                  <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
-                                </div>
-                                <div class="col">
                                   <h2 class="card_text">Air Condition:</h2>
-                                  <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
                                 </div>
                               </div>
-                              <a href="building.php">
+                              <a href="apartment.php">
                                 <button type="submit" name="go-to-building" class="button-submit">View Details</button>
                               </a>
                           </div>
                       </div>
                   </li>
-                  
                   <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
-                              <div class="card_image"><img src="https://previews.123rf.com/images/frugo/frugo1711/frugo171100420/90153434-traditional-architecture-of-residential-buildings-black-white-photo-paris-france.jpg"></div>
+                              <div class="card_image"><img src="https://homedesignlover.com/wp-content/uploads/2016/08/4-bw-apt-living.jpg"></div>
                           </div>
                               <div class="card_content">
-                              <h1 class="card_title">Building 3</h1>
+                              <h1 class="card_title">Name of the Appartment</h1>
                               <div class="row align-items-center">
-                              <h1 class="card_title">Paris, 52 Av. Laplace</h1>
                                 <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
                                   <h2 class="card_text">Light:</h2>
                                   <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
                                   <h2 class="card_text">Humidity:</h2>
+                                  <h2 class="card_text">Air Condition:</h2>
                                 </div>
                               </div>
-                              <a href="building.php">
+                              <a href="apartment.php">
                                 <button type="submit" name="go-to-building" class="button-submit">View Details</button>
-                              </a>                          </div>
+                              </a>
+                          </div>
+                      </div>
+                  </li>
+                  <li class="cards_item">
+                      <div class="card" style="min-width: 300px;">
+                          <div class="card_image_container">
+                              <div class="card_image"><img src="https://homedesignlover.com/wp-content/uploads/2016/04/5-contemporary-apartment-furniture.jpg"></div>
+                          </div>
+                              <div class="card_content">
+                              <h1 class="card_title">Name of the Appartment</h1>
+                              <div class="row align-items-center">
+                                <div class="col">
+                                  <h2 class="card_text">Electricity:</h2>
+                                  <h2 class="card_text">Light:</h2>
+                                  <h2 class="card_text">Temperature:</h2>
+                                </div>
+                                <div class="col">
+                                  <h2 class="card_text">Water:</h2>
+                                  <h2 class="card_text">Humidity:</h2>
+                                  <h2 class="card_text">Air Condition:</h2>
+                                </div>
+                              </div>
+                              <a href="apartment.php">
+                                <button type="submit" name="go-to-building" class="button-submit">View Details</button>
+                              </a>
+                          </div>
                       </div>
                   </li>
               </div>

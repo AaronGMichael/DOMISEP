@@ -26,7 +26,13 @@ class Apartment{
             return $connection->query($this->writeApartment($this->name, $this->number, $this->numberofpeople, $this->buildingid, $this->accountid));
     }
 
-
+    public function validAccess($User){
+        if($User->isAdmin() || $User->isOwner()){
+            return true;
+        } else if($User->id == $this->accountid){
+            return true;
+        } else return false;
+    }
 }
 
 ?>

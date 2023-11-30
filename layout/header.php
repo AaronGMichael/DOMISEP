@@ -13,6 +13,14 @@
     <link rel="stylesheet" type="text/css" href="../css/style-layout.css">
     <link rel="stylesheet" type="text/css" href="../css/style-assets.css">
 </head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+</style>
 <body>
     <header class="header-left">   
         <titlesmaller>DomISEP</titlesmaller>       
