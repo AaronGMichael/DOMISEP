@@ -43,13 +43,22 @@ include_once('../layout/header.php');
                 <div class="col">
                     <sd style="text-align: left;">
                         <div class="form-group">
-                            <label for="name">Name:</label>
+                            <label for="name">User ID:</label>
                         </div>
                         <div class="form-group">
                             <label for="username">Username:</label>
                         </div>
                         <div class="form-group">
-                            <label for="lastname">Password:</label>
+                            <label for="password">Password:</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname">First Name:</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name:</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail Adress:</label>
                         </div>
                     </sd>
                 </div>
@@ -62,7 +71,16 @@ include_once('../layout/header.php');
                             <label><?php echo $user->username; ?></label>
                         </div>
                         <div class="form-group">
-                            <label>><?php echo $user->firstName; ?></label>
+                            <label>***********</label>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo $user->firstName; ?></label>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo $user->name; ?></label>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo $user->email; ?></label>
                         </div>
                     </sd>
                 </div>
