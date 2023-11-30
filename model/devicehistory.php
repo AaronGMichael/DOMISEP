@@ -1,26 +1,28 @@
 <?php
 
 class DeviceHistory{
-    private int $devicetypeid;
-    private string $name;
-    private string $unit;
+    private int $devicehistoryid;
+    private string $state;
+    private string $value;
     private string $datetime;
+    private string $deviceid;
 
 
-    public function __construct($deviceid, $name, $unit, $datetime){
-        $this->devicetypeid = $deviceid;
-        $this->name = $name;
-        $this->unit = $unit;
+    public function __construct($devicehistoryid, $state, $value, $datetime, $deviceid){
+        $this->devicehistoryid = $devicehistoryid;
+        $this->state = $state;
+        $this->value = $value;
         $this->datetime = $datetime;
+        $this->deviceid = $deviceid;
     }
 
-    private function writeDeviceHistory($name, $unit, $datetime){
-        return `INSERT INTO DeviceHistory (Name, Unit, DateTime)
-        VALUES ("$name", "$unit", "$datetime")`;
+    private function writeDeviceHistory($state, $value, $datetime, $deviceid){
+        return `INSERT INTO DeviceHistory (State, Value, DateTime, DeviceID)
+        VALUES ("$state", "$value", "$datetime","$deviceid")`;
     }
 
     public function sendDeviceHistoryToDatabase($connection){
-            return $connection->query($this->writeDeviceHistory($this->name, $this->unit, $this->datetime));
+            return $connection->query($this->writeDeviceHistory($this->state, $this->value, $this->datetime, $this->deviceid));
     }
 
 
