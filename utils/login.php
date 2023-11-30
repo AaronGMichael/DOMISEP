@@ -24,7 +24,7 @@ if(isset($_POST['login'])){
 			header('location:../views/home.php');
 		}
 		else{
-			header('location:../views/profile.php');
+			header('location:../views/apartment.php');
 		}
 	}
 }
