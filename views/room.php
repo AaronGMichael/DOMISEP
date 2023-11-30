@@ -3,39 +3,9 @@ include_once('../layout/header.php');
 ?>
 
             <div class="basic-container">
-                <h1>Name of the Room</h1>
+                <h1  style="font-size: 30pt"><b>Name of the Room</b></h1>
                 <h2>Now you have entered the room page. Here you can see all the devices and sensors and menage them.</h2>
                 <div class="additional-padding-small"></div>
-                
-                <h1>Resources Consumption</h1>
-
-                <div class="additional-padding-small"></div>
-                <ul class="cards_grid">
-                    <li class="cards_item_grid">
-                        <div class="card_grid">
-                            <div class="card_image_container_grid">
-                                <div class="card_image_grid"><img src="../assets/resources/water.png"></div>
-                            </div>
-                            <div class="card_content_grid">
-                                <h2 class="card_title_grid">Water</h2>
-                                <h2 class="card_text_grid">Usage: <b>1 289 cm3</b></h2>
-                                <button type="submit" name="view-charts" class="button-submit">View Charts</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="cards_item_grid">
-                        <div class="card_grid">
-                            <div class="card_image_container_grid">
-                                <div class="card_image_grid"><img src="../assets/resources/electricity.png"></div>
-                            </div>
-                            <div class="card_content_grid">
-                                <h2 class="card_title_grid">Electricity</h2>
-                                <h2 class="card_text_grid">Usage: <b>78,5 kWh</b></h2>
-                                <button type="submit" name="view-charts" class="button-submit">View Charts</button>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
                 
                 <h1>Sensors</h1>
 

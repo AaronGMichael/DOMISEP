@@ -2,7 +2,7 @@
 include_once('../layout/header.php');
 ?>
           <div class="basic-container">
-              <h1>Name of the Building - Adress</h1>
+              <h1 style="font-size: 30pt"><b>Name of the Building - Adress</b></h1>
               <h2>Choose an appartment you want to manage</h2>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
@@ -16,13 +16,9 @@ include_once('../layout/header.php');
                               <div class="row align-items-center">
                                 <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
-                                  <h2 class="card_text">Air Condition:</h2>
                                 </div>
                               </div>
                               <a href="apartment.php">
@@ -41,13 +37,9 @@ include_once('../layout/header.php');
                               <div class="row align-items-center">
                                 <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
-                                  <h2 class="card_text">Air Condition:</h2>
                                 </div>
                               </div>
                               <a href="apartment.php">
@@ -66,13 +58,9 @@ include_once('../layout/header.php');
                               <div class="row align-items-center">
                                 <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
-                                  <h2 class="card_text">Air Condition:</h2>
                                 </div>
                               </div>
                               <a href="apartment.php">
@@ -91,13 +79,9 @@ include_once('../layout/header.php');
                               <div class="row align-items-center">
                                 <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
-                                  <h2 class="card_text">Air Condition:</h2>
                                 </div>
                               </div>
                               <a href="apartment.php">

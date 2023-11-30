@@ -1,5 +1,5 @@
 .background-login-dark {
-    background-image: url('../assets/background-dark.jpg');
+    background-image: url('../assets/backgrounds/background-dark.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -12,7 +12,7 @@
 }
 
 .background-login-light{
-    background-image: url('../assets/background-light.jpg');
+    background-image: url('../assets/backgrounds/background-light.jpg');
     background-size: cover;
     background-position: top;
     height: 100vh;

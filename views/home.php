@@ -2,8 +2,8 @@
 include_once('../layout/header.php');
 ?>
           <div class="basic-container">
-              <h1>All of the Buildings</h1>
-              <h2>Choose a building of your interest</h2>
+              <h1  style="font-size: 30pt"><b>All of the Buildings</b></h1>
+              <h1>Choose a building of your interest</h1>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
                   <li class="cards_item">
@@ -17,13 +17,9 @@ include_once('../layout/header.php');
                               <h1 class="card_title">Paris, 52 Av. Laplace</h1>
                               <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
                                 </div>
                               </div>
                               <a href="building.php">
@@ -43,13 +39,9 @@ include_once('../layout/header.php');
                               <h1 class="card_title">Paris, 52 Av. Laplace</h1>
                               <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
                                 </div>
                               </div>
                               <a href="building.php">
@@ -69,13 +61,9 @@ include_once('../layout/header.php');
                               <h1 class="card_title">Paris, 52 Av. Laplace</h1>
                               <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
                                 </div>
                               </div>
                               <a href="building.php">
@@ -96,13 +84,9 @@ include_once('../layout/header.php');
                               <h1 class="card_title">Paris, 52 Av. Laplace</h1>
                                 <div class="col">
                                   <h2 class="card_text">Electricity:</h2>
-                                  <h2 class="card_text">Light:</h2>
-                                  <h2 class="card_text">Temperature:</h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Air Condition:</h2>
                                   <h2 class="card_text">Water:</h2>
-                                  <h2 class="card_text">Humidity:</h2>
                                 </div>
                               </div>
                               <a href="building.php">
