@@ -1,5 +1,6 @@
 <?php
 include_once("../layout/header.php");
+include_once("../components/proveAdmin.php");
 ?>
 
     <div class="background-login-light"></div>

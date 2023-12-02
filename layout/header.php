@@ -60,7 +60,7 @@ $user = unserialize($user);
     <?php
                                     if(isset($_SESSION['message'])){
                                         ?>
-                                            <div class="alert alert-danger text-center">
+                                            <div id='alertBanner' class="alert alert-danger text-center">
                                                 <?php echo $_SESSION['message']; ?>
                                             </div>
                                         <?php
@@ -69,7 +69,7 @@ $user = unserialize($user);
                                     }
                                     if(isset($_SESSION['welcome'])){
                                         ?>
-                                            <div id='welcomeBanner' class="alert alert-success text-center">
+                                            <div id='alertBanner' class="alert alert-success text-center">
                                                 <?php echo $_SESSION['welcome']; ?>
                                             </div>
                                         <?php
