@@ -1,3 +1,18 @@
+<?php
+session_start();
+//return to login if not logged in
+if (!isset($_SESSION['user'])){
+	header('location:../index.php');
+}
+
+
+ 
+include_once('../utils/DbUtils.php');
+//fetch user data
+$user = serialize($_SESSION['user']);
+$user = unserialize($user);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +47,11 @@
                 <a href="../views/home.php">Home</a>
                 <a href="../views/profile.php">Profile</a>
                 <a href="../utils/logout.php">Logout</a>
+                <?php 
+                $page = $_SERVER['REQUEST_URI'];
+                if($user->isAdmin() && str_contains($page, "home")) echo "<a class='add' href='../utils/logout.php'>Add Building<img style='width:10px; height: 10px;' href='../assets/icons/plus-circle.svg'/></a>"
+                
+                ?>
                 </b>
             </div>
         </ul>
