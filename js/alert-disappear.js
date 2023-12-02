@@ -1,5 +1,5 @@
 
-let alert =document.getElementById('welcomeBanner');
+let alert =document.getElementById('alertBanner');
 if(alert) {
   setTimeout(() => {
     alert.style.visibility = "hidden";
