@@ -56,5 +56,27 @@ $user = unserialize($user);
             </div>
         </ul>
     </header>
-    <div class="additional-padding-big"></div>
-    <div class="additional-padding-small"></div>
+    <div class="additional-padding-big">
+    <?php
+                                    if(isset($_SESSION['message'])){
+                                        ?>
+                                            <div class="alert alert-danger text-center">
+                                                <?php echo $_SESSION['message']; ?>
+                                            </div>
+                                        <?php
+                    
+                                        unset($_SESSION['message']);
+                                    }
+                                    if(isset($_SESSION['welcome'])){
+                                        ?>
+                                            <div id='welcomeBanner' class="alert alert-success text-center">
+                                                <?php echo $_SESSION['welcome']; ?>
+                                            </div>
+                                        <?php
+                    
+                                        unset($_SESSION['welcome']);
+                                    }
+                                    
+                                ?>
+    </div>
+    <!-- <div class="additional-padding-small"></div> -->

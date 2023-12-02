@@ -20,6 +20,7 @@ if(isset($_POST['login'])){
 	}
 	else{
 		$_SESSION['user'] = $P;
+		$_SESSION['welcome'] = "Welcome $P->name";
 		if($P->isAdmin() || $P->isOwner()){
 			header('location:../views/home.php');
 		}

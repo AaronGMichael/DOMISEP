@@ -46,17 +46,7 @@ include_once('../layout/header.php');
                             </div>
                         </div>
                     </li>
-                    <li class="cards_item_grid">
-                        <div class="card_grid">
-                            <div class="card_content_grid">
-                                <div class="card_image_container_grid">
-                                    <a href="addsensor.php"><img src="../assets/add.png" style="width:150px;height:150px; margin-top:50px;"></a>
-                                    <h2 class="card_title_grid" style = "color: red;">Click To Add More!</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li> 
+                    <?php if($user->isAdmin()) readfile('../components/addSensor.html'); ?>
 
                 </ul>
 
@@ -112,17 +102,7 @@ include_once('../layout/header.php');
                             </div>
                         </div>
                     </li>
-                    <li class="cards_item_grid">
-                        <div class="card_grid">
-                            <div class="card_content_grid">
-                                <div class="card_image_container_grid">
-                                    <a href="adddevicetype.php"><img src="../assets/add.png" style="width:150px;height:150px; margin-top:50px;"></a>
-                                    <h2 class="card_title_grid" style = "color: red;">Click To Add More!</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li> 
+                    <?php if($user->isAdmin())readfile('../components/addDevice.html'); ?>
                 </ul>
                 <div class="additional-padding-small"></div>
 
