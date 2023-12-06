@@ -2,7 +2,7 @@
 Project for the A2 Course of PBL
 
 Create Tables:
-
+```
 CREATE TABLE Account (
     AccountID int AUTO_INCREMENT,
     Username varchar(255) UNIQUE,
