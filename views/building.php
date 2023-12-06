@@ -5,7 +5,7 @@ $appartments = DbUtils::getApartmentByAdmin($_GET["id"]);
 ?>
           <div class="basic-container">
               <h1 style="font-size: 30pt"><b>Name of the Building - Adress</b></h1>
-              <h2>Choose an appartment you want to manage</h2>
+              <h1>Choose an appartment you want to manage</h1>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
               <?php foreach($appartments as $appartment){ ?>
