@@ -46,7 +46,7 @@ $user = unserialize($user);
                 <b>
                 <?php 
                 $page = $_SERVER['REQUEST_URI'];
-                if($user->isAdmin() && str_contains($page, "home")) echo "<a class='add' href='../utils/logout.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "home")) echo "<a class='add' href='../views/addbuilding.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
                 if($user->isAdmin() && str_contains($page, "building")) echo "<a class='add' href='../utils/logout.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
                 if($user->isAdmin() && str_contains($page, "apartment")) echo "<a class='add' href='../utils/logout.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
                 
