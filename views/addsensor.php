@@ -25,16 +25,16 @@ include_once("../components/proveAdmin.php");
                                                 </select>
                                             </div>
                                             <div class="form-group" style = "margin-bottom: 10px;">
-                                                <label for="minvalue" >Min Value:</label>
+                                                <label for="name">Name:</label>
+                                                <input class="form-control" placeholder="Enter Name" type="name" name="name" required>
+                                            </div>
+                                            <div class="form-group" style = "margin-bottom: 10px;">
+                                                <label for="minvalue" >Minimal Value:</label>
                                                 <input class="form-control" placeholder="Enter Minvalue" type="name" name="minvalue" required>
                                             </div>
                                             <div class="form-group" style = "margin-bottom: 10px;">
-                                                <label for="maxvalue">Max Value:</label>
+                                                <label for="maxvalue">Maximal Value:</label>
                                                 <input class="form-control" placeholder="Enter Maxvalue" type="name" name="maxvalue" required>
-                                            </div>
-                                            <div class="form-group" style = "margin-bottom: 10px;">
-                                                <label for="name">Name:</label>
-                                                <input class="form-control" placeholder="Enter Name" type="name" name="name" required>
                                             </div>
 
                                             <button type="submit" name="register" class="button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Add</button>
