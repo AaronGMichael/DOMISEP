@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])){
 
 
  
-include_once('../utils/DbUtils.php');
+include('../utils/DbUtils.php');
 //fetch user data
 $user = serialize($_SESSION['user']);
 $user = unserialize($user);

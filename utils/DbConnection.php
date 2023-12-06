@@ -7,7 +7,7 @@ class DbConnection{
     private $host = 'localhost';
     private $username = 'root';
     private $password = '';
-    private $database = 'loginpage';
+    private $database = 'loginpage2';
  
     protected static $connection;
  

@@ -1,7 +1,8 @@
 <?php
 include_once('DbConnection.php');
 include_once("Person.php");
-
+include_once("../model/building.php");
+include_once("../model/apartment.php");
 class DbUtils extends DbConnection{
 
     private static function getUsersWhereUsername($username){
