@@ -44,7 +44,7 @@ $user = unserialize($user);
         <ul class="navbar">
             <div class="container-nav">
                 <b>
-                <a href="../views/home.php">Home</a>
+                <a href=<?php echo $user->isAdmin() ? "../views/home.php": "../views/apartment.php"?>>Home</a>
                 <a href="../views/profile.php">Profile</a>
                 <a href="../utils/logout.php">Logout</a>
                 <?php 
