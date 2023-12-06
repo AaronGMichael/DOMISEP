@@ -1,7 +1,7 @@
 <?php
 
 class Building{
-    private int $buildingid;
+    public int $buildingid;
     public string $name;
     public string $photo;
     private float $size;
@@ -22,6 +22,10 @@ class Building{
 
     public function sendBuildingToDatabase($connection){
             return $connection->query($this->writeBuilding($this->name, $this->photo, $this->size, $this->address));
+    }
+
+    public function getAddress(){
+        return $this->address;
     }
 
 
