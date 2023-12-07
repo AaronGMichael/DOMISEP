@@ -1,9 +1,9 @@
 <?php 
 include_once('../layout/header.php');
-
 $utils = new DbUtils();
-$rooms = DbUtils::getRoomByAdmin($_GET["id"]);
-$apartmentName = DbUtils::getApartmentName($_GET["id"]);
+$currentId =  $user->isAdmin()? $_GET["id"] : DbUtils::getApartmentByUser($user->id)->getId();
+$rooms = DbUtils::getRoomByAdmin($currentId);
+$apartmentName = DbUtils::getApartmentName($currentId);
 ?>
           <div class="basic-container">
               <h1 style="font-size: 30pt"><b><?php echo $apartmentName?></b></h1>
