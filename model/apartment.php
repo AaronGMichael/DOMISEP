@@ -33,8 +33,16 @@ class Apartment{
             return true;
         } else return false;
     }
-}
 
+    public function getId(){
+        return $this->apartmentid;
+    }
+
+    public function getBuildingId(){
+        return $this->buildingid;
+    }
+
+}
 ?>
 
 

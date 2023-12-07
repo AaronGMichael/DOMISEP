@@ -3,6 +3,7 @@ include_once('../layout/header.php');
 include_once("../components/proveAdmin.php");
 $utils = new DbUtils();
 $buildings = DbUtils::getBuilding();
+// $_SESSION["add"] = $buildings;
 ?>
           <div class="basic-container">
               <h1  style="font-size: 30pt"><b>All of the Buildings</b></h1>

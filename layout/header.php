@@ -22,11 +22,11 @@ $user = unserialize($user);
 	<title>DOMISEP</title>
     <link rel="stylesheet" type="text/css" href="../css/style-top-navigation.css">    
     <link rel="stylesheet" type="text/css" href="../css/style-text.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-background.css">
+    <link rel="stylesheet" type="text/css" href="../css/style-backgrounds.css">
     <link rel="stylesheet" type="text/css" href="../css/style-buttons.css">
     <link rel="stylesheet" type="text/css" href="../css/style-containers.css">
     <link rel="stylesheet" type="text/css" href="../css/style-layout.css">
-    <link rel="stylesheet" type="text/css" href="../css/style-assets.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/style-assets.css"> -->
 </head>
 <style>
     a{

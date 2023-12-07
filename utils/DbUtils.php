@@ -3,6 +3,7 @@ include_once('DbConnection.php');
 include_once("Person.php");
 include_once("../model/building.php");
 include_once("../model/apartment.php");
+include_once("../model/room.php");
 class DbUtils extends DbConnection{
 
     private static function getUsersWhereUsername($username){
@@ -46,30 +47,43 @@ class DbUtils extends DbConnection{
         return $apartments;
     }
 
+    public static function getBuildingName($buildingid){
+        $buildingName = DbConnection::$connection->query("SELECT Name FROM Building WHERE BuildingID = '$buildingid'");
+        return $buildingName->fetch_object()->Name;
+    }
+
     public static function getApartmentByUser($accountid){
         $apartmentDetails = DbConnection::$connection->query("SELECT * FROM Apartment WHERE AccountID = '$accountid'");
         if($apartmentDetails->num_rows === 0) return false;
         $apartment = $apartmentDetails->fetch_object();
         $apartment = new Apartment($apartment->ApartmentID,$apartment->Name,$apartment->Number,$apartment->NumberOfPeople,$apartment->BuildingID,$apartment->AccountID);
         return $apartment;
+
     }
 
     public static function getRoomByAdmin($apartmentid){
-        $roomDetails = DbConnection::$connection->query("SELECT * FROM Room WHERE BuildingID = '$apartmentid'");
+        $roomDetails = DbConnection::$connection->query("SELECT * FROM Room WHERE ApartmentID = '$apartmentid'");
         if($roomDetails->num_rows === 0) return false;
         $rooms = array();
         while($room = $roomDetails->fetch_object()){
-            $rooms[] = new Room($room->RoomID,$room->Name,$room->ApartmentID);
+            $obj = new Room($room->RoomID,$room->Name,$room->ApartmentID);
+            $obj->roomid = $room->RoomID;
+            $rooms[] = $obj;
         }
         return $rooms;
     }
 
+    public static function getApartmentName($apartmentid){
+        $apartmentName = DbConnection::$connection->query("SELECT Name FROM Apartment WHERE ApartmentID = '$apartmentid'");
+        return $apartmentName->fetch_object()->Name;
+    }
+   
     public static function getDeviceByAdmin($roomid){
         $deviceDetails = DbConnection::$connection->query("SELECT * FROM Device WHERE RoomID = '$roomid'");
         if($deviceDetails->num_rows === 0) return false;
         $devices = array();
         while($device = $deviceDetails->fetch_object()){
-            $devices[] = new device($device->DeviceID,$device->State,$device->Value,$device->RoomID,$device->DeviceTypeID);
+            $devices[] = new device($device->DeviceID,$device->Name,$device->State,$device->Value,$device->RoomID,$device->DeviceTypeID);
         }
         return $devices;
     }
@@ -109,7 +123,7 @@ class DbUtils extends DbConnection{
         if($sensorDetails->num_rows === 0) return false;
         $sensors = array();
         while($sensor = $sensorDetails->fetch_object()){
-            $sensors[] = new Sensor($sensor->SensorID,$sensor->MiniValue,$sensor->MaxiValue,$sensor->RoomID,$sensor->SensorTypeID);
+            $sensors[] = new Sensor($sensor->SensorID,$sensor->Name,$sensor->MiniValue,$sensor->MaxiValue,$sensor->RoomID,$sensor->SensorTypeID);
         }
         return $sensors;
     }

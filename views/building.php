@@ -2,9 +2,10 @@
 include_once('../layout/header.php');
 $utils = new DbUtils();
 $appartments = DbUtils::getApartmentByAdmin($_GET["id"]);
+$buildingName = DbUtils::getBuildingName($_GET["id"]);
 ?>
           <div class="basic-container">
-              <h1 style="font-size: 30pt"><b>Name of the Building - Adress</b></h1>
+              <h1 style="font-size: 30pt"><b><?php echo $buildingName?></b></h1>
               <h1>Choose an appartment you want to manage</h1>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
@@ -24,7 +25,7 @@ $appartments = DbUtils::getApartmentByAdmin($_GET["id"]);
                                   <h2 class="card_text">Water:</h2>
                                 </div>
                               </div>
-                              <a href="apartment.php">
+                              <a href="apartment.php?id=<?php echo $appartment->getId()?>">
                                 <button type="submit" name="go-to-building" class="button-submit">View Details</button>
                               </a>
                           </div>
