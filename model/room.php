@@ -1,7 +1,7 @@
 <?php
 
 class Room{
-    private int $roomid;
+    public int $roomid;
     public string $name; 
     private int $apartmentid;
 
@@ -20,6 +20,9 @@ class Room{
             return $connection->query($this->writeRoom($this->name, $this->apartmentid));
     }
 
+    public function getId(){
+        return $this->roomid;   
+    }
 
 }
 
