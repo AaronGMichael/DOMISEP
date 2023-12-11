@@ -21,7 +21,7 @@ if(isset($_POST['building'])){
     	header('location:../views/addbuilding.php');
 	}
 	else{
-		$_SESSION['AccountCreated'] = 'Account Created!';
+		$_SESSION['AccountCreated'] = 'Building Created!';
 		header('location:../views/home.php');
 	}
 }
