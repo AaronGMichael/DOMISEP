@@ -8,6 +8,9 @@ class DbUtils extends DbConnection{
     private static function getUsersWhereUsername($username){
        return "SELECT * FROM Account WHERE username = '$username'";
     }
+    private static function getBuildingWhereName($name){
+        return "SELECT * FROM Building WHERE Name = '$name'";
+     }
 
     public static function setUser($P){
         if(DbConnection::$connection->query(DbUtils::getUsersWhereUsername($P->username))->num_rows > 0){
@@ -15,6 +18,15 @@ class DbUtils extends DbConnection{
         }
         else{
             return $P->sendUserToDatabase(DbConnection::$connection);
+        }
+    }
+
+    public static function setBuilding($P){
+        if(DbConnection::$connection->query(DbUtils::getBuildingWhereName($P->name))->num_rows > 0){
+            return 300;
+        }
+        else{
+            return $P->sendBuildingToDatabase(DbConnection::$connection);
         }
     }
 

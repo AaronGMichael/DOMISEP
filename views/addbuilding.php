@@ -18,17 +18,22 @@ include_once("../components/proveAdmin.php");
                                         <fieldset>
                                             <div class="form-group">
                                                 <label for="name">Building Name : </label>
-                                                <input class="form-control" placeholder="Building name" type="text" name="buildingname" autofocus required>
+                                                <input class="form-control" placeholder="Building name" type="text" name="name" autofocus required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="size">Size : </label>
+                                                <input class="form-control" placeholder="Size" type="number" step="0.01" name="size" autofocus required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="UploadPhoto">Photo Upload : </label>
-                                                <input class="form-control" placeholder="Select Photo" type="file" name="buildingPhoto" required>
+                                                <!-- <input class="form-control" placeholder="Select Photo" type="file" name="photo" required> -->
+                                                <input class="form-control" placeholder="Select Photo" type="string" name="photo" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="Address">Address : </label>
-                                                <input class="form-control"  placeholder="Enter Building Address" type="text" name="buildingAddress" required>
+                                                <input class="form-control"  placeholder="Enter Building Address" type="text" name="address" required>
                                             </div>
-                                            <button type="submit" name="register" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
+                                            <button type="submit" name="building" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
                                         </fieldset>
                                     </form>
                                 </div>

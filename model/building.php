@@ -16,8 +16,8 @@ class Building{
     }
 
     private function writeBuilding($name, $photo, $size, $address){
-        return `INSERT INTO Building (Name, Photo, Size, Address)
-        VALUES ("$name", "$photo", "$size" , "$address")`;
+        return "INSERT INTO Building (Name, Photo, Size, Address)
+        VALUES ('$name', '$photo', '$size' , '$address')";
     }
 
     public function sendBuildingToDatabase($connection){
