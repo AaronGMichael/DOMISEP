@@ -42,7 +42,7 @@ $apartmentName = DbUtils::getApartmentName($currentId);
               
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
-                <?php foreach($rooms as $room){ ?>
+                <?php if(isset($rooms[0])) foreach($rooms as $room){ ?>
                   <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
@@ -66,7 +66,7 @@ $apartmentName = DbUtils::getApartmentName($currentId);
                           </div>
                       </div>
                   </li>
-                  <?php } ?>
+                  <?php } else echo "No Rooms to Display" ?>
               
               </div>
             </div>
