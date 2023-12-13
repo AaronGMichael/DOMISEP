@@ -1,12 +1,12 @@
 <?php
 
 class Sensor{
-    private int $sensorid;
+    public int $sensorid;
     public string $name;
     public float $minivalue;
     private float $maxivalue;
     private int $roomid;   
-    private int $sensortypeid;
+    public int $sensortypeid;
 
     public function __construct($sensorid, $name, $minivalue, $maxivalue, $roomid, $sensortypeid){
         $this->sensorid = $sensorid;

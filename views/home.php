@@ -14,7 +14,7 @@ $buildings = DbUtils::getBuilding();
                 <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
-                              <div class="card_image"><img src="https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg"></div>
+                              <div class="card_image"><img src="<?php echo $building->photo; ?>"></div>
                           </div>
                               <div class="card_content">
                               <h1 class="card_title"><?php echo $building->name?></h1>

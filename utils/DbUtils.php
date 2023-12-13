@@ -4,6 +4,11 @@ include_once("Person.php");
 include_once("../model/building.php");
 include_once("../model/apartment.php");
 include_once("../model/room.php");
+include_once("../model/device.php");
+include_once("../model/devicetype.php");
+include_once("../model/sensor.php");
+include_once("../model/sensortype.php");
+include_once("../model/mesurement.php");
 class DbUtils extends DbConnection{
 
     private static function getUsersWhereUsername($username){
@@ -77,7 +82,7 @@ class DbUtils extends DbConnection{
         if($apartmentDetails->num_rows === 0) return false;
         $apartments = array();
         while($apartment = $apartmentDetails->fetch_object()){
-            $apartments[] = new Apartment($apartment->ApartmentID,$apartment->Name,$apartment->Number,$apartment->NumberOfPeople,$apartment->BuildingID,$apartment->AccountID);
+            $apartments[] = new Apartment($apartment->ApartmentID,$apartment->Name,$apartment->Number,$apartment->NumberOfPeople, $apartment->Photo,$apartment->BuildingID,$apartment->AccountID);
         }
         return $apartments;
     }
@@ -91,7 +96,7 @@ class DbUtils extends DbConnection{
         $apartmentDetails = DbConnection::$connection->query("SELECT * FROM Apartment WHERE AccountID = '$accountid'");
         if($apartmentDetails->num_rows === 0) return false;
         $apartment = $apartmentDetails->fetch_object();
-        $apartment = new Apartment($apartment->ApartmentID,$apartment->Name,$apartment->Number,$apartment->NumberOfPeople,$apartment->BuildingID,$apartment->AccountID);
+        $apartment = new Apartment($apartment->ApartmentID,$apartment->Name,$apartment->Number,$apartment->NumberOfPeople,$apartment->Photo, $apartment->BuildingID,$apartment->AccountID);
         return $apartment;
 
     }
@@ -101,7 +106,7 @@ class DbUtils extends DbConnection{
         if($roomDetails->num_rows === 0) return false;
         $rooms = array();
         while($room = $roomDetails->fetch_object()){
-            $obj = new Room($room->RoomID,$room->Name,$room->ApartmentID);
+            $obj = new Room($room->RoomID,$room->Name,$room->Photo,$room->ApartmentID);
             $obj->roomid = $room->RoomID;
             $rooms[] = $obj;
         }
@@ -112,23 +117,39 @@ class DbUtils extends DbConnection{
         $apartmentName = DbConnection::$connection->query("SELECT Name FROM Apartment WHERE ApartmentID = '$apartmentid'");
         return $apartmentName->fetch_object()->Name;
     }
+
+    public static function getRoomName($roomid){
+        $roomName = DbConnection::$connection->query("SELECT Name FROM Room WHERE RoomID = '$roomid'");
+        return $roomName->fetch_object()->Name;
+    }
    
     public static function getDeviceByAdmin($roomid){
         $deviceDetails = DbConnection::$connection->query("SELECT * FROM Device WHERE RoomID = '$roomid'");
         if($deviceDetails->num_rows === 0) return false;
         $devices = array();
         while($device = $deviceDetails->fetch_object()){
-            $devices[] = new device($device->DeviceID,$device->Name,$device->State,$device->Value,$device->RoomID,$device->DeviceTypeID);
+            $obj = new Device($device->DeviceID,$device->Name,$device->State,$device->Value,$device->RoomID,$device->DeviceTypeID);
+            $obj->deviceid = $device->DeviceID;
+            $devices[] = $obj;
         }
         return $devices;
     }
+
+    public static function getDeviceType($devicetypeid){
+        $devicetypeDetails = DbConnection::$connection->query("SELECT * FROM DeviceType WHERE DeviceTypeID = '$devicetypeid'");
+        $devicetype = $devicetypeDetails->fetch_object();
+            $obj = new DeviceType($devicetype->DeviceTypeID,$devicetype->Name,$devicetype->Unit, $devicetype->Photo);
+        return $obj;
+    }
+
+
 
     public static function getDeviceTypeByAdmin(){
         $devicetypeDetails = DbConnection::$connection->query("SELECT * FROM DeviceType");
         if($devicetypeDetails->num_rows === 0) return false;
         $devicetypes = array();
         while($devicetype = $devicetypeDetails->fetch_object()){
-            $devicetypes[] = new DeviceType($devicetype->DeviceTypeID,$devicetype->Name,$devicetype->Unit);
+            $devicetypes[] = new DeviceType($devicetype->DeviceTypeID,$devicetype->Name,$devicetype->Unit, $devicetype->Photo);
         }
         return $devicetypes;
     }
@@ -148,19 +169,26 @@ class DbUtils extends DbConnection{
         if($sensortypeDetails->num_rows === 0) return false;
         $sensortypes = array();
         while($sensortype = $sensortypeDetails->fetch_object()){
-            $sensortypes[] = new SensorType($sensortype->SensorTypeID,$sensortype->Name,$sensortype->Unit);
+            $sensortypes[] = new SensorType($sensortype->SensorTypeID,$sensortype->Name,$sensortype->Unit, $sensortype->Photo);
         }
         return $sensortypes;
     }
 
     public static function getSensorByAdmin($roomid){
-        $sensorDetails = DbConnection::$connection->query("SELECT * FROM sensor WHERE RoomID = '$roomid'");
+        $sensorDetails = DbConnection::$connection->query("SELECT * FROM Sensor WHERE RoomID = '$roomid'");
         if($sensorDetails->num_rows === 0) return false;
         $sensors = array();
         while($sensor = $sensorDetails->fetch_object()){
             $sensors[] = new Sensor($sensor->SensorID,$sensor->Name,$sensor->MiniValue,$sensor->MaxiValue,$sensor->RoomID,$sensor->SensorTypeID);
         }
         return $sensors;
+    }
+
+    public static function getSensorType($sensortypeid){
+        $sensortypeDetails = DbConnection::$connection->query("SELECT * FROM SensorType WHERE SensorTypeID = '$sensortypeid'");
+        $sensortype = $sensortypeDetails->fetch_object();
+            $obj = new DeviceType($sensortype->SensorTypeID,$sensortype->Name,$sensortype->Unit, $sensortype->Photo);
+        return $obj;
     }
 
     public static function getMesurementByAdmin($sensorid){
@@ -171,6 +199,14 @@ class DbUtils extends DbConnection{
             $mesurements[] = new Mesurement($mesurement->MesurementID,$mesurement->Value,$mesurement->DateTime,$mesurement->SensorID);
         }
         return $mesurements;
+    }
+
+    public static function getLatestMesurement($sensorid){
+        $mesurementDetails = DbConnection::$connection->query("SELECT * FROM Mesurement WHERE SensorID = '$sensorid' AND DateTime = (SELECT MAX(DateTime) FROM Mesurement WHERE SensorID = '$sensorid')");
+        if($mesurementDetails->num_rows === 0) return NULL;
+        $mesurement = $mesurementDetails->fetch_object();
+        $obj = new Mesurement($mesurement->MesurementID,$mesurement->Value,$mesurement->DateTime,$mesurement->SensorID);
+        return $obj;
     }
 }
 ?>  
