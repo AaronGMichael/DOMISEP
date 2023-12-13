@@ -31,6 +31,7 @@ CREATE TABLE Apartment (
     Name varchar(255),
     Number int,
     NumberOfPeople int,
+    Photo varchar(255),
     BuildingID int,
     AccountID int,
     PRIMARY KEY (ApartmentID),
@@ -42,6 +43,7 @@ CREATE TABLE Apartment (
 CREATE TABLE Room (
     RoomID int AUTO_INCREMENT,
     Name varchar(255),
+    Photo varchar(255),
     ApartmentID int,
     PRIMARY KEY (RoomID),
     FOREIGN KEY (ApartmentID) REFERENCES Apartment(ApartmentID)
@@ -52,6 +54,7 @@ CREATE TABLE DeviceType (
     DeviceTypeID int AUTO_INCREMENT,
     Name varchar(255),
     Unit varchar(255),
+    Photo varchar(255),
     PRIMARY KEY (DeviceTypeID)
 
 );
@@ -85,6 +88,7 @@ CREATE TABLE SensorType (
     SensorTypeID int AUTO_INCREMENT,
     Name varchar(255),
     Unit varchar(255),
+    Photo varchar(255),
     PRIMARY KEY (SensorTypeID)
 
 );
@@ -134,22 +138,22 @@ CREATE TABLE PersonAccount (
 );
 
 INSERT INTO Building (Name, Photo, Size, Address)
-VALUES ("A", "href", 3000.2, "4 rue Napoleon");
+VALUES ("A", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 3000.2, "4 rue Napoleon");
 
 INSERT INTO Building (Name, Photo, Size, Address)
-VALUES ("B", "href", 6000.1, "4 rue Noir");
+VALUES ("B", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 6000.1, "4 rue Noir");
 
 INSERT INTO Building (Name, Photo, Size, Address)
-VALUES ("C", "href", 5996, "4 rue Blanche");
+VALUES ("C", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 5996, "4 rue Blanche");
 
 INSERT INTO Building (Name, Photo, Size, Address)
-VALUES ("D", "href", 9098, "4 rue Blue");
+VALUES ("D", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 9098, "4 rue Blue");
 
 INSERT INTO Building (Name, Photo, Size, Address)
-VALUES ("E", "href", 9090, "4 rue Vert");
+VALUES ("E", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 9090, "4 rue Vert");
 
 INSERT INTO Building (Name, Photo, Size, Address)
-VALUES ("F", "href", 4321.4, "4 rue Chien");
+VALUES ("F", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 4321.4, "4 rue Chien");
 
 
 INSERT INTO Account (Username, HashPassword, Mail, Name, FirstName, AccessRights)
@@ -188,294 +192,296 @@ VALUES ("A11", "$2y$10$qPXEC7YrjiNHTBTbJhxUPuj4Euqn0.sYy8VDFX90GSKOY4lT0Qnmy", "
 
 
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Janvier", 11, 4, 1, 9);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Janvier", 11, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1, 9);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Fevrier", 12, 1, 1, 5);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Fevrier", 12, 1, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1, 5);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Mars", 14, 4, 1, 3);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Mars", 14, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1, 3);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Avril", 10, 4, 2, 2);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Avril", 10, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2, 2);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Mai", 11, 4, 2, 1);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Mai", 11, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2, 1);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Juin", 19, 5, 3, 7);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Juin", 19, 5, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3, 7);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Julliet", 10, 4, 3, 4);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Julliet", 10, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3, 4);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Aout", 10, 4, 4, 2);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Aout", 10, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4, 2);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Septembre", 14, 4, 4, 1);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Septembre", 14, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4, 1);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Octobre", 5, 4, 5, 10);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Octobre", 5, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5, 10);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Novembre", 21, 4, 5, 11);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Novembre", 21, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5, 11);
 
-INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-VALUES ("Decembre", 1, 4, 5, 2);
+INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+VALUES ("Decembre", 1, 4, "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5, 2);
 
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 1);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 1);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 1);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 1);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 1);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 1);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 1);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom 2", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Livin room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Livin room", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 3);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 2);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 2);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 3);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 3);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 3);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 3);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 3);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 4);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 4);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 4);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 4);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 4);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 4);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 4);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 5);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 5);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 5);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 5);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 5);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 5);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 5);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 6);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 6);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 6);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 6);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 6);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 6);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 6);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 6);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 6);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 6);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 6);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 6);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 7);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 7);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 7);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 7);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 7);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 7);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 7);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 7);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 7);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 7);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 7);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 7);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom 2", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Livin room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Livin room", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 8);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 8);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom 2", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Livin room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Livin room", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 9);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 9);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom 2", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Livin room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Livin room", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 10);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 10);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom 2", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Livin room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Livin room", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 11);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 11);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bathroom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 12);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bathroom", 12);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Living room", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 12);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Living room", 12);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("WC", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 12);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("WC", 12);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedrooom", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 12);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedrooom", 12);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Bedroom 2", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 12);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Bedroom 2", 12);
+INSERT INTO Room (Name, Photo, ApartmentID)
+VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg", 12);
 
-INSERT INTO Room (Name, ApartmentID)
-VALUES ("Kitchen", 12);
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Thermostat X400", "Celsius");
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Thermostat X600", "Celsius");
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Thermostat X400", "Celsius", "../assets\devices\thermostat.png");
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Light m67y", "Watt");
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Thermostat X600", "Celsius", "../assets\devices\thermostat.png");
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Light eR43", "Watt");
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Light m67y", "Watt", "../assets/devices/desk-lamp.png");
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Light o900", "Watt");
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Light eR43", "Watt", "../assets/devices/light-bulb.png");
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Air purifier e390", "%");
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Light o900", "Watt", "../assets/devices/light-bulb.png");
 
-INSERT INTO DeviceType (Name, Unit)
-VALUES ("Window coltrol x45", "%");
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Air purifier e390", "%", "../assets/devices/air-purifier.png");
+
+INSERT INTO DeviceType (Name, Unit, Photo)
+VALUES ("Window coltrol x45", "%", "../assets/devices/window.png");
+
 
 
 INSERT INTO Device (Name, State, Value, RoomID, DeviceTypeID)
@@ -842,26 +848,29 @@ INSERT INTO DeviceHistory (State, Value, DateTime, DeviceID)
 VALUES (1, 21.3, CURRENT_TIMESTAMP, 61);
 
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Tempreture TemP7", "Celsius");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Tempreture TemP7", "Celsius", "../assets/sensors/temperature.png");
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Humidity 999x", "%");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Humidity 999x", "%", "../assets/sensors/humidity.png");
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Water usage 5X7", "Liter");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Water usage 5X7", "Liter", "../assets/resources/water.png");
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Window state superX2", "%");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Window state superX2", "%", "../assets\sensors\window.png");
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Smoke detector 77x", "%");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Smoke detector 77x", "%", "../assets/sensors/fire-sensor.png");
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Air clarity e390", "%");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Air clarity e390", "%", "../assets\sensors\air-quality.png");
 
-INSERT INTO SensorType (Name, Unit)
-VALUES ("Gas leak control M566", "%");
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Gas leak control M566", "%", "../assets\sensors\natural-gas.png");
+
+INSERT INTO SensorType (Name, Unit, Photo)
+VALUES ("Electricty usage X200", "kWh", "../assets/resources/electricity.png");
 
 
 INSERT INTO Sensor (Name, MiniValue, MaxiValue, RoomID, SensorTypeID)
