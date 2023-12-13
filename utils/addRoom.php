@@ -17,7 +17,7 @@ if(isset($_POST['roomname'])){
 //     debug_to_console($success);
 	if(!$success){
 		$_SESSION['message'] = 'Room Already Exists';
-    	header('location:../views/addbuilding.php');
+    	header("location:../views/addroom.php?id=$apartmentid");
 	}
 	else{
 		$_SESSION['AccountCreated'] = 'Room Created!';
