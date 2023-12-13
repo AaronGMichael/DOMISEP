@@ -9,7 +9,7 @@ $buildingName = DbUtils::getBuildingName($_GET["id"]);
               <h1>Choose an appartment you want to manage</h1>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
-              <?php foreach($appartments as $appartment){ ?>
+              <?php if(isset($appartments[0]))foreach($appartments as $appartment){ ?>
                 <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
@@ -31,7 +31,11 @@ $buildingName = DbUtils::getBuildingName($_GET["id"]);
                           </div>
                       </div>
                   </li>
-              <?php } ?>
+              <?php } 
+              else {
+                echo "Nothing to Show! Add Appartments";
+              }
+              ?>
               </div>
             </div>
         </div>

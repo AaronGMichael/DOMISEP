@@ -18,8 +18,8 @@ class Apartment{
     }
 
     private function writeApartment($name, $number, $numberofpeople, $buildingid, $accountid){
-        return `INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-        VALUES ("$name", "$number", "$numberofpeople" , "$buildingid", "$accountid")`;
+        return "INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
+        VALUES (\"$name\", \"$number\", \"$numberofpeople\" , \"$buildingid\", \"$accountid\")";
     }
 
     public function sendApartmentToDatabase($connection){

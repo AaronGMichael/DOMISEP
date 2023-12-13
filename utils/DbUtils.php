@@ -13,6 +13,10 @@ class DbUtils extends DbConnection{
         return "SELECT * FROM Building WHERE Name = '$name'";
      }
 
+    private static function getUsers(){
+        return "SELECT AccountID as id, Username, FirstName, Name from account where AccessRights = 101;";
+    }
+
     public static function setUser($P){
         if(DbConnection::$connection->query(DbUtils::getUsersWhereUsername($P->username))->num_rows > 0){
             return 300;
@@ -22,6 +26,21 @@ class DbUtils extends DbConnection{
         }
     }
 
+    public static function getUserIDs(){
+        $userDetails = DbConnection::$connection->query(DbUtils::getUsers());
+        if($userDetails->num_rows === 0) return false;
+        $userList = array();
+        while($user = $userDetails->fetch_object()){
+            $userList[] = [
+                "id" => $user->id,
+                "name" => $user->Name,
+                "firstName" => $user->FirstName,
+                "username" => $user->Username,
+            ];
+        }
+        return $userList;
+    }
+
     public static function setBuilding($P){
         if(DbConnection::$connection->query(DbUtils::getBuildingWhereName($P->name))->num_rows > 0){
             return 300;
@@ -29,6 +48,10 @@ class DbUtils extends DbConnection{
         else{
             return $P->sendBuildingToDatabase(DbConnection::$connection);
         }
+    }
+
+    public static function setApartment($P){
+        return $P->sendApartmentToDatabase(DbConnection::$connection);
     }
 
     public static function getUser($username){

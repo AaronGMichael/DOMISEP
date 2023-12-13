@@ -1,6 +1,8 @@
 <?php
 include_once("../layout/header.php");
 include_once("../components/proveAdmin.php");
+$utils = new DbUtils();
+$userList = DbUtils::getUserIDs();
 ?>
 
     <div class="background-login-light"></div>
@@ -14,19 +16,32 @@ include_once("../components/proveAdmin.php");
                                         <img src="../assets/icons/add-apartment.svg"></img>
                                     </div>
                                     <h1 class="text-center">Add Apartment</h1>
-                                    <form method="POST" action="../utils/addapartment.php">
+                                    <form method="POST" action="../utils/addApartment.php">
                                         <fieldset>
                                             <div class="form-group">
                                                 <label for="name">Apartment Name : </label>
-                                                <input class="form-control" placeholder="Building name" type="text" name="apartmentname" autofocus required>
+                                                <input class="form-control" placeholder="Appartment name" type="text" name="apartmentname" autofocus required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="UploadPhoto">Photo Upload : </label>
-                                                <input class="form-control" placeholder="Select Photo" type="file" name="apartmentphoto" required>
+                                                <input class="form-control" placeholder="Select Photo" type="file" name="apartmentphoto">
                                             </div>
                                             <div class="form-group">
-                                                <label for="Address">Floor : </label>
-                                                <input class="form-control"  placeholder="Enter Floor Number" type="text" name="floornumber" required>
+                                                <label for="Address">Apartment Number: </label>
+                                                <input class="form-control"  placeholder="Enter Apartment Number" type="number" name="number" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Address">Number Of People: </label>
+                                                <input class="form-control"  placeholder="Enter Number Of People" type="number" name="numberofpeople" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sensortype">User Account:</label>
+                                                <select class = "form-control" placeholder="Sensortype" type = "name" name = "userID" required>
+                                                    <option value = "" disabled selected>Select from Options</option>
+                                                    <?php foreach($userList as $theUser){ ?>
+                                                        <option value="<?php echo $theUser["id"] ?>"><?php echo $theUser["name"]?> / <?php echo $theUser["username"]?></option>
+                                                    <?php }?>
+                                                </select>
                                             </div>
                                             <input style="display: none;" name="buildingID" value="<?php echo $_GET['id']?>">
                                             <button type="submit" name="register" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
