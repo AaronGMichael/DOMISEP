@@ -20,9 +20,9 @@ class Apartment{
         $this->accountid = $accountid;
     }
 
-    private function writeApartment($name, $number, $numberofpeople, $buildingid, $accountid){
-        return "INSERT INTO Apartment (Name, Number, NumberOfPeople, BuildingID, AccountID)
-        VALUES (\"$name\", \"$number\", \"$numberofpeople\" , \"$buildingid\", \"$accountid\")";
+    private function writeApartment($name, $number, $numberofpeople, $photo, $buildingid, $accountid){
+        return "INSERT INTO Apartment (Name, Number, NumberOfPeople, Photo, BuildingID, AccountID)
+        VALUES (\"$name\", \"$number\", \"$numberofpeople\" , \"$photo\", \"$buildingid\", \"$accountid\")";
     }
 
     public function sendApartmentToDatabase($connection){

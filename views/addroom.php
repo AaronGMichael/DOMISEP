@@ -18,11 +18,11 @@ include_once("../components/proveAdmin.php");
                                         <fieldset>
                                             <div class="form-group">
                                                 <label for="name">Room Name : </label>
-                                                <input class="form-control" placeholder="Building name" type="text" name="roomname" autofocus required>
+                                                <input class="form-control" placeholder="Room name" type="text" name="roomname" autofocus required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="UploadPhoto">Photo Upload : </label>
-                                                <input class="form-control" placeholder="Select Photo" type="file" name="roomphoto" required>
+                                                <input class="form-control" placeholder="Select Photo" type="text" name="roomphoto">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Address">Room Number: </label>
