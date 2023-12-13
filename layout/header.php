@@ -26,7 +26,7 @@ $user = unserialize($user);
     <link rel="stylesheet" type="text/css" href="../css/style-buttons.css">
     <link rel="stylesheet" type="text/css" href="../css/style-containers.css">
     <link rel="stylesheet" type="text/css" href="../css/style-layout.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../css/style-assets.css"> -->
+    <link rel="stylesheet" type="text/css" href="../css/style-forms.css">
 </head>
 <style>
     a{
@@ -46,9 +46,11 @@ $user = unserialize($user);
                 <b>
                 <?php 
                 $page = $_SERVER['REQUEST_URI'];
+                $currentId =isset($_GET['id'])? $_GET["id"]:0;
                 if($user->isAdmin() && str_contains($page, "home")) echo "<a class='add' href='../views/addbuilding.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
-                if($user->isAdmin() && str_contains($page, "building")) echo "<a class='add' href='../views/addapartment.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
-                if($user->isAdmin() && str_contains($page, "apartment")) echo "<a class='add' href='../views/addroom.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "building")) echo "<a class='add' href='../views/addapartment.php?id=$currentId'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "apartment")) echo "<a class='add' href='../views/addroom.php?id=$currentId'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "profile")) echo "<a class='add' href='../views/register.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
                 
                 ?>
                 <a href=<?php echo $user->isAdmin() ? "../views/home.php": "../views/apartment.php"?>>Home</a>

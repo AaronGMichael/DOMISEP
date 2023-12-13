@@ -28,6 +28,7 @@ include_once("../components/proveAdmin.php");
                                                 <label for="Address">Room Number: </label>
                                                 <input class="form-control"  placeholder="Enter Floor Number" type="text" name="roomnumber" required>
                                             </div>
+                                            <input style="display: none;" name="apartmentID" value="<?php echo $_GET['id']?>">
                                             <button type="submit" name="register" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
                                         </fieldset>
                                     </form>

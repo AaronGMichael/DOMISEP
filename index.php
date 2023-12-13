@@ -82,7 +82,7 @@
                                         <button type="submit" name="login" class="button-submit"> Login</button>
 
                                     </fieldset>
-                                    <a type="button" class="button-unvisible" href="./views/register.php">You don't have an account? Register here</a>
+                                    <!-- <a type="button" class="button-unvisible" href="./views/register.php">You don't have an account? Register here</a> -->
                                     <!-- <a type="button" class="button-unvisible" href="#">Forgot the password?</button> -->
                                 </form>
                             </div>
