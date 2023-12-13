@@ -3,6 +3,7 @@ include_once('../layout/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,15 @@ include_once('../layout/header.php');
                                     <div class="form-group">
                                         <label for="name">Device Name : </label>
                                         <input class="form-control" placeholder="Device name" type="text" name="devicename" autofocus required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Device Type : </label>
+                                        <select class="form-control" name="deviceType">
+                                            <option value="">Test 1</option>
+                                            <option value="">Test 2</option>
+                                            <option value="">test 3</option>
+                                            <option value="">Test 4</option>
+                                        </select>
                                     </div>
                                     <button type="submit" name="addbtn" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
                                 </fieldset>
