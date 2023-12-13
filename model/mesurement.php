@@ -1,10 +1,10 @@
 <?php
 
 class Mesurement{
-    private int $mesurementid;
+    public int $mesurementid;
     public float $value;
     public string $datetime;
-    private int $sensorid;
+    public int $sensorid;
 
     public function __construct($mesurementid, $value, $datetime, $sensorid){
         $this->mesurementid = $mesurementid;

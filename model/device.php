@@ -1,12 +1,12 @@
 <?php
 
 class Device{
-    private int $deviceid;
+    public int $deviceid;
     public string $name;
     public bool $state;
     private float $value;
     private int $roomid;   
-    private int $devicetypeid;
+    public int $devicetypeid;
 
     public function __construct($deviceid, $name, $state, $value, $roomid, $devicetypeid){
         $this->deviceid = $deviceid;
@@ -25,6 +25,12 @@ class Device{
     public function sendDeviceToDatabase($connection){
             return $connection->query($this->writeDevice($this->name, $this->state, $this->value, $this->roomid, $this->devicetypeid));
     }
+
+    public function getState(){
+        if($this->state == 1)return "ON";
+        else if($this->state == 0)return "OFF";
+}
+
 
 
 }

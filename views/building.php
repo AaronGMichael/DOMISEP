@@ -13,7 +13,7 @@ $buildingName = DbUtils::getBuildingName($_GET["id"]);
                 <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
-                              <div class="card_image"><img src="https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg"></div>
+                              <div class="card_image"><img src="<?php echo $appartment->photo; ?>"></div>
                           </div>
                               <div class="card_content">
                               <h1 class="card_title"><?php echo $appartment->name?></h1>
