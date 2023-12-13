@@ -9,12 +9,12 @@ include_once('DbUtils.php');
  
 if(isset($_POST['apartmentname'])){
 	$name = $_POST['apartmentname'];
-	// $photo = $_POST['photo'];
+	$photo = strlen($_POST['apartmentphoto']) > 1 ? $_POST['apartmentphoto'] : "https://www.contemporist.com/wp-content/uploads/2016/04/contemporary-apartment_040416_06-800x533.jpg";
     $number = $_POST['number'];
     $numberofpeople = $_POST['numberofpeople'];
     $accountid = $_POST['userID'];
     $buildingid = $_POST['buildingID'];
-	$p = new Apartment(100, $name, $number, $numberofpeople, $buildingid, $accountid);
+	$p = new Apartment(100, $name, $number, $numberofpeople, $photo, $buildingid, $accountid);
     $utils = new DBUtils();
 	$success = DBUtils::setApartment($p);
 //     debug_to_console($success);

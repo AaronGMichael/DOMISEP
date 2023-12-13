@@ -27,7 +27,7 @@ if(isset($_POST['register'])){
 	}
 	else{
 		$_SESSION['AccountCreated'] = 'Account Created!';
-		header('location:../index.php');
+		header('location:../views/profile.php');
 	}
 }
 else{

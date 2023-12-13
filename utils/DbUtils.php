@@ -59,6 +59,10 @@ class DbUtils extends DbConnection{
         return $P->sendApartmentToDatabase(DbConnection::$connection);
     }
 
+    public static function setRoom($P){
+        return $P->sendRoomToDatabase(DbConnection::$connection);
+    }
+
     public static function getUser($username){
         $userDetails = DbConnection::$connection->query(DbUtils::getUsersWhereUsername($username));
         if($userDetails->num_rows === 0) return false;

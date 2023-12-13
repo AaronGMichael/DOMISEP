@@ -24,7 +24,7 @@ $userList = DbUtils::getUserIDs();
                                             </div>
                                             <div class="form-group">
                                                 <label for="UploadPhoto">Photo Upload : </label>
-                                                <input class="form-control" placeholder="Select Photo" type="file" name="apartmentphoto">
+                                                <input class="form-control" placeholder="Select Photo" type="text" name="apartmentphoto">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Address">Apartment Number: </label>

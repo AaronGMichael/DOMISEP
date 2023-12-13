@@ -81,6 +81,15 @@ $user = unserialize($user);
                     
                                         unset($_SESSION['welcome']);
                                     }
+                                    if(isset($_SESSION['AccountCreated'])){
+                                        ?>
+                                            <div id='alertBanner' class="alert alert-success text-center">
+                                                <?php echo $_SESSION['AccountCreated']; ?>
+                                            </div>
+                                        <?php
+                    
+                                        unset($_SESSION['AccountCreated']);
+                                    }
                                     
                                 ?>
     </div>
