@@ -462,10 +462,10 @@ VALUES ("Kitchen", "https://www.contemporist.com/wp-content/uploads/2016/04/cont
 
 
 INSERT INTO DeviceType (Name, Unit, Photo)
-VALUES ("Thermostat X400", "Celsius", "../assets\devices\thermostat.png");
+VALUES ("Thermostat X400", "Celsius", "../assets/devices/thermostat.png");
 
 INSERT INTO DeviceType (Name, Unit, Photo)
-VALUES ("Thermostat X600", "Celsius", "../assets\devices\thermostat.png");
+VALUES ("Thermostat X600", "Celsius", "../assets/devices/thermostat.png");
 
 INSERT INTO DeviceType (Name, Unit, Photo)
 VALUES ("Light m67y", "Watt", "../assets/devices/desk-lamp.png");
@@ -858,16 +858,16 @@ INSERT INTO SensorType (Name, Unit, Photo)
 VALUES ("Water usage 5X7", "Liter", "../assets/resources/water.png");
 
 INSERT INTO SensorType (Name, Unit, Photo)
-VALUES ("Window state superX2", "%", "../assets\sensors\window.png");
+VALUES ("Window state superX2", "%", "../assets/sensors/window.png");
 
 INSERT INTO SensorType (Name, Unit, Photo)
 VALUES ("Smoke detector 77x", "%", "../assets/sensors/fire-sensor.png");
 
 INSERT INTO SensorType (Name, Unit, Photo)
-VALUES ("Air clarity e390", "%", "../assets\sensors\air-quality.png");
+VALUES ("Air clarity e390", "%", "../assets/sensors/air-quality.png");
 
 INSERT INTO SensorType (Name, Unit, Photo)
-VALUES ("Gas leak control M566", "%", "../assets\sensors\natural-gas.png");
+VALUES ("Gas leak control M566", "%", "../assets/sensors/natural-gas.png");
 
 INSERT INTO SensorType (Name, Unit, Photo)
 VALUES ("Electricty usage X200", "kWh", "../assets/resources/electricity.png");
