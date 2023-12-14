@@ -33,7 +33,11 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                         </div>
                     </li>
                     <?php } ?>
-                    <?php if($user->isAdmin()) readfile('../components/addSensor.html'); ?>
+                    <?php if($user->isAdmin()) {
+                        $link = "sensor";
+                        include '../components/addRoomModule.php'; }
+                        unset($link);
+                    ?>
 
                 </ul>
 
@@ -41,7 +45,7 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
 
                 <h1>Devices</h1>
                 <ul class="cards_grid">
-                <?php if(isset($sensors[0])) foreach($devices as $device){ ?>
+                <?php if(isset($devices[0])) foreach($devices as $device){ ?>
                      <?php $devicetype = DbUtils::getDeviceType($device->devicetypeid); ?>
                     <li class="cards_item_grid">
                         <div class="card_grid">
@@ -57,7 +61,11 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                         </div>
                     </li>
                     <?php } ?>
-                    <?php if($user->isAdmin())readfile('../components/addDevice.html'); ?>
+                    <?php if($user->isAdmin()) {
+                        $link = "Device";
+                        include '../components/addRoomModule.php'; }
+                        unset($link);
+                    ?>
                 </ul>
                 <div class="additional-padding-small"></div>
 

@@ -14,8 +14,7 @@ class SensorType{
     }
 
     private function writeSensorType($name, $unit, $photo){
-        return `INSERT INTO DeviceType (Name, Unit, Photo)
-        VALUES ("$name", "$unit","$photo")`;
+        return "INSERT INTO SensorType (Name, Unit, Photo) VALUES (\"$name\", \"$unit\",\"$photo\")";
     }
 
     public function sendSensorTypeToDatabase($connection){
