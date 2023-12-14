@@ -20,7 +20,7 @@ if(isset($_POST['apartmentname'])){
 //     debug_to_console($success);
 	if(!$success){
 		$_SESSION['message'] = 'Apartment Already Exists';
-    	header('location:../views/addbuilding.php');
+    	header("location:../views/addapartment.php?id=$buildingid");
 	}
 	else{
 		$_SESSION['AccountCreated'] = 'Apartment Created!';
