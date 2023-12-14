@@ -22,6 +22,10 @@ class DbUtils extends DbConnection{
         return "SELECT AccountID as id, Username, FirstName, Name from account where AccessRights = 101;";
     }
 
+    private static function getSensorTypeWhereUnit($name, $unit){
+        return "SELECT * from SensorType where Name = \"$name\" AND Unit = \"$unit\";";
+    }
+
     public static function setUser($P){
         if(DbConnection::$connection->query(DbUtils::getUsersWhereUsername($P->username))->num_rows > 0){
             return 300;
@@ -46,6 +50,20 @@ class DbUtils extends DbConnection{
         return $userList;
     }
 
+    public static function getSensorTypes(){
+        $userDetails = DbConnection::$connection->query("SELECT SensorTypeID as id, Name, Unit FROM sensortype;");
+        if($userDetails->num_rows === 0) return false;
+        $sensorTypeList = array();
+        while($user = $userDetails->fetch_object()){
+            $sensorTypeList[] = [
+                "id" => $user->id,
+                "name" => $user->Name,
+                "unit" => $user->Unit,
+            ];
+        }
+        return $sensorTypeList;
+    }
+
     public static function setBuilding($P){
         if(DbConnection::$connection->query(DbUtils::getBuildingWhereName($P->name))->num_rows > 0){
             return 300;
@@ -61,6 +79,19 @@ class DbUtils extends DbConnection{
 
     public static function setRoom($P){
         return $P->sendRoomToDatabase(DbConnection::$connection);
+    }
+
+    public static function setSensorType($P){
+        if(DbConnection::$connection->query(DbUtils::getSensorTypeWhereUnit($P->name, $P->unit))->num_rows > 0){
+            return 300;
+        }
+        else{
+            return $P->sendSensorTypeToDatabase(DbConnection::$connection);
+        }
+    }
+
+    public static function setNewSensor($P){
+        return $P->sendSensorToDatabase(DbConnection::$connection);
     }
 
     public static function getUser($username){

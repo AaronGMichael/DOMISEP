@@ -18,8 +18,7 @@ class Sensor{
     }
 
     private function writeSensor($name, $minivalue, $maxivalue, $roomid, $sensortypeid){
-        return `INSERT INTO Sensor (Name, MiniValue, MaxiValue, RoomID, SensorTypeID)
-        VALUES ("$name", "$minivalue", "$maxivalue" , "$roomid", "$sensortypeid")`;
+        return "INSERT INTO Sensor (Name, MiniValue, MaxiValue, RoomID, SensorTypeID) VALUES (\"$name\", \"$minivalue\", \"$maxivalue\" , \"$roomid\", \"$sensortypeid\")";
     }
 
     public function sendSensorToDatabase($connection){
