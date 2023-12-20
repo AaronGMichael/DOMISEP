@@ -1,7 +1,7 @@
 <?php
 
 class Apartment{
-    private int $apartmentid;
+    public int $apartmentid;
     public string $name;
     public int $number;
     private int $numberofpeople;
