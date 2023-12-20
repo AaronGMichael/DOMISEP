@@ -53,5 +53,6 @@ div.scroll-container {
 
 #chart-container{
     width: 80%;
+    height: 80%;
     margin: auto;
 }
