@@ -10,7 +10,9 @@ $buildings = DbUtils::getBuilding();
               <h1>Choose a building of your interest</h1>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
-              <?php foreach($buildings as $building){ ?>
+              <?php foreach($buildings as $building){ 
+                $sumWater = DbUtils::sumUpWaterBuilding($building->buildingid);
+                $sumEle = DbUtils::sumUpElectricityBuilding($building->buildingid);?>
                 <li class="cards_item">
                       <div class="card" style="min-width: 300px;">
                           <div class="card_image_container">
@@ -21,10 +23,10 @@ $buildings = DbUtils::getBuilding();
                               <div class="row align-items-center">
                               <h1 class="card_title"><?php echo $building->getAddress()?></h1>
                               <div class="col">
-                                  <h2 class="card_text">Electricity:</h2>
+                                  <h2 class="card_text">Electricity:<b><?php echo $sumEle  . " kWh"; ?></b></h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Water:</h2>
+                                  <h2 class="card_text">Water:<b><?php echo $sumWater  . " Liters"; ?></b></h2>
                                 </div>
                               </div>
                               <a href="building.php?id=<?php echo $building->buildingid?>">

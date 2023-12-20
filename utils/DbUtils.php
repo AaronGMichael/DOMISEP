@@ -226,6 +226,13 @@ class DbUtils extends DbConnection{
         return $obj;
     }
 
+    public static function getSensorType1($sensorid){
+        $sensorDetails = DbConnection::$connection->query("SELECT * FROM SensorType WHERE SensorTypeID = (SELECT SensorTypeID FROM Sensor WHERE SensorID = '$sensorid')");
+        $sensortype = $sensorDetails->fetch_object();
+            $obj = new DeviceType($sensortype->SensorTypeID,$sensortype->Name,$sensortype->Unit, $sensortype->Photo);
+        return $obj;
+    }
+
     public static function getMesurementByAdmin($sensorid){
         $mesurementDetails = DbConnection::$connection->query("SELECT * FROM Mesurement WHERE SensorID = '$sensorid'");
         if($mesurementDetails->num_rows === 0) return false;
@@ -243,5 +250,86 @@ class DbUtils extends DbConnection{
         $obj = new Mesurement($mesurement->MesurementID,$mesurement->Value,$mesurement->DateTime,$mesurement->SensorID);
         return $obj;
     }
+
+    public static function sumUpElectricity($apartmentid){
+        $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Device WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5))");
+        if($sum->num_rows === 0) return "No data";
+        $mesurement = $sum->fetch_row();
+        
+        return $mesurement[0];
 }
-?>  
+
+public static function sumUpWater($apartmentid){
+    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND MONTH(DateTime) = MONTH(CURRENT_TIMESTAMP)");
+    if($sum->num_rows === 0) return "No data";
+    $mesurement = $sum->fetch_row();
+    
+    return $mesurement[0];
+}
+
+public static function sumUpElectricityBuilding($buildingid){
+    $apartments = DbUtils::getApartmentByAdmin($buildingid);
+    $value = 0;
+    foreach($apartments as $apartment){
+        if(DbUtils::sumUpElectricity($apartment->apartmentid) != "No data") $value += (float)DbUtils::sumUpElectricity($apartment->apartmentid);
+    }
+    
+    return $value;
+}
+
+public static function sumUpWaterBuilding($buildingid){
+$apartments = DbUtils::getApartmentByAdmin($buildingid);
+$value = 0;
+    foreach($apartments as $apartment){
+        if(DbUtils::sumUpWater($apartment->apartmentid) != "No data") $value += (float)DbUtils::sumUpWater($apartment->apartmentid);
+    }
+
+return $value;
+}
+
+    public static function light($roomid){
+        $dDetails = DbConnection::$connection->query("SELECT * FROM Device WHERE RoomID = '$roomid' AND DeviceTypeID IN (3, 4, 5)");
+        if($dDetails->num_rows === 0) return "No data";
+        while($d = $dDetails->fetch_object()){
+            if($d->State == 1) return "ON";
+        }
+        return "OFF";
+    }
+    public static function temperature($roomid){
+        $mesurementDetails = DbConnection::$connection->query("SELECT * FROM Mesurement
+            WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID = '$roomid' AND SensorTypeID = 1)
+            AND DateTime = (
+            SELECT MAX(DateTime) 
+            FROM Mesurement 
+            WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID = '$roomid' AND SensorTypeID = 1));");
+        if($mesurementDetails->num_rows === 0) return NULL;
+        $mesurement = $mesurementDetails->fetch_object();
+        $obj = new Mesurement($mesurement->MesurementID,$mesurement->Value,$mesurement->DateTime,$mesurement->SensorID);
+        return $obj;
+    }
+
+    public static function humidity($roomid){
+        $mesurementDetails = DbConnection::$connection->query("SELECT * FROM Mesurement
+            WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID = '$roomid' AND SensorTypeID = 2)
+            AND DateTime = (
+            SELECT MAX(DateTime) 
+            FROM Mesurement 
+            WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID = '$roomid' AND SensorTypeID = 2));");
+        if($mesurementDetails->num_rows === 0) return NULL;
+        $mesurement = $mesurementDetails->fetch_object();
+        $obj = new Mesurement($mesurement->MesurementID,$mesurement->Value,$mesurement->DateTime,$mesurement->SensorID);
+        return $obj;
+    }
+
+    public static function airCondition($roomid){
+        $dDetails = DbConnection::$connection->query("SELECT * FROM Device WHERE RoomID = '$roomid' AND DeviceTypeID = 6");
+        if($dDetails->num_rows === 0) return "No data";
+        while($d = $dDetails->fetch_object()){
+        if($d->State == 1) return "ON";
+        }
+        return "OFF";
+    }
+
+}
+    
+?> 
