@@ -260,7 +260,7 @@ class DbUtils extends DbConnection{
 }
 
 public static function sumUpWater($apartmentid){
-    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND MONTH(DateTime) = MONTH(CURRENT_TIMESTAMP)");
+    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND YEAR(DateTime) = YEAR(CURRENT_TIMESTAMP)");
     if($sum->num_rows === 0) return "No data";
     $mesurement = $sum->fetch_row();
     

@@ -4,8 +4,8 @@ $utils = new DbUtils();
 $currentId =  $user->isAdmin()? $_GET["id"] : DbUtils::getApartmentByUser($user->id)->getId();
 $rooms = DbUtils::getRoomByAdmin($currentId);
 $apartmentName = DbUtils::getApartmentName($currentId);
-$sumWater = DbUtils::sumUpWater($_GET["id"]);
-$sumEle = DbUtils::sumUpElectricity($_GET["id"]);
+$sumWater = DbUtils::sumUpWater($currentId);
+$sumEle = DbUtils::sumUpElectricity($currentId);
 
 ?>
           <div class="basic-container">
