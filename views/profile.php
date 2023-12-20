@@ -13,20 +13,28 @@ include_once('../layout/header.php');
 		    		unset($_SESSION['messageLoggedIN']);
 		    	}
 		    ?>
-        <div class="basic-container">
-            <div class="additional-padding-little"></div>
-            <h1>Profile</h1>
+                <div class="basic-container">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <sd style="text-align: left;">
+                                <h1>Profile</h1>
+                            </sd>
+                        </div>
+                        <div class="col">
+                            <sd style="text-align: right;">
+                                <div class="form-group">
+                                    <a href="addsensor.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add sensor Type</button></a>
+                                    <a href="adddevice.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
+                                </div>
+                            </sd>
+                        </div>
             <h2>
                 Here we can provide you with all the informations we store about you. You can change almost everything, 
                 besides name and surname. We hope that you will not get angry because of that...
             </h2>
             <div class="additional-padding-medium"></div>
             <div class="row align-items-center">
-                <div class="col" style = "max-width: 300px;">
-                    <!-- <svg class="center-svg" xmlns="http://www.w3.org/2000/svg" align=center width="250" height="250" fill="black" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                    </svg> -->
+                <div class="col" style = "width: 300px;">
                     <img src="../assets/man.png" style = "width: 100%; height:auto;">
                 </div>
                 <div class="col">

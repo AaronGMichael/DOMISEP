@@ -63,6 +63,3 @@ include_once('../layout/header.php');
 </body>
 
 </html>
-<?php
-include('../layout/footer.php');
-?>

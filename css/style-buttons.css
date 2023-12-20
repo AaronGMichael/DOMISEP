@@ -22,7 +22,27 @@
     border-radius: 30px;
 
 }
+.button-submit-profile {
+    background-color: rgb(255, 0, 0);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    border-radius: 10px;    
+}
 
+.button-submit-profile:hover {
+    color: #FFFFFF;
+    background-color: #000000;
+    border-radius: 30px;
+
+}
 .button-unvisible-top {
     background-color: rgba(0, 0, 0, 0);
     color: #000000;
@@ -80,6 +100,7 @@
     border-radius: 10px;
 
 }
+
 .button-container {
     background-color: rgb(255, 0, 0);
     color: white;
