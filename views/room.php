@@ -27,8 +27,10 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                                 <?php $mesurement = DbUtils::getLatestMesurement($sensor->sensorid); ?>
                                 <h2 class="card_text_grid">Value: <b><?php 
                                         if($mesurement == NULL) echo "No data";
-                                        else echo $mesurement->value . " " . $sensortype->unit;?></b></h2>
+                                        else echo $mesurement->value . "" . $sensortype->unit;?></b></h2>
+                            <a href="viewchart.php?id=<?php echo $sensor->sensorid?>">
                                 <button type="submit" name="view-charts" class="button-submit">View Charts</button>
+                            </a>
                             </div>
                         </div>
                     </li>
