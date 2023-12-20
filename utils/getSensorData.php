@@ -4,7 +4,7 @@ include_once('DbUtils.php');
 
 $utils = new DBUtils();
 
-$measurements = DbUtils::getMesurementByAdmin(21);
+$measurements = DbUtils::getMesurementByAdmin($_POST["id"]);
 
 $data = array();
 foreach ($measurements as $row) {
@@ -12,5 +12,5 @@ foreach ($measurements as $row) {
 }
 
 
-echo json_encode($data);
+echo json_encode(count($data)>0 ? $data : "empty");
 ?>

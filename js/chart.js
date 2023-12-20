@@ -5,20 +5,21 @@ $(document).ready(function () {
 
 function showGraph()
 {
-    {
-        $.post("../utils/getSensorData.php",{ name: "John", time: "2pm" },
+    {   let graphTarget = $("#graphCanvas");
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('id');
+        $.post("../utils/getSensorData.php",
+        { id: myParam},
         function (result)
         {
             console.log(result);
              var dates = [];
             var values = [];
-
+            document.getElementById("noData").innerHTML = "";
             for (var i in result) {
                 dates.push(result[i].datetime);
                 values.push(result[i].value);
             }
-            console.log(dates);
-            console.log(values);
             var chartdata = {
                 labels: dates,
                 datasets: [
@@ -32,8 +33,6 @@ function showGraph()
                     }
                 ]
             };
-
-            var graphTarget = $("#graphCanvas");
 
             var barGraph = new Chart(graphTarget, {
                 type: 'line',
