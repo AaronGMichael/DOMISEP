@@ -270,7 +270,7 @@ public static function sumUpWater($apartmentid){
 public static function sumUpElectricityBuilding($buildingid){
     $apartments = DbUtils::getApartmentByAdmin($buildingid);
     $value = 0;
-    foreach($apartments as $apartment){
+    if(isset($apartments[0]))foreach($apartments as $apartment){
         if(DbUtils::sumUpElectricity($apartment->apartmentid) != "No data") $value += (float)DbUtils::sumUpElectricity($apartment->apartmentid);
     }
     
@@ -280,7 +280,7 @@ public static function sumUpElectricityBuilding($buildingid){
 public static function sumUpWaterBuilding($buildingid){
 $apartments = DbUtils::getApartmentByAdmin($buildingid);
 $value = 0;
-    foreach($apartments as $apartment){
+if(isset($apartments[0]))foreach($apartments as $apartment){
         if(DbUtils::sumUpWater($apartment->apartmentid) != "No data") $value += (float)DbUtils::sumUpWater($apartment->apartmentid);
     }
 
