@@ -50,3 +50,8 @@ div.scroll-container {
 .additional-padding-temporary {
     padding-top: 2000px;
 }
+
+#chart-container{
+    width: 80%;
+    margin: auto;
+}

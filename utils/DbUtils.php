@@ -234,7 +234,7 @@ class DbUtils extends DbConnection{
     }
 
     public static function getMesurementByAdmin($sensorid){
-        $mesurementDetails = DbConnection::$connection->query("SELECT * FROM Mesurement WHERE SensorID = '$sensorid'");
+        $mesurementDetails = DbConnection::$connection->query("SELECT * FROM Mesurement WHERE SensorID = '$sensorid' ORDER BY DateTime");
         if($mesurementDetails->num_rows === 0) return false;
         $mesurements = array();
         while($mesurement = $mesurementDetails->fetch_object()){

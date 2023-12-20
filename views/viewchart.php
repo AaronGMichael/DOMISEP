@@ -4,7 +4,7 @@ include_once("../components/proveAdmin.php");
 ?>
 
 <div>
-
+<?php include_once("../components/graphs.php");?>
 </div>
 
 
