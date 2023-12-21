@@ -23,8 +23,8 @@ include_once('../layout/header.php');
                         <div class="col">
                             <sd style="text-align: right;">
                                 <div class="form-group">
-                                    <a href="addsensor.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add sensor Type</button></a>
-                                    <a href="adddevice.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
+                                    <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add Sensor Type</button></a>
+                                    <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
                                 </div>
                             </sd>
                         </div>

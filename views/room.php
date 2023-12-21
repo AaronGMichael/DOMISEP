@@ -34,7 +34,7 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                             </div>
                         </div>
                     </li>
-                    <?php } ?>
+                    <?php } else if(!$user->isAdmin())echo "Not connected to any Sensors"; ?>
                     <?php if($user->isAdmin()) {
                         $link = "sensor";
                         include '../components/addRoomModule.php'; }
@@ -62,7 +62,7 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                             </div>
                         </div>
                     </li>
-                    <?php } ?>
+                    <?php } else if(!$user->isAdmin())echo "Not connected to any Devices"; ?>
                     <?php if($user->isAdmin()) {
                         $link = "Device";
                         include '../components/addRoomModule.php'; }

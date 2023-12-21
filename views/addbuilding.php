@@ -27,7 +27,7 @@ include_once("../components/proveAdmin.php");
                                             <div class="form-group">
                                                 <label for="UploadPhoto">Photo Upload : </label>
                                                 <!-- <input class="form-control" placeholder="Select Photo" type="file" name="photo" required> -->
-                                                <input class="form-control" placeholder="Select Photo" type="string" name="photo" required>
+                                                <input class="form-control" placeholder="Select Photo" type="string" name="photo">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Address">Address : </label>
