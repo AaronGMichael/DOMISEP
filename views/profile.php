@@ -22,10 +22,10 @@ include_once('../layout/header.php');
                         </div>
                         <div class="col">
                             <sd style="text-align: right;">
-                                <div class="form-group">
+                                <?php if($user->isAdmin()) echo '<div class="form-group">
                                     <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add Sensor Type</button></a>
                                     <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
-                                </div>
+                                </div>' ?>
                             </sd>
                         </div>
             <h2>
