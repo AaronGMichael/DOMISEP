@@ -1,5 +1,11 @@
 <?php
 include_once('../layout/header.php');
+include_once("../model/devicetype.php");
+include_once("../components/proveAdmin.php");
+$utils = new DbUtils();
+$deviceTypes = DbUtils::getDeviceTypeByAdmin();
+$utils = new DbUtils(); 
+$sensorTypeList = DbUtils::getSensorTypes();
 ?>
 <div class="background-login-light"></div>
 <section>
@@ -15,15 +21,30 @@ include_once('../layout/header.php');
                                     <label for="name">Device Name : </label>
                                     <input class="form-control" placeholder="Device name" type="text" name="devicename" autofocus required>
                                 </div>
-                                <div class="form-group mt-2">
-                                    <label for="name">Device Type : </label>
-                                    <select class="form-control" name="deviceType">
-                                        <option value="">Test 1</option>
-                                        <option value="">Test 2</option>
-                                        <option value="">test 3</option>
-                                        <option value="">Test 4</option>
+                                <div class="form-group">
+                                    <label for="name">State : </label>
+                                    <select class="form-control" name="devicestate">
+                                        <option class="form-control"  value=0>Off</option>
+                                        <option class="form-control" value=1>On</option>
                                     </select>
                                 </div>
+                                <div class="form-group mt-2">
+                                    <label for="name">Device Type : </label>
+                                    <select class="form-control" name="devicetype">
+                                        <option selected disabled class="form-control" align="center">Select Device Types</option>
+                                        <?php
+                                        foreach ($deviceTypes as $deviceType) { ?>
+                                            <option value="<?php echo $deviceType->devicetypeid ?>"><?php echo $deviceType->name ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;">
+                                    <label for="maxvalue">Value:</label>
+                                    <input class="form-control" placeholder="Enter Value" type="number" step="0.1" name="devicevalue" required>
+                                </div>
+                                <input style="display: none;" name="roomID" value="<?php echo $_GET['id'] ?>">
                                 <button type="submit" name="addbtn" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
                             </fieldset>
                         </form>
