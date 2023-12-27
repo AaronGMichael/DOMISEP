@@ -6,9 +6,20 @@ $(document).ready(function () {
 function showGraph()
 {
     {   let graphTarget = $("#graphCanvas");
+        let chartStatus = Chart.getChart("graphCanvas"); // <canvas> id
+        if (chartStatus != undefined) {
+            chartStatus.destroy();
+        }
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get('type');
         const apartment = urlParams.get('apartmentid');
+        let fromDate = document.querySelector("#fromDate").value;
+        let toDate = document.querySelector("#toDate").value;
+        if(fromDate) fromDate = new Date(fromDate);
+        else fromDate = new Date(0);
+        if(toDate) toDate = new Date(toDate);
+        else toDate = new Date();
+        console.log(fromDate, toDate)
         $.post("../utils/getApartmentUsageHistory.php",
         {   
             type:type,
@@ -17,7 +28,6 @@ function showGraph()
         function (result)
         {
             let data = [];
-            console.log(result);
             document.getElementById("noData").innerHTML = "";
             for (var i in result) {
                 let t = result[i].DateTime.split(/[- :]/);
@@ -30,12 +40,15 @@ function showGraph()
             var chartdata = {
                 datasets: [
                     {
-                        label: 'Sensor History',
+                        label: 'Usage History',
                         backgroundColor: '#49e2ff',
                         borderColor: '#46d5f1',
                         hoverBackgroundColor: '#CCCCCC',
                         hoverBorderColor: '#666666',
-                        data: data
+                        data: data.filter((entry) => {
+                            if(entry.x>=fromDate && entry.x<=toDate) return true;
+                            else return false;
+                        })
                     }
                 ]
             };
@@ -46,7 +59,10 @@ function showGraph()
                 options:{
                     scales: {
                         x: {
-                            type:"time"
+                            type:"time",
+                            time:{
+                                unit: "day"
+                            }
                         }
                     }
                 }
