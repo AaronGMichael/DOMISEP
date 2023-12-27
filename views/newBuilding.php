@@ -22,20 +22,20 @@ include_once('../layout/header.php');
                             <form method="POST" action="../utils/addBuilding.php">
                                 <fieldset>
                                     <div class="form-group">
-                                        <label for="name">Building Name : </label>
-                                        <input class="form-control" placeholder="Building name" type="text" name="buildingname" autofocus required>
+                                        <label for="buildingname">Building Name : </label>
+                                        <input class="form-control" placeholder="Building name" type="text" id="buildingname" name="buildingname" autofocus required>
                                     </div>
                                     <div class="form-group">
                                         <label for="UploadPhoto">Photo Upload : </label>
-                                        <input class="form-control" placeholder="Select Photo" type="file" name="buildingPhoto" required>
+                                        <input class="form-control" placeholder="Select Photo" type="file" id="UploadPhoto" name="buildingPhoto" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="roomNo">Room no :</label>
-                                        <input class="form-control" placeholder="Enter Rooms Number" type="number" name="roomNumber" required>
+                                        <input class="form-control" placeholder="Enter Rooms Number" type="number" id="roomNo" name="roomNumber" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="Address">Address : </label>
-                                        <input class="form-control"  placeholder="Enter Building Address" type="text" name="buildingAddress" required>
+                                        <input class="form-control"  placeholder="Enter Building Address" type="text" id="Address" name="buildingAddress" required>
                                     </div>
                                     <button type="submit" name="register" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
                                 </fieldset>
