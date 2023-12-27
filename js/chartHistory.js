@@ -11,7 +11,8 @@ function showGraph()
             chartStatus.destroy();
         }
         const urlParams = new URLSearchParams(window.location.search);
-        const myParam = urlParams.get('id');
+        const type = urlParams.get('type');
+        const apartment = urlParams.get('apartmentid');
         let fromDate = document.querySelector("#fromDate").value;
         let toDate = document.querySelector("#toDate").value;
         if(fromDate) fromDate = new Date(fromDate);
@@ -19,24 +20,27 @@ function showGraph()
         if(toDate) toDate = new Date(toDate);
         else toDate = new Date();
         console.log(fromDate, toDate)
-        $.post("../utils/getSensorData.php",
-        { id: myParam},
+        $.post("../utils/getApartmentUsageHistory.php",
+        {   
+            type:type,
+            apartment: apartment
+        },
         function (result)
         {
             let data = [];
             document.getElementById("noData").innerHTML = "";
             for (var i in result) {
-                let t = result[i].datetime.split(/[- :]/);
+                let t = result[i].DateTime.split(/[- :]/);
                 data.push({
                     x: new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5])),
-                    y: result[i].value
+                    y: result[i].Value
                 })
             }
             console.log(data);
             var chartdata = {
                 datasets: [
                     {
-                        label: 'Sensor History',
+                        label: 'Usage History',
                         backgroundColor: '#49e2ff',
                         borderColor: '#46d5f1',
                         hoverBackgroundColor: '#CCCCCC',
@@ -55,7 +59,10 @@ function showGraph()
                 options:{
                     scales: {
                         x: {
-                            type:"time"
+                            type:"time",
+                            time:{
+                                unit: "day"
+                            }
                         }
                     }
                 }

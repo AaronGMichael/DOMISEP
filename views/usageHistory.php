@@ -3,9 +3,8 @@ include_once("../layout/header.php");
 ?>
 
 <div>
-    
 <?php 
-$graphType = "SensorData";
+$graphType = "UsageHistory";
 include_once("../components/graphs.php");?>
 </div>
 
