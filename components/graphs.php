@@ -8,4 +8,8 @@
             
         </canvas>
     </div>
-    <script src="../js/chart.js"></script>  
+    <script src=<?php 
+    if($graphType == "SensorData") echo "../js/chart.js";
+    else if($graphType == "UsageHistory") echo "../js/chartHistory.js";
+    ?>>
+    </script>  

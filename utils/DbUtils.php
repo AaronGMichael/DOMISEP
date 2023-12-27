@@ -295,11 +295,17 @@ class DbUtils extends DbConnection
 }
 
 public static function sumUpWater($apartmentid){
-    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND YEAR(DateTime) = YEAR(CURRENT_TIMESTAMP)");
+    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND DateTime >= DATE_SUB(NOW(),INTERVAL 1 YEAR)");
     if($sum->num_rows === 0) return "No data";
     $mesurement = $sum->fetch_row();
     
     return $mesurement[0];
+}
+
+public static function getWaterHistory($apartmentid){
+    $result = DbConnection::$connection->query("SELECT Value, DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3) ORDER BY DateTime");
+    if($result->num_rows === 0) return "No data";
+    return $result;
 }
 
 public static function sumUpElectricityBuilding($buildingid){
