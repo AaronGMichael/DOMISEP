@@ -12,16 +12,17 @@ function showGraph()
         { id: myParam},
         function (result)
         {
-            console.log(result);
-             var dates = [];
-            var values = [];
+            let data = [];
             document.getElementById("noData").innerHTML = "";
             for (var i in result) {
-                dates.push(result[i].datetime);
-                values.push(result[i].value);
+                let t = result[i].datetime.split(/[- :]/);
+                data.push({
+                    x: new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5])),
+                    y: result[i].value
+                })
             }
+            console.log(data);
             var chartdata = {
-                labels: dates,
                 datasets: [
                     {
                         label: 'Sensor History',
@@ -29,7 +30,7 @@ function showGraph()
                         borderColor: '#46d5f1',
                         hoverBackgroundColor: '#CCCCCC',
                         hoverBorderColor: '#666666',
-                        data: values
+                        data: data
                     }
                 ]
             };
@@ -37,6 +38,13 @@ function showGraph()
             var barGraph = new Chart(graphTarget, {
                 type: 'line',
                 data: chartdata,
+                options:{
+                    scales: {
+                        x: {
+                            type:"time"
+                        }
+                    }
+                }
             });
         });
     }
