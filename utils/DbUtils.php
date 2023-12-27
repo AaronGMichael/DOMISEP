@@ -214,6 +214,10 @@ class DbUtils extends DbConnection
         return $rooms;
     }
 
+    public static function writeSensorMeasurement($value, $time, $id){
+        return DbConnection::$connection->query("INSERT INTO Mesurement (Value, DateTime, SensorID) VALUES (\"$value\", \"$time\", \"$id\")");
+    }
+
     public static function getApartmentName($apartmentid)
     {
         $apartmentName = DbConnection::$connection->query("SELECT Name FROM Apartment WHERE ApartmentID = '$apartmentid'");
