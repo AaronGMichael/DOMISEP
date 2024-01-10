@@ -4,7 +4,8 @@ include_once('DbUtils.php');
 
 $utils = new DBUtils();
 
-$measurements = DbUtils::getWaterHistory($_POST["apartment"]);
+if($_POST["type"]=="water")$measurements = DbUtils::getWaterHistory($_POST["apartment"]);
+else $measurements = DbUtils::getElectricityHistory($_POST["apartment"]);
 $data = array();
 foreach ($measurements as $row) {
 	$data[] = $row;
