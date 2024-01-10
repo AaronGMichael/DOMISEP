@@ -340,6 +340,12 @@ public static function getWaterBuildingHistory($buildingid){
     return $result;
 }
 
+public static function getElectricityBuildingHistory($buildingid){
+    $result = DbConnection::$connection->query("SELECT SUM(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment WHERE BuildingID = \"$buildingid\")) AND DeviceTypeID IN (3, 4, 5)) GROUP BY CAST(DateTime AS DATE);");
+    if($result->num_rows === 0) return "No data";
+    return $result;
+}
+
     public static function light($roomid){
         $dDetails = DbConnection::$connection->query("SELECT * FROM Device WHERE RoomID = '$roomid' AND DeviceTypeID IN (3, 4, 5)");
         if($dDetails->num_rows === 0) return "No data";
