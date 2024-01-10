@@ -1,0 +1,45 @@
+body {
+    background-color: #ececec;
+    padding: 0;
+    margin: 0;
+}
+
+.checkbox-container {
+
+    margin-left: 35px;
+    margin-bottom: 15px;
+
+}
+
+.checkbox-container input[type="checkbox"] {
+    height: 60px; 
+    width: 60px; 
+    -webkit-appearance: none;
+    box-shadow: 
+        -5px -5px 8px rgba(255, 255, 255, 0.5),
+        5px 5px 8px rgba(70, 70, 70, 0.12);
+    border-radius: 50%;
+    border: 10px solid #ececec;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"]::after {
+    font-family: FontAwesome;
+    content: "\f011";
+    color: #7a7a7a;
+    font-size:25px; 
+    margin-left: 8px;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+    box-shadow: 
+        -5px -5px 8px rgba(255, 255, 255, 0.5),
+        5px 5px 8px rgba(70, 70, 70, 0.12),
+        inset -5px -5px 8px rgba(255, 255, 255, 0.5),
+        inset 5px 5px 8px rgba(70, 70, 70, 0.12);
+}
+
+.checkbox-container input[type="checkbox"]:checked::after {
+    color: #15e38a;
+}
