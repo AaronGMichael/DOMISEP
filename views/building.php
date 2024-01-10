@@ -3,9 +3,12 @@ include_once('../layout/header.php');
 $utils = new DbUtils();
 $appartments = DbUtils::getApartmentByAdmin($_GET["id"]);
 $buildingName = DbUtils::getBuildingName($_GET["id"]);
+$sumWater = DbUtils::sumUpWaterBuilding($_GET["id"]);
+$sumEle = DbUtils::sumUpElectricityBuilding($_GET["id"]);
 ?>
           <div class="basic-container">
               <h1 style="font-size: 30pt"><b><?php echo $buildingName?></b></h1>
+              <?php include('../components/resourcesCards.php'); ?>
               <h1>Choose an appartment you want to manage</h1>
               <!-- <ul class="cards"> -->
               <div class="d-flex flex-row flex-nowrap overflow-auto">
