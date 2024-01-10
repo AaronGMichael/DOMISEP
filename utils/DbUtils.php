@@ -287,7 +287,7 @@ class DbUtils extends DbConnection
     }
 
     public static function sumUpElectricity($apartmentid){
-        $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Device WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5))");
+        $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5))AND DateTime >= DATE_SUB(NOW(),INTERVAL 1 YEAR)");
         if($sum->num_rows === 0) return "No data";
         $mesurement = $sum->fetch_row();
         
@@ -304,6 +304,12 @@ public static function sumUpWater($apartmentid){
 
 public static function getWaterHistory($apartmentid){
     $result = DbConnection::$connection->query("SELECT Value, DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3) ORDER BY DateTime");
+    if($result->num_rows === 0) return "No data";
+    return $result;
+}
+
+public static function getElectricityHistory($apartmentid){
+    $result = DbConnection::$connection->query("SELECT Value, DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5)) ORDER BY DateTime");
     if($result->num_rows === 0) return "No data";
     return $result;
 }
