@@ -27,6 +27,7 @@ $user = unserialize($user);
     <link rel="stylesheet" type="text/css" href="../css/style-containers.css">
     <link rel="stylesheet" type="text/css" href="../css/style-layout.css">
     <link rel="stylesheet" type="text/css" href="../css/style-forms.css">
+    <link rel="stylesheet" type="text/css" href="../css/new_style.css">
 </head>
 <style>
     a{

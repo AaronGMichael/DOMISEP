@@ -55,10 +55,20 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                             <div class="card_image_grid"><img src="<?php echo $devicetype->photo; ?>"></div>
                             </div>
                             <div class="card_content_grid">
-                                <h2 class="card_title_grid"><?php echo $devicetype->name?></h2>
-                                <h2 class="card_title_grid"><?php echo $device->name?></h2>
+                                <h2 class="card_title_grid"><?php echo strlen($devicetype->name)>13 ? $devicetype->name : $devicetype->name."<br><br>" ?></h2>
+                                <h2 class="card_title_grid"><?php echo $device->name ?></h2>
                                 <h2 class="card_text_grid"><b><?php echo $device->getState()?></b></h2>
-                                <button type="submit" name="view-charts" class="button-submit">View Charts</button>
+                                
+                                <div class="checkbox-container">
+                                    <link
+                                        rel="stylesheet"
+                                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                                    />
+                                    <input type="checkbox"<?php echo $device->getState() === 'ON'? "checked" :''?>/>
+                                </div>
+
+
+                            <button type="submit" name="view-charts" class="button-submit">View Charts</button>
                             </div>
                         </div>
                     </li>
