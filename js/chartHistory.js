@@ -12,7 +12,18 @@ function showGraph()
         }
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get('type');
-        const apartment = urlParams.get('apartmentid');
+        let param = urlParams.get('apartmentid') ? urlParams.get('apartmentid') :urlParams.get('buildingid');
+        let options = {};
+        options["type"] = type;
+        let imm;
+        if(urlParams.get('apartmentid')){
+            options["apartment"] = urlParams.get('apartmentid');
+            imm = true;
+        }
+        else{
+            options["building"] = urlParams.get('buildingid');
+            imm = false;
+        }
         let fromDate = document.querySelector("#fromDate").value;
         let toDate = document.querySelector("#toDate").value;
         if(fromDate) fromDate = new Date(fromDate);
@@ -20,11 +31,8 @@ function showGraph()
         if(toDate) toDate = new Date(toDate);
         else toDate = new Date();
         console.log(fromDate, toDate)
-        $.post("../utils/getApartmentUsageHistory.php",
-        {   
-            type:type,
-            apartment: apartment
-        },
+        $.post(`../utils/${imm? "getApartmentUsageHistory" : "getBuildingUsageHistory"}.php`,
+        options,
         function (result)
         {
             let data = [];

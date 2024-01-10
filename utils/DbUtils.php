@@ -295,7 +295,7 @@ class DbUtils extends DbConnection
 }
 
 public static function sumUpWater($apartmentid){
-    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND DateTime >= DATE_SUB(NOW(),INTERVAL 1 YEAR)");
+    $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3)AND DateTime >= DATE_SUB(NOW(),INTERVAL 1 MONTH)");
     if($sum->num_rows === 0) return "No data";
     $mesurement = $sum->fetch_row();
     
@@ -326,6 +326,12 @@ if(isset($apartments[0]))foreach($apartments as $apartment){
     }
 
 return $value;
+}
+
+public static function getWaterBuildingHistory($buildingid){
+    $result = DbConnection::$connection->query("SELECT SUM(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment WHERE BuildingID = \"$buildingid\")) AND SensorTypeID = 3) GROUP BY CAST(DateTime AS DATE);");
+    if($result->num_rows === 0) return "No data";
+    return $result;
 }
 
     public static function light($roomid){
