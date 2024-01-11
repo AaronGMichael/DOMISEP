@@ -63,7 +63,8 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                                         rel="stylesheet"
                                         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
                                     />
-                                    <input type="checkbox"<?php echo $device->getState() === 'ON'? "checked" :''?>/>
+                                    <input type="checkbox" onclick="switchClicked('<?php echo $device->getState()?>',
+                                     '<?php echo $device->deviceid ?>', this)" <?php echo $device->getState() === 'ON'? "checked" :''?>/>
                                 </div>
                             <button type="submit" name="view-charts" class="button-submit">View Charts</button>
                             </div>
@@ -82,6 +83,9 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
         </div>
     </div>
 </div>
+
+<script src="../js/device-switch.js">
+</script>
 
 <?php
 include('../layout/footer.php');

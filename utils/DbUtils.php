@@ -198,6 +198,10 @@ class DbUtils extends DbConnection
         return $devices;
     }
 
+    public static function switchDevice($deviceid, $state){
+        return DbConnection::$connection->query("UPDATE Device SET STATE = '$state' WHERE DeviceID = '$deviceid'");
+    }
+
     public static function getDeviceType($devicetypeid)
     {
         $devicetypeDetails = DbConnection::$connection->query("SELECT * FROM DeviceType WHERE DeviceTypeID = '$devicetypeid'");
