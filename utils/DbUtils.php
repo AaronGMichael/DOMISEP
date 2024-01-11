@@ -9,6 +9,7 @@ include_once("../model/devicetype.php");
 include_once("../model/sensor.php");
 include_once("../model/sensortype.php");
 include_once("../model/mesurement.php");
+include_once("../model/message.php");
 class DbUtils extends DbConnection
 {
 
@@ -112,6 +113,11 @@ class DbUtils extends DbConnection
     public static function setNewSensor($P)
     {
         return $P->sendSensorToDatabase(DbConnection::$connection);
+    }
+
+    public static function setMessage($P)
+    {
+        return $P->sendMessageToDatabase(DbConnection::$connection);
     }
 
     public static function getUser($username)

@@ -22,10 +22,17 @@ include_once('../layout/header.php');
                         </div>
                         <div class="col">
                             <sd style="text-align: right;">
-                                <?php if($user->isAdmin()) echo '<div class="form-group">
+                                <?php if($user->isAdmin()) {echo '<div class="form-group">
                                     <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add Sensor Type</button></a>
                                     <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
-                                </div>' ?>
+                                    <a href="messageList.php"><button type="submit" name="type_device" class="button-submit-profile">Check messages</button></a>
+                                </div>';}
+                                else {
+                                    echo '<div class="form-group">
+                                    <a href="sendHelp.php"><button type="submit" name="sendHelp" class="button-submit-profile">Request Help</button></a>
+                                </div>';
+                                } ?>
+
                             </sd>
                         </div>
             <h2>

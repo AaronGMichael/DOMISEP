@@ -1044,3 +1044,12 @@ VALUES (7.4, CURRENT_TIMESTAMP , 4);
 
 INSERT INTO Mesurement (Value, DateTime, SensorID)
 VALUES (53.4, CURRENT_TIMESTAMP , 11);
+
+CREATE TABLE Message (
+    MessageID int AUTO_INCREMENT,
+    Text varchar(255),
+    AccountID int,
+    DateTime timestamp,
+    PRIMARY KEY (MessageID),
+    FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
+);
