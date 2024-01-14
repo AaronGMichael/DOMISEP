@@ -30,7 +30,6 @@ function showGraph()
         else fromDate = new Date(0);
         if(toDate) toDate = new Date(toDate);
         else toDate = new Date();
-        console.log(fromDate, toDate)
         $.post(`../utils/${imm? "getApartmentUsageHistory" : "getBuildingUsageHistory"}.php`,
         options,
         function (result)
@@ -44,7 +43,6 @@ function showGraph()
                     y: result[i].Value
                 })
             }
-            console.log(data);
             var chartdata = {
                 datasets: [
                     {

@@ -18,7 +18,6 @@ function showGraph()
         else fromDate = new Date(0);
         if(toDate) toDate = new Date(toDate);
         else toDate = new Date();
-        console.log(fromDate, toDate)
         $.post("../utils/getSensorData.php",
         { id: myParam},
         function (result)
