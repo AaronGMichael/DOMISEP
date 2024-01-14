@@ -66,7 +66,7 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                                     <input type="checkbox" onclick="switchClicked('<?php echo $device->getState()?>',
                                      '<?php echo $device->deviceid ?>', this)" <?php echo $device->getState() === 'ON'? "checked" :''?>/>
                                 </div>
-                            <button type="submit" name="view-charts" class="button-submit">View Charts</button>
+                            <!-- <button type="submit" name="view-charts" class="button-submit">View Charts</button> -->
                             </div>
                         </div>
                     </li>
