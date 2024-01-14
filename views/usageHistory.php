@@ -1,6 +1,10 @@
 <?php
 include_once("../layout/header.php");
+if(isset($_GET['buildingid'])) include_once("../components/proveAdmin.php");
 ?>
+<script>
+    var admin = "<?php echo json_encode($user->isAdmin())?>";
+</script>
 
 <div>
 <?php 

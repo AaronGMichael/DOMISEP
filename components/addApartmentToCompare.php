@@ -1,7 +1,8 @@
 <?php
     include_once('../utils/DbUtils.php');
     $utils = new DbUtils();
-    $apartments = DbUtils::getAllBuildingApartments();
+    if($_POST["admin"] === "false") $apartments = [];   
+    else $apartments = DbUtils::getAllBuildingApartments();
 ?>
 <select class = "form-control" placeholder="Building" type = "name" id="addBuilding" name = "building" required>
     <option value = "" disabled selected>Select from Options</option>

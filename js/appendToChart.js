@@ -4,6 +4,7 @@ function addCompare(){
     $.ajax({
         url : `../components/add${param}ToCompare.php`,
         type : 'post',
+        data: {admin: admin},
         success: function(data) {
          $('#DIVID').html(data);
         },
