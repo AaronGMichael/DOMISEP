@@ -47,8 +47,8 @@ function showGraph()
                 datasets: [
                     {
                         label: 'Current Usage History',
-                        backgroundColor: '#49e2ff',
-                        borderColor: '#46d5f1',
+                        backgroundColor: 'rgba(73,226,255, 0.8)',
+                        borderColor: 'rgba(73,226,255, 0.8)',
                         hoverBackgroundColor: '#CCCCCC',
                         hoverBorderColor: '#666666',
                         data: data.filter((entry) => {
