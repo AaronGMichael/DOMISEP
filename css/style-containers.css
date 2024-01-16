@@ -56,3 +56,26 @@ div.scroll-container {
     height: 80%;
     margin: auto;
 }
+
+.datePickers{
+    width: 100%;
+    background-color:rgba(255,0,0,0.5);
+    border:3px solid rgba(255,0,0,0.5);
+    border-radius: 0;
+    border-radius: 10px;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: flex;
+}
+
+.datePickerBox{
+    width:50%;
+}
+
+
+#DIVID{
+    margin: auto;
+    width: 80%; 
+    margin-top: 2px;
+}
