@@ -43,7 +43,7 @@ function updateData(building, name){
     if(toDate) toDate = new Date(toDate);
     else toDate = new Date();
     const randomNum = () => Math.floor(Math.random() * (235 - 52 + 1) + 52);
-    const randomRGB = () => `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+    const randomRGB = () => `rgba(${randomNum()}, ${randomNum()}, ${randomNum()}, 0.7)`;
     $.post(`../utils/${imm? "getApartmentUsageHistory" : "getBuildingUsageHistory"}.php`,
     options,
     function (result){
