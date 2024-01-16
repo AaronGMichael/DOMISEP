@@ -12,8 +12,8 @@ $build = isset($_GET['buildingid']) ? true : false;
 $graphType = "UsageHistory";
 include_once("../components/graphs.php");?>
 </div>
-    <div id="DIVID">
-    <button type="submit" name="login" onclick="addCompare()">Add To Compare</button>
+    <div id="DIVID" class="datePickers">
+        <button type="submit" class="addToCompare" name="login" onclick="addCompare()">Add To Compare <i class="fa-solid fa-plus"></i></button>
     </div>
 
 <?php

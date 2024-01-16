@@ -11,4 +11,4 @@
     <?php }?>
     <option value="mean">Average</option>
 </select>
-<button type="submit" name="addComparision" onclick="addData()">Go</button>
+<button type="submit" name="addComparision" onclick="addData()">Add <i class="fa-solid fa-plus"></i></button>

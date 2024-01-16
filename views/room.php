@@ -59,10 +59,6 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                                 <h2 class="card_title_grid"><?php echo $device->name ?></h2>
                                 <h2 class="card_text_grid"><b><?php echo $device->getState()?></b></h2>
                                 <div class="checkbox-container">
-                                    <link
-                                        rel="stylesheet"
-                                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-                                    />
                                     <input type="checkbox" onclick="switchClicked('<?php echo $device->getState()?>',
                                      '<?php echo $device->deviceid ?>', this)" <?php echo $device->getState() === 'ON'? "checked" :''?>/>
                                 </div>

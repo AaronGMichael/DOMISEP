@@ -10,9 +10,16 @@
         <canvas id="graphCanvas">
             
         </canvas>
-        <p>From Date: <input type="text" class="datepicker" id="fromDate">
-        To Date: <input type="text" class="datepicker" id="toDate">
-        <button onclick="showGraph()" type="submit">Show Graph</button></p>
+        <div class="datePickers">
+          <div class="datePickerBox">
+            <input type="text" class="datepicker" id="fromDate" placeholder="From Date">
+          </div>
+          <div class="datePickerBox">
+            <input type="text" class="datepicker" id="toDate" placeholder="To Date">
+          </div>
+        <button onclick="showGraph()" type="submit">Show Graph<i class="fa-solid fa-angles-right"></i>
+      </button>
+        </div>
     </div>
   <script src="../js/datePicker.js">
   </script>
