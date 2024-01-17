@@ -6,7 +6,7 @@ $rooms = DbUtils::getRoomByAdmin($currentId);
 $apartmentName = DbUtils::getApartmentName($currentId);
 $sumWater = DbUtils::sumUpWater($currentId);
 $sumEle = DbUtils::sumUpElectricity($currentId);
-
+$numberofpeople = DbUtils::getPeopleInApartment($currentId);
 ?>
           <div class="basic-container">
               <h1 style="font-size: 30pt"><b><?php echo $apartmentName?></b></h1>

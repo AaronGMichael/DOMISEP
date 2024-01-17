@@ -31,4 +31,3 @@ else{
 	$_SESSION['message'] = 'Something went wrong';
 	header('location:../views/addapartment.php');
 }
-?>
