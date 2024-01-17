@@ -30,24 +30,75 @@ $sumEle = DbUtils::sumUpElectricity($currentId);
                           </div>
                           <div class="card_content">
                               <h1 class="card_title"><?php echo $room->name?></h1>
-                              <div class="row align-items-center">
+
+                              <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6">
+                                        <div class="card mb-1">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <h2 class="card-text  mb-0" style = "font-size: 12px;"><img src="../assets/resources/light.png" class="mr-2" style="max-width: 20px; margin-right: 5px;">
+                                                    <b><?php echo $light ?> </b>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="card mb-1">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <h2 class="card-text small mb-0"><img src="../assets/resources/temperature.png" class="mr-2" style="max-width: 20px;">
+                                                  <b><?php echo ($temp == null) ? " - " : $temp->value . "" . ((DbUtils::getSensorType1($temp->sensorid)->unit == "Celsius") ? "°C" : DbUtils::getSensorType1($temp->sensorid)->unit); ?></b>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card mb-1">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <h2 class="card-text small mb-0"><img src="../assets/resources/humidity.png" class="mr-2" style="max-width: 20px;">
+                                                  <b><?php echo ($hum == null) ? " - " : $hum->value . (($sensortype->unit == null) ? "%" : $sensortype->unit);?></b>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="card mb-1">
+                                            <div class="card-body d-flex flex-column align-items-start">
+                                                <h2 class="card-text small mb-0"><img src="../assets/resources/air-con.png" class="mr-2" style="max-width: 20px;">
+                                                    <b><?php echo ($air != "No data") ? $air : "-"; ?></b>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="room.php?id=<?php echo "$room->roomid" ?>">
+                                <button type="submit" name="go-to-building" class="button-submit">View Details</button>
+                            </a>
+
+
+
+
+
+                              <!-- <div class="row align-items-center">
                                 <div class="col">
-                                  <h2 class="card_text">Light: <b><?php echo $light?> </b></h2>
-                                  <h2 class="card_text">Temperature: <b><?php if($temp == NULL) echo "No data";
+                                  <h2 class="card_text">Light<img src="../assets/resources/light.png" class="mr-2" style="max-width: 20px;">:<br><b><?php echo $light?> </b></h2>
+                                  <h2 class="card_text">Temperature<img src="../assets/resources/temperature.png" class="mr-2" style="max-width: 20px;">: <b><?php if($temp == NULL) echo "<br> - ";
                                         else {$sensortype = DbUtils::getSensorType1($temp->sensorid);
                                         echo $temp->value  . " " . $sensortype->unit;} ?> </b></h2>
                                 </div>
                                 <div class="col">
-                                  <h2 class="card_text">Humidity:<b> <?php if($hum == NULL) echo "No data";
+                                  <h2 class="card_text">Humidity<img src="../assets/resources/humidity.png" class="mr-2" style="max-width: 20px;">:<br><b> <?php if($hum == NULL) echo " - ";
                                         else{$sensortype = DbUtils::getSensorType1($hum->sensorid);
-                                         echo $hum->value  . " " . $sensortype->unit;} ?></b></h2>
-                                  <h2 class="card_text">Air Condition: <b><?php echo $air?> </b></h2>
+                                         echo $hum->value  . "" . $sensortype->unit;} ?></b></h2>
+                                  <h2 class="card_text">Air Condition<img src="../assets/resources/air-con.png" class="mr-2" style="max-width: 20px;">: <b><?php echo ($air != "No data") ? $air: "<br> -"; ?></b></h2>
                                 </div>
                               </div>
                               <a href="room.php?id=<?php echo "$room->roomid"?>">
                                 <button type="submit" name="go-to-building" class="button-submit">View Details</button>
                               </a>
-                          </div>
+                          </div> -->
                       </div>
                   </li>
                   <?php } else echo "No Rooms to Display" ?>
