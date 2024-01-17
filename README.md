@@ -122,9 +122,10 @@ CREATE TABLE Person (
     PersonID int AUTO_INCREMENT,
     Name varchar(255),
     FirstName varchar(255),
-    IdNumber int,
-    PRIMARY KEY (PersonID)
-
+    Email varchar(255),
+    ApartmentID int,
+    PRIMARY KEY (PersonID),
+    FOREIGN KEY (ApartmentID) REFERENCES Apartment(ApartmentID)
 );
 
 CREATE TABLE PersonAccount (

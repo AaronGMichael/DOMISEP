@@ -26,7 +26,7 @@ class Person{
     }
 
     public function isAdmin(){
-        if($this->accessRights == 100){
+        if($this->accessRights == 100 || $this->accessRights == 99){
             return true;
         }
         return false;

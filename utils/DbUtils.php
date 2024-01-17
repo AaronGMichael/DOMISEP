@@ -415,6 +415,15 @@ public static function getElectricityBuildingHistory($buildingid){
         return "OFF";
     }
 
+    public static function setPersonInApartment($name, $firstName, $email, $apartmentID){
+        return DbConnection::$connection->query("INSERT INTO Person(Name, FirstName, Email, ApartmentID) VALUES (\"$name\", \"$firstName\", \"$email\", \"$apartmentID\")");
+    }
+
+    public static function getPeopleInApartment($apartmentID){
+        $result = DbConnection::$connection->query("SELECT COUNT(*) as count FROM `person` WHERE ApartmentID='$apartmentID'");
+        return 1+(int) $result->fetch_object()->count;
+    }
+
 }
     
 ?> 
