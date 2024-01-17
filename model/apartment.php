@@ -8,7 +8,11 @@ class Apartment{
     public string $photo;
     private int $buildingid;   
     private int $accountid;
-    
+
+    public function __set($name, $value)
+  {
+    $this->$name = $value;
+  }
 
     public function __construct($apartmentid, $name, $number, $numberofpeople, $photo, $buildingid, $accountid){
         $this->apartmentid = $apartmentid;

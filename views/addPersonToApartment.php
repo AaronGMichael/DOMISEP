@@ -1,6 +1,5 @@
 <?php
 include_once("../layout/header.php");
-include_once("../components/proveAdmin.php");
 ?>
 
     <div class="background-login-light"></div>
@@ -13,18 +12,9 @@ include_once("../components/proveAdmin.php");
                                     <div style="display: flex; align-items: center; justify-content: center;">
                                         <img src="../assets/icons/user.png" style="height:5em;"></img>
                                     </div>
-                                    <h1 class="text-center">Add Account</h1>
-                                    <form method="POST" action="../utils/addUser.php">
+                                    <h1 class="text-center">Add Person</h1>
+                                    <form method="POST" action="../utils/addPerson.php">
 									<fieldset>
-										<div class="form-group">
-											<label for="username">Username:</label>
-											<input class="form-control" placeholder="Username" type="text" name="username" autofocus required>
-										</div>
-										<div class="form-group">
-											<label for="password">Password:</label>
-
-											<input class="form-control" placeholder="Password" type="password" name="password" required>
-										</div>
 										<div class="form-group">
 											<label for="email">E-mail Adress:</label>
 											<input class="form-control" placeholder="Email" type="name" name="email" required>
@@ -37,15 +27,16 @@ include_once("../components/proveAdmin.php");
 											<label for="firstname">First Name:</label>
 											<input class="form-control" placeholder="Firstname" type="name" name="firstname" required>
 										</div>
-										<div class="form-group">
-											<label for="accessrights">Access Rights:</label>
-											<select class = "form-control" placeholder="Accessrights" type = "name" name = "accessrights" required>
-												<option value = "" disabled selected>Select</option>
-												<option value="101">User</option>
-												<option value="100">Admin</option>
-												<option value="99">Owner</option>
-											</select>
-										</div>
+										<?php if($user->isAdmin()) {?>
+											<div class="form-check form-switch" style="padding-bottom: 5px;">
+  												<input class="form-check-input" name="apartmentValue" type="checkbox" id="flexSwitchCheckChecked">
+  												<label class="form-check-label" for="flexSwitchCheckChecked">Link Person to Apartment?</label>
+											</div>
+										<?php } else {?>
+											<input name="apartmentLink" style="display:none;" value="<?php 
+												$utils = new DbUtils();
+												echo DbUtils::getApartmentByUser($user->id)->getId()?>">
+										<?php } ?>
 										<button type="submit" name="register" class="button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Register</button>
 									</fieldset>
 								</form>
@@ -55,7 +46,7 @@ include_once("../components/proveAdmin.php");
                     </div>
                 </div>
             </section>
-
+			<script src="../js/addApartmentListListener.js"></script>
 <?php
 include_once("../layout/footer.php");
 ?>

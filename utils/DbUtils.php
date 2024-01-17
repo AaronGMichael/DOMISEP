@@ -9,6 +9,7 @@ include_once("../model/devicetype.php");
 include_once("../model/sensor.php");
 include_once("../model/sensortype.php");
 include_once("../model/mesurement.php");
+include_once("../model/message.php");
 class DbUtils extends DbConnection
 {
 
@@ -114,6 +115,11 @@ class DbUtils extends DbConnection
         return $P->sendSensorToDatabase(DbConnection::$connection);
     }
 
+    public static function setMessage($P)
+    {
+        return $P->sendMessageToDatabase(DbConnection::$connection);
+    }
+
     public static function getUser($username)
     {
         $userDetails = DbConnection::$connection->query(DbUtils::getUsersWhereUsername($username));
@@ -141,6 +147,18 @@ class DbUtils extends DbConnection
         $apartments = array();
         while ($apartment = $apartmentDetails->fetch_object()) {
             $apartments[] = new Apartment($apartment->ApartmentID, $apartment->Name, $apartment->Number, $apartment->NumberOfPeople, $apartment->Photo, $apartment->BuildingID, $apartment->AccountID);
+        }
+        return $apartments;
+    }
+
+    public static function getAllBuildingApartments(){
+        $apartmentDetails = DbConnection::$connection->query("SELECT apartment.*,building.Name AS BuildingName FROM apartment INNER JOIN building ON apartment.BuildingID = building.BuildingID;");
+        if ($apartmentDetails->num_rows === 0) return false;
+        $apartments = array();
+        while ($apartment = $apartmentDetails->fetch_object()) {
+            $apart = new Apartment($apartment->ApartmentID, $apartment->Name, $apartment->Number, $apartment->NumberOfPeople, $apartment->Photo, $apartment->BuildingID, $apartment->AccountID);
+            $apart->buildingName = $apartment->BuildingName;
+            $apartments[] = $apart;
         }
         return $apartments;
     }
@@ -196,6 +214,10 @@ class DbUtils extends DbConnection
             $devices[] = $obj;
         }
         return $devices;
+    }
+
+    public static function switchDevice($deviceid, $state){
+        return DbConnection::$connection->query("UPDATE Device SET STATE = '$state' WHERE DeviceID = '$deviceid'");
     }
 
     public static function getDeviceType($devicetypeid)
@@ -303,13 +325,15 @@ public static function sumUpWater($apartmentid){
 }
 
 public static function getWaterHistory($apartmentid){
-    $result = DbConnection::$connection->query("SELECT Value, DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3) ORDER BY DateTime");
+    if($apartmentid === "mean") $result = DbConnection::$connection->query("SELECT AVG(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room ORDER BY ApartmentID) AND SensorTypeID = 3) GROUP BY CAST(DateTime AS DATE);");
+    else $result = DbConnection::$connection->query("SELECT Value, DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND SensorTypeID = 3) ORDER BY DateTime");
     if($result->num_rows === 0) return "No data";
     return $result;
 }
 
 public static function getElectricityHistory($apartmentid){
-    $result = DbConnection::$connection->query("SELECT Value, DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5)) ORDER BY DateTime");
+    if($apartmentid === "mean") $result = DbConnection::$connection->query("SELECT AVG(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room ORDER By apartmentid) AND DeviceTypeID IN (3, 4, 5)) GROUP BY CAST(DateTime AS DATE);");
+    else $result = DbConnection::$connection->query("SELECT Value, DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5)) ORDER BY DateTime");
     if($result->num_rows === 0) return "No data";
     return $result;
 }
@@ -335,13 +359,15 @@ return $value;
 }
 
 public static function getWaterBuildingHistory($buildingid){
-    $result = DbConnection::$connection->query("SELECT SUM(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment WHERE BuildingID = \"$buildingid\")) AND SensorTypeID = 3) GROUP BY CAST(DateTime AS DATE);");
+    if($buildingid === "mean") $result =  DbConnection::$connection->query("SELECT AVG(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment)) AND SensorTypeID = 3) GROUP BY CAST(DateTime AS DATE);");
+    else $result = DbConnection::$connection->query("SELECT SUM(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM Mesurement WHERE SensorID IN (SELECT SensorID FROM Sensor WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment WHERE BuildingID = \"$buildingid\")) AND SensorTypeID = 3) GROUP BY CAST(DateTime AS DATE);");
     if($result->num_rows === 0) return "No data";
     return $result;
 }
 
 public static function getElectricityBuildingHistory($buildingid){
-    $result = DbConnection::$connection->query("SELECT SUM(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment WHERE BuildingID = \"$buildingid\")) AND DeviceTypeID IN (3, 4, 5)) GROUP BY CAST(DateTime AS DATE);");
+    if($buildingid === "mean") $result = DbConnection::$connection->query("SELECT AVG(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment)) AND DeviceTypeID IN (3, 4, 5)) GROUP BY CAST(DateTime AS DATE);");
+    else $result = DbConnection::$connection->query("SELECT SUM(Value) AS Value, CAST(CAST(DateTime AS DATE) AS datetime) AS DateTime FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID IN (SELECT ApartmentID FROM apartment WHERE BuildingID = \"$buildingid\")) AND DeviceTypeID IN (3, 4, 5)) GROUP BY CAST(DateTime AS DATE);");
     if($result->num_rows === 0) return "No data";
     return $result;
 }
@@ -387,6 +413,15 @@ public static function getElectricityBuildingHistory($buildingid){
         if($d->State == 1) return "ON";
         }
         return "OFF";
+    }
+
+    public static function setPersonInApartment($name, $firstName, $email, $apartmentID){
+        return DbConnection::$connection->query("INSERT INTO Person(Name, FirstName, Email, ApartmentID) VALUES (\"$name\", \"$firstName\", \"$email\", \"$apartmentID\")");
+    }
+
+    public static function getPeopleInApartment($apartmentID){
+        $result = DbConnection::$connection->query("SELECT COUNT(*) as count FROM `person` WHERE ApartmentID='$apartmentID'");
+        return 1+(int) $result->fetch_object()->count;
     }
 
 }

@@ -1,4 +1,4 @@
-<h1>Resources Consumption</h1>
+<h1>Resources Consumption <?php echo isset($numberofpeople) ? $numberofpeople>1 ? "($numberofpeople people)" : "($numberofpeople person)" : " "?></h1>
               <div class="additional-padding-small"></div>
               <?php $siteType = str_contains($_SERVER['REQUEST_URI'], 'building') ? 'building' : 'apartment'?>
               <ul class="cards_grid">

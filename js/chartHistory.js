@@ -30,7 +30,6 @@ function showGraph()
         else fromDate = new Date(0);
         if(toDate) toDate = new Date(toDate);
         else toDate = new Date();
-        console.log(fromDate, toDate)
         $.post(`../utils/${imm? "getApartmentUsageHistory" : "getBuildingUsageHistory"}.php`,
         options,
         function (result)
@@ -44,13 +43,12 @@ function showGraph()
                     y: result[i].Value
                 })
             }
-            console.log(data);
             var chartdata = {
                 datasets: [
                     {
-                        label: 'Usage History',
-                        backgroundColor: '#49e2ff',
-                        borderColor: '#46d5f1',
+                        label: 'Current Usage History',
+                        backgroundColor: 'rgba(73,226,255, 0.8)',
+                        borderColor: 'rgba(73,226,255, 0.8)',
                         hoverBackgroundColor: '#CCCCCC',
                         hoverBorderColor: '#666666',
                         data: data.filter((entry) => {
