@@ -30,4 +30,47 @@
                           </div>
                       </div>
                   </li>
+
+                  <?php if(str_contains($_SERVER['REQUEST_URI'], "apartment.php")) {?>
+                  <li class="cards_item_grid">
+                      <div class="card_grid">
+                          <div class="card_image_container_grid">
+                              <div class="card_image_grid">
+                              <?php
+                                switch ($numberofpeople) {
+                                    case 1:
+                                        echo '<img src="../assets/resources/one_person.png">';
+                                        break;
+                                    case 2:
+                                        echo '<img src="../assets/resources/two_person.png">';
+                                        break;
+                                    case 3:
+                                        echo '<img src="../assets/resources/three_person.png">';
+                                        break;
+                                    default:
+                                        echo '<img src="../assets/resources/obesity.png">';
+                                        break;
+                                }
+                                ?>
+                              </div>
+                          </div>
+                          <?php if ($user->isUser()) { ?>
+                            <div class="card_content_grid">
+                                <h2 class="card_title_grid">Tenants</h2>
+                                <h2 class="card_text_grid">Total: <?php echo $numberofpeople > 1 ? "$numberofpeople" : "$numberofpeople"; ?></h2>
+                                <a href="addPersonToApartment.php">
+                                        <button type="submit" name="sendHelp" class="button-submit">Add Person</button>
+                                </a>
+                            </div>
+                        <?php } else { ?>
+
+                            <div class="card_content_grid">
+                                <h2 class="card_title_grid">Tenants</h2><br>
+                                <h2 class="card_text_grid" style="font-size: 40px; color:red; font-weight: bold; "><?php echo $numberofpeople > 1 ? "$numberofpeople" : "$numberofpeople"; ?></h2>
+                            </div>
+                            
+                        <?php } ?>
+                      </div>
+                  </li>
+                  <?php } ?>
               </ul>

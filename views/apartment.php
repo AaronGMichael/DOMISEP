@@ -76,29 +76,6 @@ $numberofpeople = DbUtils::getPeopleInApartment($currentId);
                             <a href="room.php?id=<?php echo "$room->roomid" ?>">
                                 <button type="submit" name="go-to-building" class="button-submit" style="margin-top:10px;">View Details</button>
                             </a>
-
-
-
-
-
-                              <!-- <div class="row align-items-center">
-                                <div class="col">
-                                  <h2 class="card_text">Light<img src="../assets/resources/light.png" class="mr-2" style="max-width: 20px;">:<br><b><?php echo $light?> </b></h2>
-                                  <h2 class="card_text">Temperature<img src="../assets/resources/temperature.png" class="mr-2" style="max-width: 20px;">: <b><?php if($temp == NULL) echo "<br> - ";
-                                        else {$sensortype = DbUtils::getSensorType1($temp->sensorid);
-                                        echo $temp->value  . " " . $sensortype->unit;} ?> </b></h2>
-                                </div>
-                                <div class="col">
-                                  <h2 class="card_text">Humidity<img src="../assets/resources/humidity.png" class="mr-2" style="max-width: 20px;">:<br><b> <?php if($hum == NULL) echo " - ";
-                                        else{$sensortype = DbUtils::getSensorType1($hum->sensorid);
-                                         echo $hum->value  . "" . $sensortype->unit;} ?></b></h2>
-                                  <h2 class="card_text">Air Condition<img src="../assets/resources/air-con.png" class="mr-2" style="max-width: 20px;">: <b><?php echo ($air != "No data") ? $air: "<br> -"; ?></b></h2>
-                                </div>
-                              </div>
-                              <a href="room.php?id=<?php echo "$room->roomid"?>">
-                                <button type="submit" name="go-to-building" class="button-submit">View Details</button>
-                              </a>
-                          </div> -->
                       </div>
                   </li>
                   <?php } else echo "No Rooms to Display" ?>
