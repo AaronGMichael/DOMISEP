@@ -13,13 +13,7 @@ include_once('../layout/header.php');
       <textarea name="message" placeholder="Your Message" class="form-control" rows="10" style="border: solid 2px black;" required></textarea>
     </div>
     <button type="submit" class="btn btn-lg btn-dark btn-block" >Submit Form</button>
-<script>
-  function areYouSure(){
-    var txt;
-    const msg = document.querySelector("*[name='message']").value;
-    return confirm(`Are you sure you want to send this message?\n\n ${msg}`);
-  }
-  </script>
+<script src="../js/sendMessage.js"></script>
 
   </div>
 </form>
