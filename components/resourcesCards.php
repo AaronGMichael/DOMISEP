@@ -9,7 +9,7 @@
                           </div>
                           <div class="card_content_grid">
                               <h2 class="card_title_grid">Water</h2>
-                              <h2 class="card_text_grid">Usage: <b><?php echo $sumWater  . " Liters"; ?></b></h2>
+                              <h2 class="card_text_grid">Usage: <b><?php echo ($sumWater > 0) ? $sumWater:0; ?>/Liters</b></h2>
                               <a href="usageHistory.php?type=water&<?php echo $siteType?>id=<?php echo$currentId ?>">
                               <button type="submit" name="view-charts" class="button-submit">View Charts</button>
                               </a>
@@ -23,7 +23,7 @@
                           </div>
                           <div class="card_content_grid">
                               <h2 class="card_title_grid">Electricity</h2>
-                              <h2 class="card_text_grid">Usage: <b><?php echo $sumEle ." kWh"?></b></h2>
+                              <h2 class="card_text_grid">Usage: <b><?php echo ($sumEle > 0) ? $sumEle:0; ?>/kWh</b></h2>
                               <a href="usageHistory.php?type=electricity&<?php echo $siteType?>id=<?php echo$currentId ?>">
                               <button type="submit" name="view-charts" class="button-submit">View Charts</button>
                               </a>
