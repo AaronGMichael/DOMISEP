@@ -1,4 +1,4 @@
-x<?php
+<?php
 include_once('../layout/header.php');
 ?>
 <div class="container">
@@ -22,17 +22,20 @@ include_once('../layout/header.php');
                         </div>
                         <div class="col-lg-9">
                             <sd style="text-align: right;">
-                                <?php if($user->isAdmin()) {echo '<div class="form-group">
+                            <div class="form-group">
+                                <a href="addPersonToApartment.php"><button type="submit" name="sendHelp" class="button-submit-profile-reversed">Add Person</button></a>
+                                <a href="sdkjb"><button type="submit" name="sendHelp" class="button-submit-profile-reversed">User Manual</button></a>
+                                <?php if($user->isAdmin()) {echo '
                                     <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile-reversed">Add Sensor Type</button></a>
                                     <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile-reversed">Add Device Type</button></a>
                                     <a href="messageList.php"><button type="submit" name="type_device" class="button-submit-profile-reversed">Check messages</button></a>
-                                </div>';}
+                                ';}
                                 else {
-                                    echo '<div class="form-group">
+                                    echo '
                                     <a href="sendHelp.php"><button type="submit" name="sendHelp" class="button-submit-profile">Request Help</button></a>
-                                </div>';
+                                ';
                                 } ?>
-
+                            </div>
                             </sd>
                         </div>
             <h2 style="    text-align: left;
@@ -58,9 +61,6 @@ include_once('../layout/header.php');
                             <label for="username">Username:</label>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password:</label>
-                        </div>
-                        <div class="form-group">
                             <label for="firstname">First Name:</label>
                         </div>
                         <div class="form-group">
@@ -78,9 +78,6 @@ include_once('../layout/header.php');
                         </div>
                         <div class="form-group">
                             <label><?php echo $user->username; ?></label>
-                        </div>
-                        <div class="form-group">
-                            <label>***********</label>
                         </div>
                         <div class="form-group">
                             <label><?php echo $user->firstName; ?></label>

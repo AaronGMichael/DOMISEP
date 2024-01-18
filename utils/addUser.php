@@ -34,4 +34,3 @@ else{
 	$_SESSION['message'] = 'You need to register first';
 	header('location:../views/register.php');
 }
-?>
