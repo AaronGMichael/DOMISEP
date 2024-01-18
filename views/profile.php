@@ -39,8 +39,7 @@ include_once('../layout/header.php');
                             </sd>
                         </div>
             <h2>
-                Here we can provide you with all the informations we store about you. You can change almost everything, 
-                besides name and surname. We hope that you will not get angry because of that...
+                This is the information we have about you!
             </h2>
             <div class="additional-padding-medium"></div>
             <div class="row align-items-center">
@@ -54,9 +53,6 @@ include_once('../layout/header.php');
                         </div>
                         <div class="form-group">
                             <label for="username">Username:</label>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
                         </div>
                         <div class="form-group">
                             <label for="firstname">First Name:</label>
@@ -76,9 +72,6 @@ include_once('../layout/header.php');
                         </div>
                         <div class="form-group">
                             <label><?php echo $user->username; ?></label>
-                        </div>
-                        <div class="form-group">
-                            <label>***********</label>
                         </div>
                         <div class="form-group">
                             <label><?php echo $user->firstName; ?></label>
