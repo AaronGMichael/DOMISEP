@@ -87,7 +87,7 @@
                                 </form>
                             </div>
                         </div>
-                        <h6 class="text-white">© 2023 WebWizards</span>
+                        <h6 class="text-white" style="text-align: center; margin-top: 10px;">WebWizards © 2023</span>
                     </div>
                 </div>
             </div>

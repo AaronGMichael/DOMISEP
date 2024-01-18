@@ -1,4 +1,4 @@
-<?php
+x<?php
 include_once('../layout/header.php');
 ?>
 <div class="container">
@@ -15,17 +15,17 @@ include_once('../layout/header.php');
 		    ?>
                 <div class="basic-container">
                     <div class="row align-items-center">
-                        <div class="col">
+                        <div class="col-lg-3">
                             <sd style="text-align: left;">
-                                <h1>Profile</h1>
+                                <h1 style="font-size: 30pt; font-weight: bold">Profile</h1>
                             </sd>
                         </div>
-                        <div class="col">
+                        <div class="col-lg-9">
                             <sd style="text-align: right;">
                                 <?php if($user->isAdmin()) {echo '<div class="form-group">
-                                    <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add Sensor Type</button></a>
-                                    <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
-                                    <a href="messageList.php"><button type="submit" name="type_device" class="button-submit-profile">Check messages</button></a>
+                                    <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile-reversed">Add Sensor Type</button></a>
+                                    <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile-reversed">Add Device Type</button></a>
+                                    <a href="messageList.php"><button type="submit" name="type_device" class="button-submit-profile-reversed">Check messages</button></a>
                                 </div>';}
                                 else {
                                     echo '<div class="form-group">
@@ -35,9 +35,14 @@ include_once('../layout/header.php');
 
                             </sd>
                         </div>
-            <h2>
-                Here we can provide you with all the informations we store about you. You can change almost everything, 
-                besides name and surname. We hope that you will not get angry because of that...
+            <h2 style="    text-align: left;
+                margin-left: 2%;
+                font-size: 24pt;
+                padding-top: 0px;
+                padding-bottom: 20px;
+                margin-bottom: -10px;
+                color: #000;">
+            Welcome to your profile page, the central hub for managing your account and accessing personalized features.
             </h2>
             <div class="additional-padding-medium"></div>
             <div class="row align-items-center">
