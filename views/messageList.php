@@ -1,12 +1,14 @@
-x<?php
+<?php
 include_once('../layout/header.php');
+$utils = new DbUtils();
+$messages = DbUtils::getMessagesByAdmin();
 ?>
 <div class="container">
 <?php
 		    	if(isset($_SESSION['messageLoggedIN'])){
 		    		?>
 		    			<div class="alert alert-info text-center">
-					        <?php echo $_SESSION['messageLoggedIN']; ?>
+					        <?php echo $_SESSION['messageL oggedIN']; ?>
 					    </div>
 		    		<?php
  
@@ -19,14 +21,37 @@ include_once('../layout/header.php');
                                 <h1 style="font-size: 30pt; font-weight: bold; margin-left:0px;">Messages</h1>
                             </sd>
                         </div>
-            <h2 style="    text-align: left;
-                margin-left: 2%;
-                font-size: 24pt;
-                padding-top: 0px;
-                padding-bottom: 20px;
-                margin-bottom: -10px;
-                color: #000;">
-                    Welcome to the Messages Page, where you can view and interact with messages from users. It is better not to ignore their asks.
+                    <hr>
+                    <?php if(isset($messages[0]))foreach($messages as $message){ ?>
+                        <div class="container" style="font-size: 20px;">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-1">
+                                    <?php echo $message->messageid ?>
+                                </div>
+                                <div class="col-lg-1">
+                                    <?php echo $message->email ?>
+                                </div>
+                                <div class="col-lg-1">
+                                    <?php echo $message->name ?>
+                                </div>
+                                
+                                <div class="col-lg-8">
+                                    <?php echo $message->text ?>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+              <?php } 
+              else { ?>
+                <div style='text-align: center; margin-top: 30px; font-size: 20pt;'> Nothing to Show! </div>
+              <?php } ?>
+
+
+
+
+
+
+
             </h2>
             <div class="additional-padding-medium"></div>
             <div class="row align-items-center">

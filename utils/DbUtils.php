@@ -22,6 +22,11 @@ class DbUtils extends DbConnection
         return "SELECT * FROM Building WHERE Name = '$name'";
     }
 
+    private static function getUserWhereID($userid)
+    {
+        return "SELECT * FROM Account WHERE AccountID = '$userid'";
+    }
+
     private static function getUsers()
     {
         return "SELECT AccountID as id, Username, FirstName, Name from account where AccessRights = 101;";
@@ -123,6 +128,14 @@ class DbUtils extends DbConnection
     public static function getUser($username)
     {
         $userDetails = DbConnection::$connection->query(DbUtils::getUsersWhereUsername($username));
+        if ($userDetails->num_rows === 0) return false;
+        $userDetails = $userDetails->fetch_object();
+        $P = new Person($userDetails->AccountID, $userDetails->Username, $userDetails->HashPassword, $userDetails->AccessRights, $userDetails->Name, $userDetails->FirstName, $userDetails->Mail);
+        return $P;
+    }
+    public static function getUserOnID($userid)
+    {
+        $userDetails = DbConnection::$connection->query(DbUtils::getUserWhereID($userid));
         if ($userDetails->num_rows === 0) return false;
         $userDetails = $userDetails->fetch_object();
         $P = new Person($userDetails->AccountID, $userDetails->Username, $userDetails->HashPassword, $userDetails->AccessRights, $userDetails->Name, $userDetails->FirstName, $userDetails->Mail);
@@ -424,6 +437,22 @@ public static function getElectricityBuildingHistory($buildingid){
         return 1+(int) $result->fetch_object()->count;
     }
 
+    // MESSAGES
+    public static function getMessagesByAdmin()
+    {
+        $messageDetails= DbConnection::$connection->query("SELECT * FROM Message");
+        if ($messageDetails->num_rows === 0) return false;
+        $messages = array();
+        while ($message = $messageDetails->fetch_object()) {
+            $key = new Message($message->MessageID, $message->Text, $message->AccountID, "$message->DateTime");
+            $userDets = DbUtils::getUserOnID($message->AccountID);
+            $key->name = $userDets->name;
+            $key->firstname = $userDets->firstName; 
+            $key->email = $userDets->email;
+            $messages[] = $key;
+        }
+        return $messages;
+    }
 }
     
 ?> 
