@@ -36,7 +36,7 @@ $numberofpeople = DbUtils::getPeopleInApartment($currentId);
                                     <div class="col-lg-6">
                                         <div class="card mb-1">
                                             <div class="card-body d-flex flex-column align-items-start">
-                                                <h2 class="card-text  mb-0" style = "font-size: 12px;"><img src="../assets/resources/light.png" class="mr-2" style="max-width: 20px; margin-right: 5px;">
+                                                <h2 class="card-text  mb-0" style = "font-size: 12px;"><img src="../assets/resources/light.png" class="mr-2" style="max-width: 30px; margin-right: 5px;">
                                                     <b><?php echo $light ?> </b>
                                                 </h2>
                                             </div>
@@ -46,7 +46,7 @@ $numberofpeople = DbUtils::getPeopleInApartment($currentId);
                                     <div class="col-lg-6">
                                         <div class="card mb-1">
                                             <div class="card-body d-flex flex-column align-items-start">
-                                                <h2 class="card-text small mb-0"><img src="../assets/resources/temperature.png" class="mr-2" style="max-width: 20px;">
+                                                <h2 class="card-text small mb-0"><img src="../assets/resources/temperature.png" class="mr-2" style="max-width: 30px;">
                                                   <b><?php echo ($temp == null) ? " - " : $temp->value . "" . ((DbUtils::getSensorType1($temp->sensorid)->unit == "Celsius") ? "°C" : DbUtils::getSensorType1($temp->sensorid)->unit); ?></b>
                                                 </h2>
                                             </div>
@@ -55,8 +55,8 @@ $numberofpeople = DbUtils::getPeopleInApartment($currentId);
                                     <div class="col-lg-6">
                                         <div class="card mb-1">
                                             <div class="card-body d-flex flex-column align-items-start">
-                                                <h2 class="card-text small mb-0"><img src="../assets/resources/humidity.png" class="mr-2" style="max-width: 20px;">
-                                                  <b><?php echo ($hum == null) ? " - " : $hum->value . (($sensortype->unit == null) ? "%" : $sensortype->unit);?></b>
+                                                <h2 class="card-text small mb-0"><img src="../assets/resources/humidity.png" class="mr-2" style="max-width: 30px;">
+                                                  <b><?php echo ($hum == null) ? " - " : $hum->value . ((DbUtils::getSensorType1($hum->sensorid)->unit == null) ? "%" : DbUtils::getSensorType1($hum->sensorid)->unit);?></b>
                                                 </h2>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@ $numberofpeople = DbUtils::getPeopleInApartment($currentId);
                                     <div class="col-lg-6">
                                         <div class="card mb-1">
                                             <div class="card-body d-flex flex-column align-items-start">
-                                                <h2 class="card-text small mb-0"><img src="../assets/resources/air-con.png" class="mr-2" style="max-width: 20px;">
+                                                <h2 class="card-text small mb-0"><img src="../assets/resources/air-con.png" class="mr-2" style="max-width: 30px;">
                                                     <b><?php echo ($air != "No data") ? $air : "-"; ?></b>
                                                 </h2>
                                             </div>
