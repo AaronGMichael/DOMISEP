@@ -13,7 +13,7 @@ $p = new Message(1, $message, $account, $date);
 //     debug_to_console($success);
 	if($success){
 		$_SESSION['msg'] = 'Message sent!';
-		$_SESSION['welcome'] = "Sent";
+		$_SESSION['welcome'] = "Your message has been sent, thank you!";
 		header("location:../views/profile.php");
 	}
 	else{

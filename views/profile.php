@@ -23,7 +23,14 @@ include_once('../layout/header.php');
                         <div class="col-lg-9">
                             <sd style="text-align: right;">
                             <div class="form-group">
-                                <?php if(!$user->isAdmin()) {
+                                <a href="addPersonToApartment.php"><button type="submit" name="sendHelp" class="button-submit-profile">Add Person</button></a>
+                                <a href="<?php echo $user->isUser() ? "../assets/guide/usermanualUsers.pdf": "asdfhvkjhvfs"?>" target="_blank" rel="noreferrer noopener" download><button type="submit" name="downloadManual" class="button-submit-profile" onclick="return download()"><i class="fa-solid fa-download"> </i> User Manual</button></a>
+                                <?php if($user->isAdmin()) {echo '
+                                    <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add Sensor Type</button></a>
+                                    <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
+                                    <a href="messageList.php"><button type="submit" name="type_device" class="button-submit-profile">Check messages</button></a>
+                                ';}
+                                else {
                                     echo '
                                     <a href="sendHelp.php"><button type="submit" name="sendHelp" class="button-submit-profile">Request Help</button></a>
                                 ';
@@ -47,7 +54,9 @@ include_once('../layout/header.php');
                 padding-bottom: 20px;
                 margin-bottom: -10px;
                 color: #000;">
-            Welcome to your profile page, the central hub for managing your account and accessing personalized features.
+            <h2>
+                This is the information we have about you!
+
             </h2>
             <div class="additional-padding-medium"></div>
             <div class="row align-items-center">
@@ -97,6 +106,7 @@ include_once('../layout/header.php');
                 <div class="additional-padding"></div>
         </div>
 	</div>
+    <script src="../js/userManual.js"></script>
     <?php
 include('../layout/footer.php');
 ?>
