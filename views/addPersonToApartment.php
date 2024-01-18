@@ -44,9 +44,7 @@ include_once("../layout/header.php");
                             </div>
                         </div>
                     </div>
+					<h6 class="text-white" style="text-align: center; margin-top: 10px;">WebWizards © 2023</span>                        </div>
                 </div>
             </section>
 			<script src="../js/addApartmentListListener.js"></script>
-<?php
-include_once("../layout/footer.php");
-?>

@@ -44,11 +44,9 @@ $sensorTypeList = DbUtils::getSensorTypes();
                                         </fieldset>
                                     </form>
                                 </div>
+                                <h6 class="text-white" style="text-align: center; margin-top: 10px;">WebWizards © 2023</span>                        </div>
 
                     </div>
                 </div>
             </section>
 
-<?php
-include_once("../layout/footer.php");
-?>

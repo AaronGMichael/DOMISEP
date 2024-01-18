@@ -20,7 +20,7 @@ class DbConnection{
             if (!DbConnection::$connection) {
                 echo 'Cannot connect to database server';
                 exit;
-            }            
+            }
         }    
  
         return DbConnection::$connection;

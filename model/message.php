@@ -13,6 +13,11 @@ class Message{
         $this->datetime = $datetime;
     }
 
+    public function __set($name, $value){
+        $this->$name = $value;
+    }
+
+
     private function writeMessage($text, $accountid, $datetime){
         return "INSERT INTO Message (Text, AccountID, DateTime)
         VALUES (\"$text\", \"$accountid\", NOW())";

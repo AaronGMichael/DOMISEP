@@ -48,10 +48,9 @@ $sensorTypeList = DbUtils::getSensorTypes();
                                 <button type="submit" name="addbtn" class="btn-primary mt-4 button-submit btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>Add</button>
                             </fieldset>
                         </form>
-                        <!-- <a type="button" class="button-unvisible" href="../index.php">You have an account? Login here</a> -->
                     </div>
                 </div>
-                <h6 class="text-white mt-3">© 2023 WebWizards</span>
+                <h6 class="text-white" style="text-align: center; margin-top: 10px;">WebWizards © 2023</span>                        </div>
             </div>
         </div>
         <?php
@@ -67,6 +66,3 @@ $sensorTypeList = DbUtils::getSensorTypes();
     </div>
 </section>
 </div>
-<?php
-include('../layout/footer.php');
-?>
