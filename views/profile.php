@@ -24,7 +24,7 @@ include_once('../layout/header.php');
                             <sd style="text-align: right;">
                             <div class="form-group">
                                 <a href="addPersonToApartment.php"><button type="submit" name="sendHelp" class="button-submit-profile">Add Person</button></a>
-                                <a href="sdkjb"><button type="submit" name="sendHelp" class="button-submit-profile">User Manual</button></a>
+                                <a href="../assets/guide/usermanual.pdf" target="_blank" rel="noreferrer noopener" download><button type="submit" name="downloadManual" class="button-submit-profile"><i class="fa-solid fa-download"> </i> User Manual</button></a>
                                 <?php if($user->isAdmin()) {echo '
                                     <a href="addsensortype.php"><button type="submit" name="type_sensor" class="button-submit-profile">Add Sensor Type</button></a>
                                     <a href="adddevicetype.php"><button type="submit" name="type_device" class="button-submit-profile">Add Device Type</button></a>
