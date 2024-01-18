@@ -54,14 +54,22 @@
                                 ?>
                               </div>
                           </div>
-                          <div class="card_content_grid">
-                              <h2 class="card_title_grid">Tenants</h2>
-                              <h2 class="card_text_grid">Total: <?php echo isset($numberofpeople) ? $numberofpeople>1 ? "$numberofpeople" : "$numberofpeople" : " "?></h2>
-                              <?php if($user->isUser()) { ?>
-                                    <a href="addPersonToApartment.php">
-                                    <button type="submit" name="sendHelp" class="button-submit">Add Person</button>
-                                <?php } ?>
-                          </div>
+                          <?php if ($user->isUser()) { ?>
+                            <div class="card_content_grid">
+                                <h2 class="card_title_grid">Tenants</h2>
+                                <h2 class="card_text_grid">Total: <?php echo $numberofpeople > 1 ? "$numberofpeople" : "$numberofpeople"; ?></h2>
+                                <a href="addPersonToApartment.php">
+                                        <button type="submit" name="sendHelp" class="button-submit">Add Person</button>
+                                </a>
+                            </div>
+                        <?php } else { ?>
+
+                            <div class="card_content_grid">
+                                <h2 class="card_title_grid">Tenants</h2><br>
+                                <h2 class="card_text_grid" style="font-size: 40px; color:red; font-weight: bold; "><?php echo $numberofpeople > 1 ? "$numberofpeople" : "$numberofpeople"; ?></h2>
+                            </div>
+                            
+                        <?php } ?>
                       </div>
                   </li>
                   <?php } ?>
