@@ -5,15 +5,13 @@ if (!isset($_SESSION['user'])){
 	header('location:../index.php');
 }
 
-
- 
 include('../utils/DbUtils.php');
 //fetch user data
 $user = serialize($_SESSION['user']);
 $user = unserialize($user);
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -31,7 +29,7 @@ $user = unserialize($user);
     <link rel="stylesheet" type="text/css" href="../css/new_style.css">
 </head>
 <style>
-    a{
+    a {
         text-decoration: none;
     }
     a:hover {
@@ -53,12 +51,11 @@ $user = unserialize($user);
                 if($user->isAdmin() && str_contains($page, "building")) echo "<a class='add' href='../views/addapartment.php?id=$currentId'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
                 if($user->isAdmin() && str_contains($page, "apartment")) echo "<a class='add' href='../views/addroom.php?id=$currentId'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
                 if($user->isAdmin() && str_contains($page, "profile")) echo "<a class='add' href='../views/register.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
-                
                 ?>
-                <a href=<?php echo $user->isAdmin() ? "../views/home.php": "../views/apartment.php"?>>Home</a>
-                <a href="../views/profile.php">Profile</a>
-                <a href="../utils/logout.php">Logout</a>
-
+                <a href=<?php echo $user->isAdmin() ? "../views/home.php": "../views/apartment.php"?>><img style='width:28px; height: 28px; margin-top: -5px;' src='../assets/icons/home1.svg'/></a>
+                <a href="../views/profile.php"><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/profile.svg'/></a>
+                <?php if($user->isAdmin()) echo "<a class='add' href='../views/messageList.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/message.svg'/></a>" ?>
+                <a href="../utils/logout.php"><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/log-out.png'></a>
                 </b>
             </div>
         </ul>
@@ -67,7 +64,7 @@ $user = unserialize($user);
     <?php
                                     if(isset($_SESSION['message'])){
                                         ?>
-                                            <div id='alertBanner' class="alert alert-danger text-center">
+                                            <div id='alertBanner' class="alert alert-danger text-cen                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ter">
                                                 <?php echo $_SESSION['message']; ?>
                                             </div>
                                         <?php
