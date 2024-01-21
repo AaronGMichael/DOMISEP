@@ -153,6 +153,16 @@ class DbUtils extends DbConnection
         return $buildings;
     }
 
+    public static function searchBuilding($term){
+        $buildingDetails = DbConnection::$connection->query("SELECT * FROM Building WHERE LOWER(Name) LIKE '%$term%'");
+        if ($buildingDetails->num_rows === 0) return [];
+        $buildings = array();
+        while ($building = $buildingDetails->fetch_object()) {
+            $buildings[] = new Building($building->BuildingID, $building->Name, $building->Photo, $building->Size, $building->Address);
+        }
+        return $buildings;
+    }
+
     public static function getApartmentByAdmin($buildingid)
     {
         $apartmentDetails = DbConnection::$connection->query("SELECT * FROM Apartment WHERE BuildingID = '$buildingid'");

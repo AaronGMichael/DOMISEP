@@ -201,3 +201,8 @@
     width: 50%;
     margin: auto;
 }
+
+.transform-hover:hover > img{
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+}

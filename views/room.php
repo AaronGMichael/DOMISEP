@@ -25,7 +25,7 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                             </div>
                             <div class="card_content_grid">
                                 <div class="tooltip-custom">
-                                <h2 class="card_title_grid"><?php echo $sensortype->name?></h2>
+                                <h2 class="card_title_grid sensorName" style="height:3em"><?php echo $sensortype->name?></h2>
                                 <h2 class="card_title_grid"><?php echo $sensor->name?></h2>
                                 <span class="tooltiptext" id="tooltip<?php echo $sensor->sensorid?>"><?php if(strlen($sensor->desc) > 0 ) echo $sensor->desc ;
                                 else if($user->isUser()) echo "<span style='font-style:italic'> No Data</span>"; 
@@ -72,7 +72,6 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                                      '<?php echo $device->deviceid ?>', this)" <?php echo $device->getState() === 'ON'? "checked" :''?>/>
                                      <?php }?>
                                 </div>
-                            <!-- <button type="submit" name="view-charts" class="button-submit">View Charts</button> -->
                             </div>
                         </div>
                     </li>

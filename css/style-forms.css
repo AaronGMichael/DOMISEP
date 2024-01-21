@@ -1,3 +1,32 @@
 .form-group {
     padding-bottom:1em;
 }
+
+.inputSection{
+    width: 100%;
+    height: 3em;
+    border: solid grey 1px;
+    border-radius: 3em;
+}
+
+.inputSection i{
+    padding: 3px;
+    margin-left: 1rem;
+}
+
+#searchBox{
+    height: 80%;
+    margin: 5px;
+    margin-left: 10px;
+    border: none;
+    font-size: large;
+    width : 95%;
+}::placeholder{
+    color: grey;
+    font-style: italic;
+}
+
+#searchBox:focus {
+    outline: none;
+}
+

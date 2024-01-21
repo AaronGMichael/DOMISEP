@@ -10,10 +10,14 @@ async function switchClicked(state, id, ele){
 }
 
 let sensor;
+let defaultHeight;
+let defaultWidth;
 
 function addDetails(data){
     sensor = data;
     const tip = document.querySelector(`#tooltip${data.sensorid}`);
+    defaultHeight = tip.style.height;
+    defaultWidth = tip.style.width;
     tip.style.height = "10em";
     tip.style.width = "8em";
     tip.innerHTML = `<textarea type='text' class='tooltip-input'></textarea><button class='tooltip-add' onclick='sendDetails()'>Submit</button>`
@@ -30,6 +34,8 @@ function sendDetails(){
                 const resp = data.json();
                 let element = document.querySelector(`#tooltip${sensor.sensorid}`);
                 element.innerHTML = text;
+                element.style.height = defaultHeight;
+                element.style.width = defaultWidth;
                 sensor=null;
         });
 }
