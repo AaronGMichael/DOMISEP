@@ -8,6 +8,8 @@ class Sensor{
     private int $roomid;   
     public int $sensortypeid;
 
+    public string $desc;
+
     public function __construct($sensorid, $name, $minivalue, $maxivalue, $roomid, $sensortypeid){
         $this->sensorid = $sensorid;
         $this->name = $name;
@@ -15,6 +17,7 @@ class Sensor{
         $this->maxivalue = $maxivalue;
         $this->roomid = $roomid;
         $this->sensortypeid = $sensortypeid;
+        $this->desc = "";
     }
 
     private function writeSensor($name, $minivalue, $maxivalue, $roomid, $sensortypeid){

@@ -138,6 +138,12 @@ CREATE TABLE PersonAccount (
 
 );
 
+CREATE TABLE SensorDescp (
+    SensorID INTEGER,
+    Description VARCHAR(255),
+    FOREIGN KEY (SensorID) REFERENCES Sensor(SensorID)
+);
+
 INSERT INTO Building (Name, Photo, Size, Address)
 VALUES ("A", "https://previews.123rf.com/images/frugo/frugo1808/frugo180801907/106471498-paris-france-august-30-black-white-architecture-photo-of-paris-buildings-on-august-30-2015-in-paris.jpg", 3000.2, "4 rue Napoleon");
 

@@ -4,6 +4,7 @@ $utils = new DbUtils();
 $messages = DbUtils::getMessagesByAdmin();
 ?>
 <div class="container">
+    <link rel="stylesheet" href="../css/style-message.css">
 <?php
 		    	if(isset($_SESSION['messageLoggedIN'])){
 		    		?>
@@ -22,45 +23,34 @@ $messages = DbUtils::getMessagesByAdmin();
                             </sd>
                         </div>
                     <hr>
-                    <?php if(isset($messages[0]))foreach($messages as $message){ ?>
-                        <div class="container" style="font-size: 20px;">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-1">
-                                    <?php echo $message->messageid ?>
-                                </div>
-                                <div class="col-lg-1">
-                                    <?php echo $message->email ?>
-                                </div>
-                                <div class="col-lg-1">
-                                    <?php echo $message->name ?>
-                                </div>
-                                
-                                <div class="col-lg-8">
+                    <?php if(isset($messages[0]))foreach($messages as $message){ 
+                        $messageCode = "message".$message->messageid;
+                        $messageInfo = json_encode($message);
+                        ?>
+                        <div class="message" id="<?php echo $messageCode?>">
+                            <div class="message-top">
+                                <div class="message-text">
                                     <?php echo $message->text ?>
                                 </div>
+                                <button onclick='dismissMessage("<?php echo $messageCode?>",<?php echo $messageInfo?>)'><i class="fa-solid fa-check"></i></button>
+                            </div>
+                            <hr>
+                            <div class="message-details">
+                                    <div><a href='mailto:<?php echo $message->email?>?subject=Reply to request #<?php echo $message->messageid ?>'><i class="fa-solid fa-reply"> </i> Reply</a></div>
+                                    <div> Member: <?php echo $message->name ?></div>  
+                                    <div> <a href="../views/apartment.php?id=<?php echo $message->apartmentid ?>" >Apartment: <?php echo $message->apartmentname ?></a></div>  
+                                    <div> <?php echo date('d-M-Y H:i', strtotime($message->datetime)) ?></div>  
                             </div>
                         </div>
-                        <hr>
               <?php } 
               else { ?>
                 <div style='text-align: center; margin-top: 30px; font-size: 20pt;'> Nothing to Show! </div>
               <?php } ?>
-
-
-
-
-
-
-
-            </h2>
-            <div class="additional-padding-medium"></div>
-            <div class="row align-items-center">
-
-                <div class="additional-padding-medium"></div>
             </div>
-            <div class="additional-padding"></div>
         </div>
 	</div>
+    <script src="../js/clearMessage.js">
+    </script>
     <?php
 include('../layout/footer.php');
 ?>

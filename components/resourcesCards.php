@@ -35,6 +35,7 @@
                   <li class="cards_item_grid">
                       <div class="card_grid">
                           <div class="card_image_container_grid">
+                            <a title="Click to see Details" href="../views/peopleDetails.php?id=<?php echo $currentId ?>">
                               <div class="card_image_grid">
                               <?php
                                 switch ($numberofpeople) {
@@ -53,13 +54,14 @@
                                 }
                                 ?>
                               </div>
+                            </a>
                           </div>
                           <?php if ($user->isUser()) { ?>
                             <div class="card_content_grid">
                                 <h2 class="card_title_grid">Tenants</h2>
                                 <h2 class="card_text_grid">Total: <?php echo $numberofpeople > 1 ? "$numberofpeople" : "$numberofpeople"; ?></h2>
                                 <a href="addPersonToApartment.php">
-                                        <button type="submit" name="sendHelp" class="button-submit">Add Person</button>
+                                        <button title="Add Person to The Apartment" type="submit" name="sendHelp" class="button-submit">Add Person</button>
                                 </a>
                             </div>
                         <?php } else { ?>
