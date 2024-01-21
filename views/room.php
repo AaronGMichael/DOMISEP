@@ -6,6 +6,8 @@ $sensors = DbUtils::getSensorByAdmin($_GET["id"]);
 $roomName = DbUtils::getRoomName($_GET["id"]);
 ?>
 
+<link rel="stylesheet" href="../css/tooltip-style.css">
+
             <div class="basic-container">
                 <h1  style="font-size: 30pt"><b><?php echo $roomName?></b></h1>
                 <h2>Now you have entered the room page. Here you can see all the devices and sensors and menage them.</h2>
@@ -22,8 +24,15 @@ $roomName = DbUtils::getRoomName($_GET["id"]);
                                 <div class="card_image_grid"><img src="<?php echo $sensortype->photo; ?>"></div>
                             </div>
                             <div class="card_content_grid">
+                                <div class="tooltip-custom">
                                 <h2 class="card_title_grid"><?php echo $sensortype->name?></h2>
                                 <h2 class="card_title_grid"><?php echo $sensor->name?></h2>
+                                <span class="tooltiptext" id="tooltip<?php echo $sensor->sensorid?>"><?php if(strlen($sensor->desc) > 0 ) echo $sensor->desc ;
+                                else if($user->isUser()) echo "<span style='font-style:italic'> No Data</span>"; 
+                                else { ?>
+                                    <button class='tooltip-add' onclick='addDetails(<?php echo json_encode($sensor)?>)'> Add Details </button>
+                                <?php } ?></span>
+                                </div>
                                 <?php $mesurement = DbUtils::getLatestMesurement($sensor->sensorid); ?>
                                 <h2 class="card_text_grid">Value: <b><?php 
                                         if($mesurement == NULL) echo "No data";

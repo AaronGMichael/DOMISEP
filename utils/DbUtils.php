@@ -282,7 +282,9 @@ class DbUtils extends DbConnection
         if ($sensorDetails->num_rows === 0) return false;
         $sensors = array();
         while ($sensor = $sensorDetails->fetch_object()) {
-            $sensors[] = new Sensor($sensor->SensorID, $sensor->Name, $sensor->MiniValue, $sensor->MaxiValue, $sensor->RoomID, $sensor->SensorTypeID);
+            $result = new Sensor($sensor->SensorID, $sensor->Name, $sensor->MiniValue, $sensor->MaxiValue, $sensor->RoomID, $sensor->SensorTypeID);
+            $result->desc = DbUtils::getSensorDescription($sensor->SensorID);
+            $sensors[] = $result;
         }
         return $sensors;
     }
@@ -437,6 +439,30 @@ public static function getElectricityBuildingHistory($buildingid){
         return 1+(int) $result->fetch_object()->count;
     }
 
+    public static function getPersonDetailsInApartment($apartmentID){
+        $result = DbConnection::$connection->query("SELECT * FROM `person` WHERE ApartmentID='$apartmentID'");
+        $result1 = DbConnection::$connection->query("SELECT * FROM Account WHERE AccountID = (SELECT AccountID FROM `apartment` WHERE ApartmentID = '$apartmentID')");
+        $people = array();
+        $result1 = $result1->fetch_object();
+        $people[] = [
+            "id" => $result1->AccountID,
+            "name" => $result1->Name,
+            "firstName" => $result1->FirstName,
+            "email" => $result1->Mail,
+            "username" => $result1->Username,
+        ];
+        if ($result->num_rows === 0) return $people;
+        while ($person = $result->fetch_object()) {
+            $people[] = [
+                "id" => $person->PersonID,
+                "name" => $person->Name,
+                "firstName" => $person->FirstName,
+                "email" => $person->Email,
+            ];
+        }
+        return $people;
+    }
+
     // MESSAGES
     public static function getMessagesByAdmin()
     {
@@ -446,12 +472,30 @@ public static function getElectricityBuildingHistory($buildingid){
         while ($message = $messageDetails->fetch_object()) {
             $key = new Message($message->MessageID, $message->Text, $message->AccountID, "$message->DateTime");
             $userDets = DbUtils::getUserOnID($message->AccountID);
+            $apartment = DbUtils::getApartmentByUser($message->AccountID);
             $key->name = $userDets->name;
             $key->firstname = $userDets->firstName; 
             $key->email = $userDets->email;
+            $key->apartmentid = $apartment->apartmentid;
+            $key->apartmentname = $apartment->name;
             $messages[] = $key;
         }
         return $messages;
+    }
+
+    public static function deleteMessage($messageid){
+        return DbConnection::$connection->query("DELETE FROM Message WHERE MessageID = '$messageid'");
+    }
+
+    public static function addSensorDescription($sensorid, $desc){
+        return DbConnection::$connection->query("INSERT INTO SensorDescp VALUES($sensorid, '$desc')");
+    }
+
+    public static function getSensorDescription($sensorid){
+        $result = DbConnection::$connection->query("SELECT Description FROM SensorDescp WHERE SensorID = '$sensorid'");
+        $result = $result->fetch_object();
+        if(!isset($result)) return "";
+        return $result->Description;
     }
 }
     
