@@ -218,6 +218,10 @@ class DbUtils extends DbConnection
         return DbConnection::$connection->query("INSERT INTO Mesurement (Value, DateTime, SensorID) VALUES (\"$value\", \"$time\", \"$id\")");
     }
 
+    public static function writeDeviceMeasurement($value, $time, $id){
+        return DbConnection::$connection->query("INSERT INTO DeviceHistory (Value, DateTime, DeviceID, State) VALUES (\"$value\", \"$time\", \"$id\", 1)");
+    }
+
     public static function getApartmentName($apartmentid)
     {
         $apartmentName = DbConnection::$connection->query("SELECT Name FROM Apartment WHERE ApartmentID = '$apartmentid'");
@@ -338,7 +342,7 @@ class DbUtils extends DbConnection
     }
 
     public static function sumUpElectricity($apartmentid){
-        $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid') AND DeviceTypeID IN (3, 4, 5))AND DateTime >= DATE_SUB(NOW(),INTERVAL 1 YEAR)");
+        $sum = DbConnection::$connection->query("SELECT SUM(Value) FROM DeviceHistory WHERE DeviceID IN (SELECT DeviceID FROM Device WHERE RoomID IN (SELECT RoomID FROM Room WHERE ApartmentID = '$apartmentid'))AND DateTime >= DATE_SUB(NOW(),INTERVAL 1 YEAR)");
         if($sum->num_rows === 0) return "No data";
         $mesurement = $sum->fetch_row();
         
