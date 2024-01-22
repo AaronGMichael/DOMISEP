@@ -33,7 +33,7 @@ include_once('../layout/header.php');
                                 ';
                                 } ?>
                                 <a href="addPersonToApartment.php"><button type="submit" name="sendHelp" class="button-submit-profile-reversed">Add Person</button></a>
-                                <a href="<?php echo $user->isUser() ? "../assets/guide/usermanualUsers.pdf": "asdfhvkjhvfs"?>" target="_blank" rel="noreferrer noopener" download><button type="submit" name="downloadManual" class="button-submit-profile-reversed" onclick="return download()"><i class="fa-solid fa-download"> </i> User Manual</button></a>
+                                <a href="<?php echo $user->isUser() ? "../assets/guide/UsermanualUsers.pdf": "../assets/guide/adminmanual.pdf"?>" target="_blank" rel="noreferrer noopener" download><button type="submit" name="downloadManual" class="button-submit-profile-reversed" onclick="return download()"><i class="fa-solid fa-download"> </i> User Manual</button></a>
 
                             </div>
                             </sd>
