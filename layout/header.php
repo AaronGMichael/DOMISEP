@@ -47,15 +47,15 @@ $user = unserialize($user);
                 <?php 
                 $page = $_SERVER['REQUEST_URI'];
                 $currentId =isset($_GET['id'])? $_GET["id"]:0;
-                if($user->isAdmin() && str_contains($page, "home")) echo "<a class='add transform-hover' title='Add Building' href='../views/addbuilding.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
-                if($user->isAdmin() && str_contains($page, "building")) echo "<a class='add transform-hover' title='Add Apartment' href='../views/addapartment.php?id=$currentId'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
-                if($user->isAdmin() && str_contains($page, "apartment")) echo "<a class='add transform-hover' title='Add Room' href='../views/addroom.php?id=$currentId'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
-                if($user->isAdmin() && str_contains($page, "profile")) echo "<a class='add transform-hover' title='Add A User' href='../views/register.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "home")) echo "<a class='add transform-hover' title='Add Building' href='../views/addbuilding.php'><img class='lollo' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "building")) echo "<a class='add transform-hover' title='Add Apartment' href='../views/addapartment.php?id=$currentId'><img class='lollo' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "apartment")) echo "<a class='add transform-hover' title='Add Room' href='../views/addroom.php?id=$currentId'><img class='lollo' src='../assets/icons/add-button.svg'/></a>";
+                if($user->isAdmin() && str_contains($page, "profile")) echo "<a class='add transform-hover' title='Add A User' href='../views/register.php'><img class='lollo' src='../assets/icons/add-button.svg'/></a>";
                 ?>
-                <a title="Home" class="transform-hover" href=<?php echo $user->isAdmin() ? "../views/home.php": "../views/apartment.php"?>><img style='width:28px; height: 28px; margin-top: -5px;' src='../assets/icons/home1.svg'/></a>
-                <a href="../views/profile.php" title = "Profile" class="transform-hover"><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/profile.svg'/></a>
-                <?php if($user->isAdmin()) echo "<a title='Message List' class='add transform-hover' href='../views/messageList.php'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/message.svg'/></a>" ?>
-                <a href="../utils/logout.php" title="Logout" class='transform-hover'><img style='width:22px; height: 22px; margin-top: -5px;' src='../assets/icons/log-out.png'></a>
+                <a title="Home" class="transform-hover" href=<?php echo $user->isAdmin() ? "../views/home.php": "../views/apartment.php"?>><img class='lollo' src='../assets/icons/home1.svg'/></a>
+                <a href="../views/profile.php" title = "Profile" class="transform-hover"><img class='lollo' src='../assets/icons/profile.svg'/></a>
+                <?php if($user->isAdmin()) echo "<a title='Message List' class='add transform-hover' href='../views/messageList.php'><img class='lollo' src='../assets/icons/message.svg'/></a>" ?>
+                <a href="../utils/logout.php" title="Logout" class='transform-hover'><img class='lollo' src='../assets/icons/log-out.png'></a>
                 </b>
             </div>
         </ul>
